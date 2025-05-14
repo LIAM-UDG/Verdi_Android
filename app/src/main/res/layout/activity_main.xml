@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo1"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/eMainLG"
+        android:layout_width="251dp"
+        android:layout_height="55dp"
+        android:fontFamily="serif"
+        android:text="LothGarder"
+        android:textAlignment="center"
+        android:textColor="@color/verdeF"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <Button
+        android:id="@+id/bMainIn"
+        android:layout_width="111dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="68dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Iniciar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eMainLG" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
