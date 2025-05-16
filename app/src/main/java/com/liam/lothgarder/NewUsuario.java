@@ -63,7 +63,7 @@ public class NewUsuario extends AppCompatActivity {
 
                 //Guardar datos en base?
                 //Cambiar la IP si se reinicia la computadora
-                ejecutarSerivcio("http://192.168.68.103:80/lothgarder/insertar.php");
+                ejecutarSerivcio("http://192.168.128.1:80/lothgarder/insertar.php");
                 /*String caNom = edNom.getText().toString();
                 String caEdad = edEdad.getText().toString();
                 String caCor = edCor.getText().toString();
