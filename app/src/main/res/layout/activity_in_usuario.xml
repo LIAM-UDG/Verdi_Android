@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo1"
+    tools:context=".InUsuario">
+
+    <TextView
+        android:id="@+id/eiTitulo"
+        android:layout_width="255dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="serif"
+        android:text="Inicio de sesión"
+        android:textAlignment="center"
+        android:textColor="@color/verdeF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/eiCorreo"
+        android:layout_width="174dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="148dp"
+        android:fontFamily="serif"
+        android:text="Correo Electronico"
+        android:textAlignment="textStart"
+        android:textColor="@color/verdeF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="354dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/fondo2"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Correo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eiCorreo" />
+
+    <TextView
+        android:id="@+id/eiContra"
+        android:layout_width="174dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="32dp"
+        android:fontFamily="serif"
+        android:text="Contraseña"
+        android:textAlignment="textStart"
+        android:textColor="@color/verdeF"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+
+    <EditText
+        android:id="@+id/ediContra"
+        android:layout_width="354dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="36dp"
+        android:background="@color/fondo2"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.578"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eiContra" />
+
+    <Button
+        android:id="@+id/biItoP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="644dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Inicio"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.102"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/biCon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="644dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Continuar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,7 +9,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/eMainLG"
+        android:id="@+id/emTitulo"
         android:layout_width="251dp"
         android:layout_height="55dp"
         android:fontFamily="serif"
@@ -22,17 +22,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintVertical_bias="0.115" />
 
     <Button
-        android:id="@+id/bMainIn"
+        android:id="@+id/bmMtoIn"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="436dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Inicio de Sesión"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bmMtoNew"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Registrarse"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bmMtoIn" />
+
+    <Button
+        android:id="@+id/bmMtoPrin"
         android:layout_width="111dp"
         android:layout_height="48dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="520dp"
         android:backgroundTint="@color/verdeM"
         android:text="Iniciar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eMainLG" />
+        app:layout_constraintTop_toBottomOf="@+id/emTitulo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

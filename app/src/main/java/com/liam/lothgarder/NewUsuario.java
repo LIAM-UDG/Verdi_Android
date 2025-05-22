@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.content.SyncRequest;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,16 +22,24 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import com.android.volley.DefaultRetryPolicy;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 
 public class NewUsuario extends AppCompatActivity {
+
+    RequestQueue requestQueue;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,17 +47,16 @@ public class NewUsuario extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_new_usuario);
+
+        /*ArrayAdapter<String> aaPref = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
+        Spinner prefUs = findViewById(R.id.prefUs);
+        aaPref.addAll(Arrays.asList("","Automatico", "Confirmacion"));
+        prefUs.setAdapter(aaPref);*/
+
         Toast.makeText(NewUsuario.this, "Pantalla usuario nuevo", Toast.LENGTH_LONG).show();
 
-        /*Definicion local
-        EditText edNom = findViewById(R.id.edNom);
-        EditText edEdad = findViewById(R.id.edEdad);
-        EditText edCor = findViewById(R.id.edCor);
-        EditText edCon = findViewById(R.id.edCon);
-        */
-
-        Button bMain = findViewById(R.id.bMain);
-        bMain.setOnClickListener(new View.OnClickListener() {
+        Button brRtoP = findViewById(R.id.brRtoP);
+        brRtoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(NewUsuario.this, "Botón presionado", Toast.LENGTH_LONG).show();
@@ -56,15 +65,17 @@ public class NewUsuario extends AppCompatActivity {
             }
         });
 
-        Button bGuaNU = findViewById(R.id.bGuaNU);
-        bGuaNU.setOnClickListener(new View.OnClickListener() {
+        Button brGuar = findViewById(R.id.brGuar);
+        brGuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //Guardar datos en base?
                 //Cambiar la IP si se reinicia la computadora
-                ejecutarSerivcio("http://192.168.68.103:80/lothgarder/insertar.php");
-                /*String caNom = edNom.getText().toString();
+                ejecutarSerivcio("http://10.116.133.114:80/lothgarder/insertar.php");
+                /*
+                Prueba de uso de editText
+                String caNom = edNom.getText().toString();
                 String caEdad = edEdad.getText().toString();
                 String caCor = edCor.getText().toString();
                 String caCon = edCon.getText().toString();*/
@@ -95,7 +106,6 @@ public class NewUsuario extends AppCompatActivity {
                 EditText edError = findViewById(R.id.error);
                 edError.setText(response);
                 //Toast.makeText(getApplicationContext(), "Operación exitosa",Toast.LENGTH_LONG).show();
-
             }
         }, new Response.ErrorListener(){
             @Override
@@ -107,17 +117,19 @@ public class NewUsuario extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
 
-                //Definicion global?
-                EditText edNom = findViewById(R.id.edNom);
-                EditText edEdad = findViewById(R.id.edEdad);
-                EditText edCor = findViewById(R.id.edCor);
-                EditText edCon = findViewById(R.id.edCon);
+                //Definicion local de editText
+                EditText edNom = findViewById(R.id.edrNom);
+                EditText edEdad = findViewById(R.id.edrEdad);
+                EditText edCor = findViewById(R.id.edrCor);
+                EditText edCon = findViewById(R.id.edrCon);
+                String diasUso = "1";
 
                 Map<String, String> parametros = new HashMap<String, String>();
                 parametros.put("correo", edCor.getText().toString());
                 parametros.put("nombre", edNom.getText().toString());
                 parametros.put("edad", edEdad.getText().toString());
                 parametros.put("contrasena", edCon.getText().toString());
+                parametros.put("tiempo", diasUso);
 
                 return parametros;
                 //return super.getParams();
@@ -130,9 +142,39 @@ public class NewUsuario extends AppCompatActivity {
                 DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
                 DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
-        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
     }
+
+    /*private void buscarUsuario(String URL) {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                for (int reco = 0; reco < response.length(); reco++) {
+                    try {
+                        jsonObject = response.getJSONObject(reco);
+                        eNomPU.setText(jsonObject.getString("nombre"));
+                        eEdadPU.setText(jsonObject.getString("edad"));
+                        eCorrPU.setText(jsonObject.getString("correo"));
+                        eContraPU.setText(jsonObject.getString("contraseña"));
+                    } catch (JSONException e) {
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_LONG).show();
+            }
+        }
+        );
+
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
+
+    }*/
 
 }

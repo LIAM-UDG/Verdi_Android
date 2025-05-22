@@ -22,17 +22,39 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        //Escuchador de boton
-        Button bMainIn = findViewById(R.id.bMainIn);
-        bMainIn.setOnClickListener(new View.OnClickListener() {
+        //Escuchador de boton para ir al inicio
+        Button bmMtoPrin = findViewById(R.id.bmMtoPrin);
+        bmMtoPrin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(MainActivity.this, "Botón presionado", Toast.LENGTH_LONG).show();
-                Intent intNewUs = new Intent(MainActivity.this, NewUsuario.class);
-                startActivity(intNewUs);
+
+                Intent intPprin = new Intent(MainActivity.this, PantallaPrin.class);
+                startActivity(intPprin);
 
             }
         });
+
+        Button bmMtoIn = findViewById(R.id.bmMtoIn);
+        bmMtoIn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intMtoInUs = new Intent(MainActivity.this, InUsuario.class);
+                startActivity(intMtoInUs);
+            }
+        });
+
+        Button bmMtoNew = findViewById(R.id.bmMtoNew);
+        bmMtoNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intMtoRegis = new Intent(MainActivity.this, NewUsuario.class);
+                startActivity(intMtoRegis);
+            }
+        });
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

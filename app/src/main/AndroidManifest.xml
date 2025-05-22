@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
-    <!--Permiso a internet agregado-->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Permiso a internet agregado -->
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -16,7 +15,30 @@
         android:theme="@style/Theme.LothGarder"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <!--Cleartext agregado-->
+        <activity
+            android:name=".NuevaP"
+            android:exported="false" />
+        <activity
+            android:name=".SugerirP"
+            android:exported="false" />
+        <activity
+            android:name=".PlantaU"
+            android:exported="false" />
+        <activity
+            android:name=".Plantas"
+            android:exported="false" />
+        <activity
+            android:name=".Soporte"
+            android:exported="false" />
+        <activity
+            android:name=".Enci"
+            android:exported="false" />
+        <activity
+            android:name=".InUsuario"
+            android:exported="false" />
+        <activity
+            android:name=".PantallaPrin"
+            android:exported="false" /> <!-- Cleartext agregado -->
         <activity
             android:name=".PerfilUs"
             android:exported="false" />
