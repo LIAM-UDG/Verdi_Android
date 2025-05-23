@@ -19,6 +19,15 @@ public class Enci extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_enci);
 
+        Button beLava = findViewById(R.id.beLava);
+        beLava.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intEtoSp = new Intent(Enci.this, PlantaE.class);
+                startActivity(intEtoSp);
+            }
+        });
+
         Button beSu = findViewById(R.id.beSu);
         beSu.setOnClickListener(new View.OnClickListener() {
             @Override

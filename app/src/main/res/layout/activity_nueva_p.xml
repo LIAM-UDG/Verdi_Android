@@ -25,6 +25,38 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/enpTitulo2"
+        android:layout_width="119dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="208dp"
+        android:fontFamily="serif"
+        android:text="Nombre"
+        android:textAlignment="center"
+        android:textColor="@color/verdeF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/enpTitulo3"
+        android:layout_width="119dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="256dp"
+        android:fontFamily="serif"
+        android:text="Nombre"
+        android:textAlignment="center"
+        android:textColor="@color/verdeF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.095"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/enpbarrita"
         android:layout_width="380dp"
         android:layout_height="2dp"

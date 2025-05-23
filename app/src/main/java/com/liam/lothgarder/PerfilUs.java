@@ -1,6 +1,8 @@
 package com.liam.lothgarder;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -35,6 +37,12 @@ public class PerfilUs extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_perfil_us);
 
+        //Creacion de la instancia de las preferencias(informacion de sesion)
+        SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
+        //Llamada al metodo de buscar usuario para mostrar su informacion usando la info de la prefencia de correo
+        buscarUsuario("http://10.116.133.114:80/lothgarder/buscarU.php?correo="+preferences.getString("Correo",""));
+
+        //Accion de Boton para salir de Perfil Usuario a la Pantalla Principal
         Button buUtoPrin = findViewById(R.id.buUtoPrin);
         buUtoPrin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,19 +53,25 @@ public class PerfilUs extends AppCompatActivity {
             }
         });
 
+        /*
+        PRUEBAS/PROVICIONALES
         Button buBus = findViewById(R.id.buBus);
         buBus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                TextView eNomPU = findViewById(R.id.euNomPU);
                 EditText edCorr = findViewById(R.id.edCorr);
+
                 Toast.makeText(PerfilUs.this, "Buscando usuario", Toast.LENGTH_LONG).show();
-                buscarUsuario("http://10.116.133.114:80/lothgarder/buscar.php?correo="+edCorr.getText().toString());
+                SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
+
+                buscarUsuario("http://10.116.133.114:80/lothgarder/buscarU.php?correo="+preferences.getString("Correo",""));
                 //buscarUsuario("http://10.0.2.2/lothgarder/buscar.php?correo="+edCorr.getText().toString());
             }
         });
 
-        /*Modo de variable
+        Modo de variable
         TextView eNomPU = findViewById(R.id.eNomPU);
         TextView eEdadPU = findViewById(R.id.eEdadPU);
         TextView eCorrPU = findViewById(R.id.eCorrPU);
@@ -80,6 +94,7 @@ public class PerfilUs extends AppCompatActivity {
         });
     }
 
+    //Metodo para buscar usuario
     private void buscarUsuario(String URL) {
 
         TextView eNomPU = findViewById(R.id.euNomPU);
@@ -87,6 +102,7 @@ public class PerfilUs extends AppCompatActivity {
         TextView eCorrPU = findViewById(R.id.euCorrPU);
         TextView eContraPU = findViewById(R.id.euContraPU);
 
+        //Creacion de la peticion
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
@@ -118,5 +134,4 @@ public class PerfilUs extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);
     }
-
 }

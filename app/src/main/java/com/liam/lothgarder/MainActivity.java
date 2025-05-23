@@ -22,19 +22,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        //Escuchador de boton para ir al inicio
-        Button bmMtoPrin = findViewById(R.id.bmMtoPrin);
-        bmMtoPrin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Toast.makeText(MainActivity.this, "Botón presionado", Toast.LENGTH_LONG).show();
-
-                Intent intPprin = new Intent(MainActivity.this, PantallaPrin.class);
-                startActivity(intPprin);
-
-            }
-        });
-
+        //Accion del boton para cambiar de la pantalla main al ingreso de usuario (si tiene cuenta)
         Button bmMtoIn = findViewById(R.id.bmMtoIn);
         bmMtoIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        //Accion del boton para de la pantalla main al registro de usuario (para crear cuenta)
         Button bmMtoNew = findViewById(R.id.bmMtoNew);
         bmMtoNew.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intMtoRegis);
             }
         });
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

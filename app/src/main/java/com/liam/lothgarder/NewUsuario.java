@@ -39,6 +39,7 @@ import org.json.JSONObject;
 
 public class NewUsuario extends AppCompatActivity {
 
+    //Definicion global
     RequestQueue requestQueue;
 
     @Override
@@ -48,13 +49,9 @@ public class NewUsuario extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_new_usuario);
 
-        /*ArrayAdapter<String> aaPref = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
-        Spinner prefUs = findViewById(R.id.prefUs);
-        aaPref.addAll(Arrays.asList("","Automatico", "Confirmacion"));
-        prefUs.setAdapter(aaPref);*/
-
         Toast.makeText(NewUsuario.this, "Pantalla usuario nuevo", Toast.LENGTH_LONG).show();
 
+        //Accion del boton para cambiar de la pantalla de registro a la main
         Button brRtoP = findViewById(R.id.brRtoP);
         brRtoP.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,14 +62,16 @@ public class NewUsuario extends AppCompatActivity {
             }
         });
 
+        //Accion del boton para guardar el registro del nuevo usuario
         Button brGuar = findViewById(R.id.brGuar);
         brGuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                //Guardar datos en base?
+                //Guardar datos en base
+                guardarUsuario("http://10.116.133.114:80/lothgarder/insertarU.php");
                 //Cambiar la IP si se reinicia la computadora
-                ejecutarSerivcio("http://10.116.133.114:80/lothgarder/insertar.php");
+
                 /*
                 Prueba de uso de editText
                 String caNom = edNom.getText().toString();
@@ -98,7 +97,9 @@ public class NewUsuario extends AppCompatActivity {
         });
     }
 
-    private void ejecutarSerivcio(String URL){
+    //Metodo para guardar el usuario
+    private void guardarUsuario(String URL){
+        //Creacion de la peticion al servidor con el metodo POST
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -124,6 +125,7 @@ public class NewUsuario extends AppCompatActivity {
                 EditText edCon = findViewById(R.id.edrCon);
                 String diasUso = "1";
 
+                //Metodo Map que manda los datos de la peticion al servidor extrallendo informacion del editText para guardar en la base
                 Map<String, String> parametros = new HashMap<String, String>();
                 parametros.put("correo", edCor.getText().toString());
                 parametros.put("nombre", edNom.getText().toString());
@@ -147,7 +149,9 @@ public class NewUsuario extends AppCompatActivity {
 
     }
 
-    /*private void buscarUsuario(String URL) {
+    /*
+    Funcion de boton provicional para buscar info de usuario
+    private void buscarUsuario(String URL) {
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {

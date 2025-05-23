@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo1"
+    tools:context=".PlantaE">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:padding="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/epleTitulo"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:fontFamily="serif"
+                android:text="Platnam"
+                android:textColor="@color/verdeF"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/epleBarrita"
+                android:layout_width="380dp"
+                android:layout_height="2dp"
+                android:text=""
+                android:background="@color/verdeF"/>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="168dp"
+                android:layout_height="193dp"
+                android:padding="-30dp"
+                app:srcCompat="@android:drawable/gallery_thumb" />
+
+            <TextView
+                android:id="@+id/epleDescrip"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:fontFamily="serif"
+                android:text="Descripción"
+                android:textColor="@color/verdeF"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/epleDescText"
+                android:layout_width="match_parent"
+                android:layout_height="230dp"
+                android:fontFamily="serif"
+                android:text="Bla bla bla"
+                android:textColor="@color/verdeF"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/epleCuidados"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="Cuidados"
+                android:textColor="@color/verdeF"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/epleCuidadText"
+                android:layout_width="match_parent"
+                android:layout_height="236dp"
+                android:fontFamily="serif"
+                android:text="Cuidados"
+                android:textColor="@color/verdeF"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/epleUsos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="serif"
+                android:text="Usos"
+                android:textColor="@color/verdeF"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:id="@+id/epleUsoText"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:fontFamily="serif"
+                android:text="Blabla"
+                android:textColor="@color/verdeF"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

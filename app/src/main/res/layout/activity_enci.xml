@@ -8,11 +8,12 @@
     android:background="@color/fondo1"
     tools:context=".Enci">
 
+
     <TextView
         android:id="@+id/eeTitulo"
-        android:layout_width="240dp"
-        android:layout_height="84dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="236dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="56dp"
         android:fontFamily="serif"
         android:text="Enciclopedia"
         android:textAlignment="center"
@@ -20,6 +21,130 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/beLava"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Lavanda"
+        android:textColorLink="@color/verdeC"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/beAloe"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="116dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Aloe Vera"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/beMenta"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="212dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Menta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/beManza"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="212dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Manzanilla"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/beAlba"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="308dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Albahaca"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/beBugam"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="252dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Bugambilia"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/beOrqui"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="148dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Orquidea"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/beCactus"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="148dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Cactus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/beArana"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="252dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Planta araña"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/beRomero"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="308dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Romero"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.776"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

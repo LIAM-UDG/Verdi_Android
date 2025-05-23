@@ -48,15 +48,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bmMtoIn" />
 
-    <Button
-        android:id="@+id/bmMtoPrin"
-        android:layout_width="111dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="520dp"
-        android:backgroundTint="@color/verdeM"
-        android:text="Iniciar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/emTitulo" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,13 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".PlantaE"
+            android:exported="false" />
+        <!-- Cleartext agregado -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".NuevaP"
             android:exported="false" />
         <activity
@@ -38,7 +45,7 @@
             android:exported="false" />
         <activity
             android:name=".PantallaPrin"
-            android:exported="false" /> <!-- Cleartext agregado -->
+            android:exported="false" />
         <activity
             android:name=".PerfilUs"
             android:exported="false" />
@@ -46,7 +53,7 @@
             android:name=".NewUsuario"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".PanCarga"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

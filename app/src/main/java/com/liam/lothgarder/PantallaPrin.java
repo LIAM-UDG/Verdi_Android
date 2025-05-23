@@ -1,8 +1,9 @@
 package com.liam.lothgarder;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
@@ -13,8 +14,6 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class PantallaPrin extends AppCompatActivity {
 
@@ -24,7 +23,7 @@ public class PantallaPrin extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_pantalla_prin);
 
-
+        //Accion de Boton para pasar de Pantalla Principal a Perfil de Usuario
         Button bpPtoU = findViewById(R.id.bpPtoU);
         bpPtoU.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,6 +35,7 @@ public class PantallaPrin extends AppCompatActivity {
             }
         });
 
+        //Accion de Boton de Pantalla principal a Enciclopedia
         Button bpPtoE = findViewById(R.id.bpPtoE);
         bpPtoE.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,6 +47,7 @@ public class PantallaPrin extends AppCompatActivity {
             }
         });
 
+        //Accion de Boton de Pantalla principal a Soporte
         Button bpPtoSop = findViewById(R.id.bpPtoSop);
         bpPtoSop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,6 +59,7 @@ public class PantallaPrin extends AppCompatActivity {
             }
         });
 
+        //Accion de Boton de Pantalla principal a Plantas de Usuario
         Button bpPtoPU = findViewById(R.id.bpPtoPU);
         bpPtoPU.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,12 +69,17 @@ public class PantallaPrin extends AppCompatActivity {
             }
         });
 
+        //Accion de Boton para salir de tu sesion
         Button bpPtoMain = findViewById(R.id.bpPtoMain);
         bpPtoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
+                preferences.edit().clear().commit();
+
                 Intent intPtoMain = new Intent(PantallaPrin.this, MainActivity.class);
                 startActivity(intPtoMain);
+                finish();
             }
         });
 
