@@ -35,7 +35,7 @@ public class PantallaPrin extends AppCompatActivity {
             }
         });
 
-        //Accion de Boton de Pantalla principal a Enciclopedia
+        //Accion de Boton para pasar de Pantalla principal a Enciclopedia
         Button bpPtoE = findViewById(R.id.bpPtoE);
         bpPtoE.setOnClickListener(new View.OnClickListener() {
             @Override
