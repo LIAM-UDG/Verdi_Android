@@ -13,6 +13,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Enci extends AppCompatActivity {
 
+    int PKpl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,8 +25,21 @@ public class Enci extends AppCompatActivity {
         beLava.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intEtoSp = new Intent(Enci.this, PlantaE.class);
-                startActivity(intEtoSp);
+                Intent intEtoLa = new Intent(Enci.this, PlantaE.class);
+                PKpl = 2;
+                intEtoLa.putExtra("PKpl", PKpl);
+                startActivity(intEtoLa);
+            }
+        });
+
+        Button beAloe = findViewById(R.id.beAloe);
+        beAloe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intEtoAl = new Intent(Enci.this, PlantaE.class);
+                PKpl = 1;
+                intEtoAl.putExtra("PKpl", PKpl);
+                startActivity(intEtoAl);
             }
         });
 

@@ -69,7 +69,7 @@ public class NewUsuario extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Guardar datos en base
-                guardarUsuario("http://10.116.133.114:80/lothgarder/insertarU.php");
+                guardarUsuario("http://x.x.x.x:80/lothgarder/insertarU.php");
                 //Cambiar la IP si se reinicia la computadora
 
                 /*
@@ -106,6 +106,9 @@ public class NewUsuario extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Respuesta del servidor: " + response, Toast.LENGTH_LONG).show();
                 EditText edError = findViewById(R.id.error);
                 edError.setText(response);
+                //Pasar a pantalla principal tras registrar
+                Intent intRtoP = new Intent(NewUsuario.this, InUsuario.class);
+                startActivity(intRtoP);
                 //Toast.makeText(getApplicationContext(), "Operación exitosa",Toast.LENGTH_LONG).show();
             }
         }, new Response.ErrorListener(){
@@ -123,7 +126,6 @@ public class NewUsuario extends AppCompatActivity {
                 EditText edEdad = findViewById(R.id.edrEdad);
                 EditText edCor = findViewById(R.id.edrCor);
                 EditText edCon = findViewById(R.id.edrCon);
-                String diasUso = "1";
 
                 //Metodo Map que manda los datos de la peticion al servidor extrallendo informacion del editText para guardar en la base
                 Map<String, String> parametros = new HashMap<String, String>();
@@ -131,7 +133,6 @@ public class NewUsuario extends AppCompatActivity {
                 parametros.put("nombre", edNom.getText().toString());
                 parametros.put("edad", edEdad.getText().toString());
                 parametros.put("contrasena", edCon.getText().toString());
-                parametros.put("tiempo", diasUso);
 
                 return parametros;
                 //return super.getParams();

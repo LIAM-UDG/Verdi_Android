@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:fontFamily="serif"
-                android:text="Platnam"
+                android:text="Cargando planta..."
                 android:textColor="@color/verdeF"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -38,8 +38,8 @@
                 android:background="@color/verdeF"/>
 
             <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="168dp"
+                android:id="@+id/imPlan"
+                android:layout_width="188dp"
                 android:layout_height="193dp"
                 android:padding="-30dp"
                 app:srcCompat="@android:drawable/gallery_thumb" />
@@ -47,7 +47,7 @@
             <TextView
                 android:id="@+id/epleDescrip"
                 android:layout_width="match_parent"
-                android:layout_height="37dp"
+                android:layout_height="33dp"
                 android:fontFamily="serif"
                 android:text="Descripción"
                 android:textColor="@color/verdeF"
@@ -57,16 +57,16 @@
             <TextView
                 android:id="@+id/epleDescText"
                 android:layout_width="match_parent"
-                android:layout_height="230dp"
+                android:layout_height="424dp"
                 android:fontFamily="serif"
-                android:text="Bla bla bla"
+                android:text="Cargando descripcion..."
                 android:textColor="@color/verdeF"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/epleCuidados"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="33dp"
                 android:fontFamily="serif"
                 android:text="Cuidados"
                 android:textColor="@color/verdeF"
@@ -76,28 +76,28 @@
             <TextView
                 android:id="@+id/epleCuidadText"
                 android:layout_width="match_parent"
-                android:layout_height="236dp"
+                android:layout_height="192dp"
                 android:fontFamily="serif"
-                android:text="Cuidados"
+                android:text="Cargando cuidados..."
                 android:textColor="@color/verdeF"
                 android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/epleUsos"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="33dp"
                 android:fontFamily="serif"
                 android:text="Usos"
                 android:textColor="@color/verdeF"
                 android:textSize="20sp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/epleUsoText"
                 android:layout_width="match_parent"
-                android:layout_height="220dp"
+                android:layout_height="215dp"
                 android:fontFamily="serif"
-                android:text="Blabla"
+                android:text="Cargando usos..."
                 android:textColor="@color/verdeF"
                 android:textSize="20sp" />
         </LinearLayout>
