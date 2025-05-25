@@ -1,114 +1,117 @@
 package com.liam.lothgarder;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Estadisticas extends AppCompatActivity {
 
-    private RequestQueue requestQueue;
     private TextView valueHumedad, valueEstado, valueTemperatura, valueAgua;
+    private Button btnActualizar, btnRegresar;
+    private RequestQueue requestQueue;
+    private static final String BASE_URL = "http://x.x.x.x:80/lothgarder/get_estadisticas.php"; // Reemplaza con tu IP real
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_estadisticas);
 
-        // Inicializar vistas
+        initViews();
+        initData();
+        setupListeners();
+    }
+
+    private void initViews() {
         valueHumedad = findViewById(R.id.valueHumedad);
         valueEstado = findViewById(R.id.valueEstado);
         valueTemperatura = findViewById(R.id.valueTemperatura);
         valueAgua = findViewById(R.id.valueAgua);
+        btnActualizar = findViewById(R.id.btnActualizar);
+        btnRegresar = findViewById(R.id.btnRegresar);
+    }
 
+    private void initData() {
         // Inicializar RequestQueue de Volley
         requestQueue = Volley.newRequestQueue(this);
+        // Cargar datos por defecto inicialmente
+        cargarDatosPorDefecto();
+        // Obtener datos del servidor
+        obtenerEstadisticasDesdeServidor();
+    }
 
-        // Botón para actualizar estadísticas (inspirado en los botones de NewUsuario)
-        Button btnActualizar = findViewById(R.id.btnActualizar);
-        if (btnActualizar != null) {
-            btnActualizar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(Estadisticas.this, "Actualizando estadísticas...", Toast.LENGTH_SHORT).show();
-                    obtenerEstadisticasDesdeServidor();
-                }
-            });
-        }
+    private void setupListeners() {
+        // Botón Actualizar
+        btnActualizar.setOnClickListener(v -> {
+            Toast.makeText(this, "Actualizando estadísticas...", Toast.LENGTH_SHORT).show();
+            obtenerEstadisticasDesdeServidor();
+        });
 
-        // Botón para regresar (inspirado en brRtoP de NewUsuario)
-        Button btnRegresar = findViewById(R.id.btnRegresar);
-        if (btnRegresar != null) {
-            btnRegresar.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(Estadisticas.this, "Regresando...", Toast.LENGTH_SHORT).show();
-                    finish(); // Regresa a la actividad anterior
-                }
-            });
-        }
+        // Botón Regresar
+        btnRegresar.setOnClickListener(v -> {
+            Toast.makeText(this, "Regresando...", Toast.LENGTH_SHORT).show();
+            finish();
+        });
 
         // Manejar insets de la ventana para pantalla edge-to-edge
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            WindowInsetsCompat systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            // Obtener los insets del sistema (barras de estado y navegación)
+            androidx.core.graphics.Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            // Aplicar padding usando los valores de los insets
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        // Cargar datos iniciales simulados
-        cargarDatosEstadisticas();
     }
 
-    private void cargarDatosEstadisticas() {
-        // Datos simulados
+    private void obtenerEstadisticasDesdeServidor() {
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
+                response -> {
+                    try {
+                        JSONObject jsonObject = new JSONObject(response);
+                        // Usar optString para manejar campos faltantes
+                        valueHumedad.setText(jsonObject.optString("humedad", "No disponible"));
+                        valueEstado.setText(jsonObject.optString("estado", "No disponible"));
+                        valueTemperatura.setText(jsonObject.optString("temperatura", "No disponible"));
+                        valueAgua.setText(jsonObject.optString("agua", "No disponible"));
+                        Toast.makeText(this, "Datos actualizados", Toast.LENGTH_SHORT).show();
+                    } catch (JSONException e) {
+                        Toast.makeText(this, "Error al analizar datos: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        cargarDatosPorDefecto();
+                    }
+                },
+                error -> {
+                    Toast.makeText(this, "Error de connessione: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                    cargarDatosPorDefecto();
+                });
+
+        // Configurar política de reintento
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                10000, // 10 segundos de tiempo de espera
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        // Agregar solicitud a la cola
+        requestQueue.add(stringRequest);
+    }
+
+    private void cargarDatosPorDefecto() {
+        // Datos por defecto en caso de error
         valueHumedad.setText("50%");
         valueEstado.setText("Saludable");
         valueTemperatura.setText("25°C");
         valueAgua.setText("250 ml");
-    }
-
-    private void obtenerEstadisticasDesdeServidor() {
-        String url = "http://x.x.x.x:80/lothgarder/get_estadisticas.php"; // Reemplazar con tu IP real
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            valueHumedad.setText(jsonObject.getString("humedad"));
-                            valueEstado.setText(jsonObject.getString("estado"));
-                            valueTemperatura.setText(jsonObject.getString("temperatura"));
-                            valueAgua.setText(jsonObject.getString("agua"));
-                            Toast.makeText(Estadisticas.this, "Datos actualizados", Toast.LENGTH_SHORT).show();
-                        } catch (JSONException e) {
-                            Toast.makeText(Estadisticas.this, "Error al analizar datos: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(Estadisticas.this, "Error de conexión: " + error.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                });
-
-        // Agregar la solicitud a la cola con política de reintento
-        stringRequest.setRetryPolicy(new com.android.volley.DefaultRetryPolicy(
-                10000, // Tiempo de espera en ms
-                com.android.volley.DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                com.android.volley.DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        requestQueue.add(stringRequest);
     }
 }

@@ -10,21 +10,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="serif"
         android:text="Búsqueda de Información"
         android:textColor="#3D4224"
-        android:textSize="34sp"
+        android:textSize="24sp"
         android:textStyle="bold"
-        android:gravity="center"
+        android:layout_gravity="center"
         android:layout_marginBottom="20dp" />
-    <TextView
-        android:id="@+id/enpbarrita"
-        android:layout_width="380dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="0dp"
-        android:background="@color/verdeF"
-        android:text=""
-        android:layout_gravity="center_horizontal" />
 
     <!-- Campo de búsqueda con ícono de lupa -->
     <EditText
@@ -32,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Buscar"
-        android:background="@drawable/search_background"
+        android:background="#E6E2C4"
         android:drawableStart="@android:drawable/ic_menu_search"
         android:drawablePadding="10dp"
         android:padding="12dp"
@@ -45,7 +36,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/filter_options"
-        android:background="@drawable/spinner_background"
+        android:background="#E6E2C4"
         android:padding="12dp" />
 
 </LinearLayout>

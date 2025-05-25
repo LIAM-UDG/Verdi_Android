@@ -4,11 +4,11 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,8 +19,8 @@ public class Alertas extends AppCompatActivity {
 
     private EditText etBuscar;
     private LinearLayout llAlertasContainer;
-    private Button btnBorrarTodo;
-    private ImageButton btnBack;
+    private Button btnBack;
+    private Spinner spinnerFilter;
     private List<LinearLayout> alertaViews;
     private List<AlertaItem> alertas;
 
@@ -37,8 +37,8 @@ public class Alertas extends AppCompatActivity {
     private void initViews() {
         etBuscar = findViewById(R.id.et_buscar);
         llAlertasContainer = findViewById(R.id.ll_alertas_container);
-        btnBorrarTodo = findViewById(R.id.btn_borrar_todo);
         btnBack = findViewById(R.id.btn_back);
+        spinnerFilter = findViewById(R.id.spinner_filter);
         alertaViews = new ArrayList<>();
     }
 
@@ -68,15 +68,26 @@ public class Alertas extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                filtrarAlertas(s.toString());
+                filtrarAlertas(s.toString(), spinnerFilter.getSelectedItem().toString());
             }
 
             @Override
             public void afterTextChanged(Editable s) {}
         });
 
-        // Botón borrar todo
-        btnBorrarTodo.setOnClickListener(v -> mostrarDialogoBorrarTodo());
+        // Funcionalidad del Spinner para filtrar por categoría
+        spinnerFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedCategory = parent.getItemAtPosition(position).toString();
+                filtrarAlertas(etBuscar.getText().toString(), selectedCategory);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // No hacer nada si no se selecciona nada
+            }
+        });
 
         // Click listeners para cada alerta
         setupAlertaClickListeners();
@@ -89,17 +100,22 @@ public class Alertas extends AppCompatActivity {
         }
     }
 
-    private void filtrarAlertas(String busqueda) {
+    private void filtrarAlertas(String busqueda, String categoria) {
         String busquedaLower = busqueda.toLowerCase().trim();
+        String categoriaLower = categoria.toLowerCase().trim();
 
         for (int i = 0; i < alertaViews.size() && i < alertas.size(); i++) {
             LinearLayout alertaView = alertaViews.get(i);
             AlertaItem alerta = alertas.get(i);
 
-            boolean coincide = alerta.getTitulo().toLowerCase().contains(busquedaLower) ||
+            boolean coincideBusqueda = alerta.getTitulo().toLowerCase().contains(busquedaLower) ||
                     alerta.getCategoria().toLowerCase().contains(busquedaLower);
 
-            alertaView.setVisibility(coincide ? View.VISIBLE : View.GONE);
+            boolean coincideCategoria = categoriaLower.equals("filtro") || // Si se selecciona "Filtro", mostrar todas
+                    alerta.getCategoria().toLowerCase().equals(categoriaLower);
+
+            // Mostrar la alerta solo si coincide con la búsqueda Y la categoría
+            alertaView.setVisibility(coincideBusqueda && coincideCategoria ? View.VISIBLE : View.GONE);
         }
     }
 
@@ -117,30 +133,6 @@ public class Alertas extends AppCompatActivity {
                     Toast.makeText(this, "Alerta marcada como resuelta", Toast.LENGTH_SHORT).show();
                 })
                 .show();
-    }
-
-    private void mostrarDialogoBorrarTodo() {
-        new AlertDialog.Builder(this)
-                .setTitle("Confirmar")
-                .setMessage("¿Estás seguro de que quieres borrar todas las alertas?")
-                .setPositiveButton("Sí", (dialog, which) -> borrarTodasLasAlertas())
-                .setNegativeButton("Cancelar", null)
-                .show();
-    }
-
-    private void borrarTodasLasAlertas() {
-        // Ocultar todas las alertas
-        for (LinearLayout alertaView : alertaViews) {
-            alertaView.setVisibility(View.GONE);
-        }
-
-        // Limpiar datos
-        alertas.clear();
-
-        Toast.makeText(this, "Todas las alertas han sido borradas", Toast.LENGTH_SHORT).show();
-
-        // Opcional: regresar a la pantalla anterior después de borrar
-        // finish();
     }
 
     // Clase interna para representar una alerta
