@@ -24,29 +24,43 @@
             android:contentDescription="Regresar" />
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="314dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="40dp"
             android:layout_weight="1"
-            android:text="Alertas en el Sistema"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:textColor="#8B4513"
+            android:fontFamily="serif"
             android:gravity="center"
-            android:layout_marginEnd="40dp" />
+            android:text="Alertas en el Sistema"
+            android:textColor="@color/verdeF"
+            android:textSize="34sp"
+            android:textStyle="bold"
+
+            />
 
     </LinearLayout>
+
+    <!-- Línea debajo del título -->
+    <TextView
+        android:id="@+id/enpbarrita"
+        android:layout_width="380dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/verdeF"
+        android:text=""
+        android:layout_gravity="center_horizontal" />
 
     <!-- Barra de búsqueda -->
     <EditText
         android:id="@+id/et_buscar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="🔎Buscar fallos"
-        android:background="@drawable/search_background"
-        android:padding="12dp"
         android:layout_marginBottom="20dp"
+        android:background="@drawable/search_background"
         android:drawableStart="@drawable/ic_search"
         android:drawablePadding="10dp"
+
+        android:hint="🔎Buscar fallos"
+        android:padding="12dp"
         android:textColorHint="#3D4224" />
 
     <!-- ScrollView para las alertas -->
@@ -109,8 +123,6 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:orientation="vertical">
-
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -118,9 +130,6 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:gravity="center">
-
-
-
                 </LinearLayout>
 
                 <View
