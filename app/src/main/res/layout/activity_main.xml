@@ -48,6 +48,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bmMtoIn" />
+        app:layout_constraintTop_toBottomOf="@+id/bmMtoIn"/>
+
+    <Button
+        android:id="@+id/bmMtoPrin"
+        android:layout_width="250dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="48dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Principal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -76,6 +78,39 @@ public class PantallaPrin extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intPtoEst = new Intent(PantallaPrin.this, Estadisticas.class);
                 startActivity(intPtoEst);
+            }
+        });
+
+
+        //Botón de pantalla principal a Logros
+        ImageView bpPtoL = findViewById(R.id.bpPtoL);
+        bpPtoL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intPtoL = new Intent(PantallaPrin.this, LogrosS.class);
+                startActivity(intPtoL);
+            }
+        });
+
+        //Botón de pantalla principal a Búsqueda
+        ImageView bpPtoB = findViewById(R.id.bpPtoB);
+        bpPtoB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PantallaPrin.this, "Click en búsqueda", Toast.LENGTH_SHORT).show();
+                Intent intPtoB = new Intent(PantallaPrin.this, Busqueda.class);
+                startActivity(intPtoB);
+            }
+        });
+
+        //Botón de pantalla princial a Alertas
+        ImageView bpPtoA = findViewById(R.id.bpPtoA);
+        bpPtoA.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(PantallaPrin.this, "Click en búsqueda", Toast.LENGTH_SHORT).show();
+                Intent intPtoA = new Intent(PantallaPrin.this, Alertas.class);
+                startActivity(intPtoA);
             }
         });
 

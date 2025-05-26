@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/bsStoMain"
+        android:id="@+id/bsStoPrin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="644dp"

@@ -20,8 +20,8 @@ public class Plantas extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_plantas);
 
-        Button bplNu = findViewById(R.id.bplNu);
-        bplNu.setOnClickListener(new View.OnClickListener() {
+        Button bplNu2 = findViewById(R.id.bplNu2);
+        bplNu2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Plantas.this, "Avanzando a registrar planta...", Toast.LENGTH_SHORT).show();

@@ -42,6 +42,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button bmMtoPrin = findViewById(R.id.bmMtoPrin);
+        bmMtoPrin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intMtoPrin = new Intent(MainActivity.this, PantallaPrin.class);
+                startActivity(intMtoPrin);
+            }
+        });
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

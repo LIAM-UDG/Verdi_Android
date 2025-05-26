@@ -13,7 +13,7 @@
         android:id="@+id/eeTitulo"
         android:layout_width="236dp"
         android:layout_height="45dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="36dp"
         android:fontFamily="serif"
         android:text="Enciclopedia"
         android:textAlignment="center"
@@ -23,7 +23,6 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
 
     <Button
         android:id="@+id/beLava"

@@ -19,12 +19,23 @@ public class Soporte extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_soporte);
 
-        Button bsStoMain = findViewById(R.id.bsStoMain);
-        bsStoMain.setOnClickListener(new View.OnClickListener() {
+        Button bsStoFAQ = findViewById(R.id.bsStoFAQ);
+        bsStoFAQ.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intStoMain = new Intent(Soporte.this, MainActivity.class);
-                startActivity(intStoMain);
+
+                Intent intStoFAQ = new Intent(Soporte.this, Faq.class);
+                startActivity(intStoFAQ);
+
+            }
+        });
+
+        Button bsStoPrin = findViewById(R.id.bsStoPrin);
+        bsStoPrin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intStoPrin = new Intent(Soporte.this, PantallaPrin.class);
+                startActivity(intStoPrin);
             }
         });
 

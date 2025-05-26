@@ -6,7 +6,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo1"
+    android:backgroundTint="@color/fondo1"
     tools:context=".PantallaPrin">
+
+    <ImageView
+        android:id="@+id/bpPtoL"
+        android:layout_width="45dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/lorgo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/bpPtoB"
+        android:layout_width="45dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/busqueda"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.653"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/bpPtoA"
+        android:layout_width="45dp"
+        android:layout_height="43dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/alertas"
+        android:clickable="true"
+        android:focusable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.803"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/epTitulo"
@@ -31,7 +69,7 @@
         android:backgroundTint="@color/verdeM"
         android:text="Perfil de Usuario"
         android:textColor="@color/fondo1"
-        app:icon="@android:mipmap/sym_def_app_icon"
+        app:icon="@drawable/perfil"
         app:iconTint="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -46,6 +84,8 @@
         android:backgroundTint="@color/verdeM"
         android:text="Enciclopedia"
         android:textColor="@color/fondo1"
+        app:icon="@drawable/enciclopedia"
+        app:iconTint="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +99,8 @@
         android:backgroundTint="@color/verdeM"
         android:text="Plantas de Usuario"
         android:textColor="@color/fondo1"
+        app:icon="@drawable/planta"
+        app:iconTint="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -72,6 +114,8 @@
         android:backgroundTint="@color/verdeM"
         android:text="Estadisticas de Sistema"
         android:textColor="@color/fondo1"
+        app:icon="@drawable/grafico"
+        app:iconTint="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,6 +129,8 @@
         android:backgroundTint="@color/verdeM"
         android:text="Soporte"
         android:textColor="@color/fondo1"
+        app:icon="@android:drawable/ic_dialog_info"
+        app:iconTint="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"

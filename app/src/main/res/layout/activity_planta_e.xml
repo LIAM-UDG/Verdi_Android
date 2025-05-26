@@ -59,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="424dp"
                 android:fontFamily="serif"
-                android:text="Cargando descripcion..."
+                android:text="Cargando descripción..."
                 android:textColor="@color/verdeF"
                 android:textSize="20sp" />
 
@@ -100,6 +100,15 @@
                 android:text="Cargando usos..."
                 android:textColor="@color/verdeF"
                 android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/bplePletoEn"
+                android:layout_width="105dp"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/verdeM"
+                android:text="Atrás" />
+
+
         </LinearLayout>
     </ScrollView>
 

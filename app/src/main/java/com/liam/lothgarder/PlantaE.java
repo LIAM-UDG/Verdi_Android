@@ -5,6 +5,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,7 +39,17 @@ public class PlantaE extends AppCompatActivity {
         int PKpl = intent.getIntExtra("PKpl",0);
 
         //Llamada al metodo de buscar usuario para mostrar su informacion usando la info de la prefencia de correo
-        buscarPlantaE("http://x.x.x.x:80/lothgarder/buscarP.php?planta="+PKpl);
+        buscarPlantaE("http://192.168.1.14:80/lothgarder/buscarP.php?planta="+PKpl);
+
+        Button bplePletoEn = findViewById(R.id.bplePletoEn);
+        bplePletoEn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intPletoEn = new Intent(PlantaE.this, Enci.class);
+                startActivity(intPletoEn);
+            }
+        });
+
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
