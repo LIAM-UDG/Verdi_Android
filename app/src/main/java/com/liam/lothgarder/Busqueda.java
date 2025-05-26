@@ -3,12 +3,14 @@ package com.liam.lothgarder;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Busqueda extends AppCompatActivity {
+
 
     private Spinner spinnerFilter;
 
@@ -17,10 +19,7 @@ public class Busqueda extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_busqueda);
 
-        // Inicializar el Spinner
         spinnerFilter = findViewById(R.id.spinner_filter);
-
-        // Configurar el listener para el Spinner
         spinnerFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -32,7 +31,15 @@ public class Busqueda extends AppCompatActivity {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // No hacer nada si no se selecciona nada
+            }
+        });
+
+        // Botón de regreso
+        Button btnBack = findViewById(R.id.btn_back);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

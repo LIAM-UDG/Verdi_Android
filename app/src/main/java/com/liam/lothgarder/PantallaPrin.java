@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -59,13 +58,24 @@ public class PantallaPrin extends AppCompatActivity {
             }
         });
 
-        //Accion de Boton de Pantalla principal a Plantas de Usuario
+            //Accion de Boton de Pantalla principal a Plantas de Usuario
         Button bpPtoPU = findViewById(R.id.bpPtoPU);
         bpPtoPU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intPtoPu = new Intent(PantallaPrin.this, Plantas.class);
                 startActivity(intPtoPu);
+            }
+        });
+
+        //Accion de Boton de Pantalla principal a Estadisticas
+
+        Button bpPtoEst = findViewById(R.id.bpPtoEst);
+        bpPtoEst.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intPtoEst = new Intent(PantallaPrin.this, Estadisticas.class);
+                startActivity(intPtoEst);
             }
         });
 

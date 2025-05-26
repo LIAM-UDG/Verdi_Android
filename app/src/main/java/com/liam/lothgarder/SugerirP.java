@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,21 +16,71 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class SugerirP extends AppCompatActivity {
 
+    private ImageView imgPlanta;
+    private Button btnSubirFoto;
+    private EditText etNombre;
+    private EditText etDescripcion;
+    private Button btnContinuar;
+    private Button bnpNptoPrin;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_sugerir_p);
+        setContentView(R.layout.activity_nueva_p);
 
-        Button bspSptoPrin = findViewById(R.id.bspSptoPrin);
-        bspSptoPrin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intSPtoPrin = new Intent(SugerirP.this, Enci.class);
-                startActivity(intSPtoPrin);
-            }
+        // Inicializar los elementos del layout
+        imgPlanta = findViewById(R.id.imgPlanta);
+        btnSubirFoto = findViewById(R.id.btnSubirFoto);
+        etNombre = findViewById(R.id.etNombre);
+        etDescripcion = findViewById(R.id.etDescripcion);
+        btnContinuar = findViewById(R.id.btnContinuar);
+        bnpNptoPrin = findViewById(R.id.bnpNptoPrin);
+
+        // Listener para el botón Subir Foto (simulando la acción)
+        btnSubirFoto.setOnClickListener(v -> {
+            Toast.makeText(this, "Funcionalidad de subir foto simulada", Toast.LENGTH_SHORT).show();
+            // Aquí podrías implementar la selección de una foto en el futuro
         });
 
+        // Listener para el botón Continuar
+        btnContinuar.setOnClickListener(v -> {
+            String nombre = etNombre.getText().toString().trim();
+            String descripcion = etDescripcion.getText().toString().trim();
+
+            // Validar que los campos no estén vacíos
+            if (nombre.isEmpty()) {
+                etNombre.setError("Por favor, ingresa el nombre de la planta");
+                etNombre.requestFocus();
+                return;
+            }
+
+            if (descripcion.isEmpty()) {
+                etDescripcion.setError("Por favor, ingresa una descripción");
+                etDescripcion.requestFocus();
+                return;
+            }
+
+            // Mostrar un mensaje con los datos ingresados
+            Toast.makeText(this, "Planta guardada:\nNombre: " + nombre + "\nDescripción: " + descripcion, Toast.LENGTH_LONG).show();
+
+            // Pasar los datos a la pantalla Plantas y regresar
+            Intent intent = new Intent(SugerirP.this, Plantas.class);
+            intent.putExtra("nombre_planta", nombre);
+            intent.putExtra("descripcion_planta", descripcion);
+            startActivity(intent);
+            finish(); // Cierra la actividad actual
+        });
+
+        // Listener para el botón Atrás (ya lo tenías, pero lo ajusto para consistencia)
+        bnpNptoPrin.setOnClickListener(v -> {
+            Toast.makeText(this, "Regresando...", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(SugerirP.this, Plantas.class);
+            startActivity(intent);
+            finish(); // Cierra la actividad actual
+        });
+
+        // Configuración de los insets para edge-to-edge (ya lo tenías)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

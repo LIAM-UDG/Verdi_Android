@@ -52,6 +52,8 @@
         <activity
             android:name=".NewUsuario"
             android:exported="false" />
+        <activity android:name=".Estadisticas"
+            android:exported="false" />
         <activity
             android:name=".PanCarga"
             android:exported="true">

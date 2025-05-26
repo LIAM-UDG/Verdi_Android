@@ -93,7 +93,7 @@ public class Estadisticas extends AppCompatActivity {
                     }
                 },
                 error -> {
-                    Toast.makeText(this, "Error de connessione: " + error.getMessage(), Toast.LENGTH_LONG).show();
+                    Toast.makeText(this, "Error de connexion: " + error.getMessage(), Toast.LENGTH_LONG).show();
                     cargarDatosPorDefecto();
                 });
 

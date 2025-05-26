@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#F5F5DC"
+    android:background="@color/fondo1"
     android:padding="16dp">
 
     <!-- Título -->
@@ -201,15 +201,12 @@
             android:id="@+id/btn_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             android:text="Regresar"
+            android:backgroundTint="@color/verdeM"
             android:textColor="@android:color/white"
-            android:background="#3D4224"
-            android:backgroundTint="#3D4224"
-            android:backgroundTintMode="src_in"
             android:padding="12dp" />
 
-        <!-- Botón Borrar Todo -->
+
 
     </LinearLayout>
 
