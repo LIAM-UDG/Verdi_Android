@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo1"
+    tools:context=".Faq">
+
+    <TextView
+        android:id="@+id/efTitulo"
+        android:layout_width="342dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="48dp"
+        android:fontFamily="serif"
+        android:text="Preguntas frecuentes"
+        android:textAlignment="center"
+        android:textColor="@color/verdeF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/enpTitulo2"
+        android:layout_width="383dp"
+        android:layout_height="518dp"
+        android:layout_marginTop="120dp"
+        android:fontFamily="serif"
+        android:text=" •¿Qué tipo de base de datos utilizamos?\nSe utiliza una base de datos relacional para almacenar información sobre los sensores, horarios de riego y configuraciones del usuario.
+        \n\n •¿Cómo se almacenan los datos de los sensores?\nLos datos de los sensores se registran entiempo real en la base de datos, incluyendo valores de humedad, temperatura y luz.
+        \n\n •¿Cómo se protege la información almacenada en la base de  datos? \nLa base de datos está protegida mediante encriptación y autenticación de usuarios para garantizar la seguridad de los datos.
+        \n\n •¿Qué sucede si se pierde la conexión a internet?\nLa aplicación almacena temporalmente los datos en caché u los sincroniza con la base de datos una vez que se reestablezca la conexión.
+tos una vez que se reestablezca la conexión.
+        \n\n •¿Qué hacer si la base de datos presenta errores? \nSe recomienda reiniciar la aplicación y, si el problema persiste, contactar con soporte técnico para solucionarlo.
+"
+        android:textAlignment="textStart"
+        android:textColor="@color/verdeF"
+        android:textSize="16sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/efbarrita"
+        android:layout_width="380dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="92dp"
+        android:background="@color/verdeF"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bfFtoSop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="644dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Atrás"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
