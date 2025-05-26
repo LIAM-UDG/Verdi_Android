@@ -6,4 +6,12 @@
         <item>Sensores</item>
         <item>Alertas</item>
     </string-array>
+
+    <string-array name="ambientes_array">
+        <item>Selecciona un ambiente</item>
+        <item>Interior</item>
+        <item>Exterior</item>
+        <item>Sombra</item>
+        <item>Sol directo</item>
+    </string-array>
 </resources>

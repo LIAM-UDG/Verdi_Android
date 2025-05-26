@@ -102,74 +102,6 @@
         android:layout_marginEnd="32dp"
         android:layout_marginTop="8dp" />
 
-    <!-- Etiqueta Especie -->
-    <TextView
-        android:id="@+id/tvEspecie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Especie:"
-        android:textColor="@color/verdeF"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/etNombre"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="32dp" />
-
-    <!-- Campo Especie -->
-    <EditText
-        android:id="@+id/etEspecie"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:background="#E6E2C4"
-        app:layout_constraintTop_toBottomOf="@id/tvEspecie"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnSeleccionarPlantaEspecie"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="8dp"
-        android:padding="8dp" />
-
-    <!-- Botón Seleccionar Planta (Especie) -->
-    <Button
-        android:id="@+id/btnSeleccionarPlantaEspecie"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Seleccionar Planta"
-        android:backgroundTint="@color/verdeM"
-        android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/tvEspecie"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="8dp" />
-
-    <!-- Etiqueta Tiempo -->
-    <TextView
-        android:id="@+id/tvTiempo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¿Cuánto tiempo tienes con tu planta?"
-        android:textColor="@color/verdeF"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/etEspecie"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="24dp"
-        android:layout_marginStart="32dp" />
-
-    <!-- Botón Seleccionar Tiempo -->
-    <Button
-        android:id="@+id/btnSeleccionarTiempo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Seleccionar"
-        android:backgroundTint="@color/verdeM"
-        android:textColor="@android:color/white"
-        app:layout_constraintTop_toBottomOf="@id/tvTiempo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginTop="8dp" />
-
     <!-- Etiqueta Ambiente -->
     <TextView
         android:id="@+id/tvAmbiente"
@@ -178,19 +110,16 @@
         android:text="Ambiente"
         android:textColor="@color/verdeF"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/btnSeleccionarTiempo"
+        app:layout_constraintTop_toBottomOf="@id/etNombre"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="24dp"
         android:layout_marginStart="32dp" />
 
-    <!-- Botón Seleccionar Ambiente -->
-    <Button
-        android:id="@+id/btnSeleccionarAmbiente"
+    <!-- Spinner para seleccionar el ambiente -->
+    <Spinner
+        android:id="@+id/spnAmbiente"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Seleccionar"
-        android:backgroundTint="@color/verdeM"
-        android:textColor="@android:color/white"
         app:layout_constraintTop_toBottomOf="@id/tvAmbiente"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

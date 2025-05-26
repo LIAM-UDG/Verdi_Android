@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo1"
-    tools:context=".NuevaP">
+    tools:context=".SugerirP">
 
     <!-- Título -->
     <TextView
@@ -125,7 +125,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp" />
 
-    <!-- Botón Atrás  -->
+    <!-- Botón Atrás -->
     <Button
         android:id="@+id/bnpNptoPrin"
         android:layout_width="wrap_content"

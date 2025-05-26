@@ -58,7 +58,7 @@ public class NewUsuario extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Guardar datos en base
-                guardarUsuario("http://x.x.x.x:80/lothgarder/insertarU.php");
+                guardarUsuario("http://192.168.1.104:80/lothgarder/insertarU.php");
                 //Cambiar la IP si se reinicia la computadora
 
                 /*

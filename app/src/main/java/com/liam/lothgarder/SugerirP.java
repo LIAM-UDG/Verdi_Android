@@ -1,8 +1,8 @@
 package com.liam.lothgarder;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -23,11 +23,12 @@ public class SugerirP extends AppCompatActivity {
     private Button btnContinuar;
     private Button bnpNptoPrin;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_nueva_p);
+        setContentView(R.layout.activity_sugerir_p); // Cambiado a activity_sugerir_p
 
         // Inicializar los elementos del layout
         imgPlanta = findViewById(R.id.imgPlanta);
@@ -54,7 +55,6 @@ public class SugerirP extends AppCompatActivity {
                 etNombre.requestFocus();
                 return;
             }
-
             if (descripcion.isEmpty()) {
                 etDescripcion.setError("Por favor, ingresa una descripción");
                 etDescripcion.requestFocus();
@@ -62,7 +62,7 @@ public class SugerirP extends AppCompatActivity {
             }
 
             // Mostrar un mensaje con los datos ingresados
-            Toast.makeText(this, "Planta guardada:\nNombre: " + nombre + "\nDescripción: " + descripcion, Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Planta sugerida:\nNombre: " + nombre + "\nDescripción: " + descripcion, Toast.LENGTH_LONG).show();
 
             // Pasar los datos a la pantalla Plantas y regresar
             Intent intent = new Intent(SugerirP.this, Plantas.class);
@@ -72,7 +72,7 @@ public class SugerirP extends AppCompatActivity {
             finish(); // Cierra la actividad actual
         });
 
-        // Listener para el botón Atrás (ya lo tenías, pero lo ajusto para consistencia)
+        // Listener para el botón Atrás
         bnpNptoPrin.setOnClickListener(v -> {
             Toast.makeText(this, "Regresando...", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(SugerirP.this, Plantas.class);
@@ -80,7 +80,7 @@ public class SugerirP extends AppCompatActivity {
             finish(); // Cierra la actividad actual
         });
 
-        // Configuración de los insets para edge-to-edge (ya lo tenías)
+        // Configuración de los insets para edge-to-edge
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -13,17 +14,23 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
+
 public class NuevaP extends AppCompatActivity {
 
-    private ImageView imgPlanta;
-    private Button btnSubirFoto;
-    private EditText etNombre;
-    private Button btnSeleccionarPlanta;
-    private EditText etEspecie;
-    private Button btnSeleccionarPlantaEspecie;
-    private Button btnSeleccionarTiempo;
-    private Button btnSeleccionarAmbiente;
-    private Button btnContinuar;
+    RequestQueue requestQueue;
+    ImageView imgPlanta;
+    Button btnSubirFoto, btnContinuar, btnSeleccionarPlanta;
+    EditText etNombre;
+    Spinner spnAmbiente; // aunque no está en tabla, lo agrego por XML
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,75 +38,76 @@ public class NuevaP extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_nueva_p);
 
-        // Inicializar los elementos
+        // Vistas
         imgPlanta = findViewById(R.id.imgPlanta);
         btnSubirFoto = findViewById(R.id.btnSubirFoto);
-        etNombre = findViewById(R.id.etNombre);
-        btnSeleccionarPlanta = findViewById(R.id.btnSeleccionarPlanta);
-        etEspecie = findViewById(R.id.etEspecie);
-        btnSeleccionarPlantaEspecie = findViewById(R.id.btnSeleccionarPlantaEspecie);
-        btnSeleccionarTiempo = findViewById(R.id.btnSeleccionarTiempo);
-        btnSeleccionarAmbiente = findViewById(R.id.btnSeleccionarAmbiente);
         btnContinuar = findViewById(R.id.btnContinuar);
+        btnSeleccionarPlanta = findViewById(R.id.btnSeleccionarPlanta);
+        etNombre = findViewById(R.id.etNombre);
+        spnAmbiente = findViewById(R.id.spnAmbiente);
 
-        // Listener para Subir Foto (simulación)
+        Toast.makeText(NuevaP.this, "Pantalla nueva planta", Toast.LENGTH_LONG).show();
+
         btnSubirFoto.setOnClickListener(v -> {
-            Toast.makeText(this, "Funcionalidad de subir foto simulada", Toast.LENGTH_SHORT).show();
+            Toast.makeText(NuevaP.this, "Funcionalidad subir foto pendiente", Toast.LENGTH_SHORT).show();
+            // Aquí agregarás el selector de imagen o cámara
         });
 
-        // Listener para Seleccionar Planta
         btnSeleccionarPlanta.setOnClickListener(v -> {
-            Toast.makeText(this, "Selecciona una planta (simulado)", Toast.LENGTH_SHORT).show();
-            etNombre.setText("Planta Ejemplo");
+            Toast.makeText(NuevaP.this, "Funcionalidad seleccionar planta pendiente", Toast.LENGTH_SHORT).show();
+            // Aquí puedes mostrar un diálogo para seleccionar planta, si quieres
         });
 
-        // Listener para Seleccionar Planta (Especie)
-        btnSeleccionarPlantaEspecie.setOnClickListener(v -> {
-            Toast.makeText(this, "Selecciona una especie (simulado)", Toast.LENGTH_SHORT).show();
-            etEspecie.setText("Especie Ejemplo");
-        });
-
-        // Listener para Seleccionar Tiempo
-        btnSeleccionarTiempo.setOnClickListener(v -> {
-            Toast.makeText(this, "Selecciona el tiempo (simulado)", Toast.LENGTH_SHORT).show();
-        });
-
-        // Listener para Seleccionar Ambiente
-        btnSeleccionarAmbiente.setOnClickListener(v -> {
-            Toast.makeText(this, "Selecciona el ambiente (simulado)", Toast.LENGTH_SHORT).show();
-        });
-
-        // Listener para Continuar
         btnContinuar.setOnClickListener(v -> {
-            String nombre = etNombre.getText().toString().trim();
-            String especie = etEspecie.getText().toString().trim();
-
-            if (nombre.isEmpty()) {
-                etNombre.setError("Por favor, ingresa el nombre");
-                etNombre.requestFocus();
-                return;
-            }
-            if (especie.isEmpty()) {
-                etEspecie.setError("Por favor, ingresa la especie");
-                etEspecie.requestFocus();
-                return;
-            }
-
-            Toast.makeText(this, "Planta registrada:\nNombre: " + nombre + "\nEspecie: " + especie, Toast.LENGTH_LONG).show();
-
-            // Regresar a Plantas con los datos
-            Intent intent = new Intent(NuevaP.this, Plantas.class);
-            intent.putExtra("nombre_planta", nombre);
-            intent.putExtra("especie_planta", especie);
-            startActivity(intent);
-            finish();
+            guardarPlanta("http://192.168.1.104:80/lothgarder/insertarP.php");
         });
 
-        // Configuración de insets para edge-to-edge
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
     }
+
+    private void guardarPlanta(String URL) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, response -> {
+            Toast.makeText(getApplicationContext(), "Respuesta del servidor: " + response, Toast.LENGTH_LONG).show();
+
+            // Podrías limpiar campos o cerrar actividad
+            Intent intRtoMain = new Intent(NuevaP.this, MainActivity.class);
+            startActivity(intRtoMain);
+
+        }, error -> Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show()) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> parametros = new HashMap<>();
+
+                String nombre = etNombre.getText().toString().trim();
+
+                // Por ahora no tienes descripción, cuidados ni uso en el XML,
+                // si quieres agregar esos campos, crea EditText y recupéralos aquí.
+                // En este ejemplo, sólo mando nombre
+
+                parametros.put("nombre", nombre);
+
+                // Por ejemplo, podrías enviar un campo vacío o default para los demás:
+                parametros.put("descripcion", "");
+                parametros.put("cuidados", "");
+                parametros.put("uso", "");
+
+                // Imagen y ambiente no están enviándose en esta versión.
+
+                return parametros;
+            }
+        };
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                10000,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+
+        requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+    }
 }
+
