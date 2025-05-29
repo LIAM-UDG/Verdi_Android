@@ -48,4 +48,148 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/Logro_uno"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
+        android:layout_marginTop="104dp"
+        android:src="@drawable/logro_one"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/Logro_dos"
+        android:layout_width="117dp"
+        android:layout_height="119dp"
+        android:layout_marginTop="232dp"
+        android:src="@drawable/logro_two"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/Logro_tres"
+        android:layout_width="116dp"
+        android:layout_height="116dp"
+        android:layout_marginBottom="252dp"
+        android:src="@drawable/logro_three"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/Logro_cuatro"
+        android:layout_width="117dp"
+        android:layout_height="118dp"
+        android:layout_marginBottom="124dp"
+        android:src="@drawable/logro_four"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.057"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/descripcion_uno"
+        android:layout_width="240dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="164dp"
+        android:background="@color/fondo2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Nivel 1 de Plantas                                    Has obtenido el nivel 1, tras registrar 1 planta en la app" />
+
+    <TextView
+        android:id="@+id/descripcion_dos"
+        android:layout_width="240dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="296dp"
+        android:background="@color/fondo2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Nivel 2 de Plantas                                    Has obtenido el nivel 2, tras registrar 5 plantas en la app" />
+
+    <TextView
+        android:id="@+id/descripcion_tres"
+        android:layout_width="240dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="252dp"
+        android:background="@color/fondo2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Nivel 3 de Plantas                                    Has obtenido el nivel 3, tras registrar 25 plantas en la app" />
+
+    <TextView
+        android:id="@+id/descripcion_cuatro"
+        android:layout_width="240dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="124dp"
+        android:background="@color/fondo2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Nivel 4 de Plantas                                    Has obtenido el nivel 4, tras registrar 50 plantas en la app" />
+
+    <EditText
+        android:id="@+id/felicitacion_uno"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="124dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Felicidades!          "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/felicitacion_dos"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="256dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Felicidades!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.686"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/felicitacion_tres"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginTop="384dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Felicidades!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.691"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/felicitacion_cuatro"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginBottom="176dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Felicidades!"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.661"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

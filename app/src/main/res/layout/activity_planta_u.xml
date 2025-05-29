@@ -14,7 +14,7 @@
         android:layout_height="47dp"
         android:layout_marginTop="48dp"
         android:fontFamily="serif"
-        android:text=""
+        android:text="Cargando planta..."
         android:textAlignment="center"
         android:textColor="@color/verdeF"
         android:textSize="30sp"
@@ -52,27 +52,14 @@
         android:id="@+id/imPlan"
         android:layout_width="188dp"
         android:layout_height="193dp"
+        android:layout_marginTop="108dp"
         android:padding="-30dp"
-        app:srcCompat="@android:drawable/gallery_thumb"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="104dp"
-        tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/epluEstado"
-        android:layout_width="70dp"
-        android:layout_height="26dp"
-        android:layout_marginTop="352dp"
-        android:fontFamily="serif"
-        android:text="Estado:"
-        android:textAlignment="textStart"
-        android:textColor="@color/verdeF"
-        android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.038"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/gallery_thumb"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/epluTexto"
@@ -91,10 +78,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/epluEstado3"
+        android:id="@+id/epluEstado"
         android:layout_width="70dp"
         android:layout_height="26dp"
-        android:layout_marginTop="352dp"
+        android:layout_marginTop="404dp"
         android:fontFamily="serif"
         android:text="Estado:"
         android:textAlignment="textStart"
@@ -102,7 +89,37 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.038"
+        app:layout_constraintHorizontal_bias="0.043"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/epluEstadoT"
+        android:layout_width="193dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="404dp"
+        android:fontFamily="serif"
+        android:text="Cargando estado..."
+        android:textAlignment="textStart"
+        android:textColor="@color/verdeF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.536"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/epluLugarT"
+        android:layout_width="219dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="536dp"
+        android:fontFamily="serif"
+        android:text="Cargando lugar..."
+        android:textAlignment="textStart"
+        android:textColor="@color/verdeF"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.605"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -110,7 +127,7 @@
         android:id="@+id/epluTemp"
         android:layout_width="115dp"
         android:layout_height="26dp"
-        android:layout_marginTop="384dp"
+        android:layout_marginTop="444dp"
         android:fontFamily="serif"
         android:text="Temperatura:"
         android:textAlignment="textStart"
@@ -118,7 +135,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -126,7 +143,7 @@
         android:id="@+id/epluHume"
         android:layout_width="91dp"
         android:layout_height="27dp"
-        android:layout_marginTop="428dp"
+        android:layout_marginTop="488dp"
         android:fontFamily="serif"
         android:text="Humedad:"
         android:textAlignment="textStart"
@@ -134,7 +151,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -142,7 +159,7 @@
         android:id="@+id/epluLugar"
         android:layout_width="70dp"
         android:layout_height="26dp"
-        android:layout_marginTop="476dp"
+        android:layout_marginTop="536dp"
         android:fontFamily="serif"
         android:text="Lugar:"
         android:textAlignment="textStart"
@@ -150,7 +167,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.052"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -158,7 +175,7 @@
         android:id="@+id/epluAgua"
         android:layout_width="140dp"
         android:layout_height="28dp"
-        android:layout_marginTop="516dp"
+        android:layout_marginTop="576dp"
         android:fontFamily="serif"
         android:text="Agua utilizada:"
         android:textAlignment="textStart"
@@ -166,7 +183,7 @@
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -179,6 +196,61 @@
         android:text="Inicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bplEdiP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="644dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Editar planta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bpluElim"
+        android:layout_width="132dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="108dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Eliminar"
+        android:textAlignment="center"
+        android:textColor="@color/fondo1"
+        app:icon="@drawable/eliminar"
+        app:iconTint="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.895"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/epluApo"
+        android:layout_width="67dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="360dp"
+        android:fontFamily="serif"
+        android:text="Apodo"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/epluApot"
+        android:layout_width="245dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="360dp"
+        android:fontFamily="serif"
+        android:text="Cargando apodo..."
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.698"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

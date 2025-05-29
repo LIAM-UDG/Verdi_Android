@@ -16,19 +16,19 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class SugerirP extends AppCompatActivity {
 
-    private ImageView imgPlanta;
-    private Button btnSubirFoto;
-    private EditText etNombre;
-    private EditText etDescripcion;
-    private Button btnContinuar;
-    private Button bnpNptoPrin;
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_sugerir_p); // Cambiado a activity_sugerir_p
+
+        ImageView imgPlanta;
+        Button btnSubirFoto;
+        EditText etNombre;
+        EditText etDescripcion;
+        Button btnContinuar;
+        Button bnpNptoPrin;
 
         // Inicializar los elementos del layout
         imgPlanta = findViewById(R.id.imgPlanta);

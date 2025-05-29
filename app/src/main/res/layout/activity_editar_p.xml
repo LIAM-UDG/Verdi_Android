@@ -19,7 +19,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:fontFamily="serif"
-        android:text="Nueva Planta"
+        android:text="Editar Planta"
         android:textColor="@color/verdeF"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -56,41 +56,53 @@
 
     <!-- Botón Continuar -->
 
-    <Button
-        android:id="@+id/btnSubirFoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/verdeM"
-        android:text="Subir foto"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toEndOf="@id/imgPlanta"
-        app:layout_constraintTop_toBottomOf="@id/linea" />
-
     <Spinner
-        android:id="@+id/spnAmbiente"
+        android:id="@+id/spnEpAmbiente"
         android:layout_width="0dp"
         android:layout_height="48sp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="96dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAmbiente" />
-
-    <Spinner
-        android:id="@+id/spnEstadoP"
-        android:layout_width="0dp"
-        android:layout_height="48sp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAmbiente" />
+        app:layout_constraintTop_toBottomOf="@+id/tvAmbiente2" />
+
+    <TextView
+        android:id="@+id/tvAmbiente3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="432dp"
+        android:text="Estado"
+        android:textColor="@color/verdeF"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAmbiente2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="320dp"
+        android:text="Ambiente"
+        android:textColor="@color/verdeF"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Spinner
+        android:id="@+id/spnEpEstadoP"
+        android:layout_width="0dp"
+        android:layout_height="48sp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAmbiente3" />
 
     <ImageView
         android:id="@+id/imgPlanta"
@@ -104,7 +116,7 @@
         app:layout_constraintTop_toBottomOf="@id/linea" />
 
     <TextView
-        android:id="@+id/tvNombre"
+        android:id="@+id/eepNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -116,7 +128,7 @@
         app:layout_constraintTop_toBottomOf="@id/imgPlanta" />
 
     <EditText
-        android:id="@+id/etNombre"
+        android:id="@+id/edepNombre"
         android:layout_width="219dp"
         android:layout_height="48dp"
         android:layout_marginStart="32dp"
@@ -125,55 +137,7 @@
         android:hint="Apodo"
         android:padding="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvNombre" />
-
-    <TextView
-        android:id="@+id/tvAmbiente"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="16dp"
-        android:text="TIpo de Planta"
-        android:textColor="@color/verdeF"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNombre" />
-
-    <Spinner
-        android:id="@+id/spnTipoP"
-        android:layout_width="0dp"
-        android:layout_height="48sp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAmbiente" />
-
-    <TextView
-        android:id="@+id/tvAmbiente2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="104dp"
-        android:text="Ambiente"
-        android:textColor="@color/verdeF"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNombre" />
-
-    <TextView
-        android:id="@+id/tvAmbiente3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="200dp"
-        android:text="Estado"
-        android:textColor="@color/verdeF"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNombre" />
+        app:layout_constraintTop_toBottomOf="@id/eepNombre" />
 
     <Button
         android:id="@+id/btnContinuar"

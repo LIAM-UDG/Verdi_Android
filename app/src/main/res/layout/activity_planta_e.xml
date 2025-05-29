@@ -57,7 +57,7 @@
             <TextView
                 android:id="@+id/epleDescText"
                 android:layout_width="match_parent"
-                android:layout_height="424dp"
+                android:layout_height="462dp"
                 android:fontFamily="serif"
                 android:text="Cargando descripción..."
                 android:textColor="@color/verdeF"
@@ -76,7 +76,7 @@
             <TextView
                 android:id="@+id/epleCuidadText"
                 android:layout_width="match_parent"
-                android:layout_height="192dp"
+                android:layout_height="229dp"
                 android:fontFamily="serif"
                 android:text="Cargando cuidados..."
                 android:textColor="@color/verdeF"
@@ -95,7 +95,7 @@
             <TextView
                 android:id="@+id/epleUsoText"
                 android:layout_width="match_parent"
-                android:layout_height="215dp"
+                android:layout_height="230dp"
                 android:fontFamily="serif"
                 android:text="Cargando usos..."
                 android:textColor="@color/verdeF"

@@ -36,7 +36,7 @@ public class PerfilUs extends AppCompatActivity {
         //Creacion de la instancia de las preferencias(informacion de sesion)
         SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
         //Llamada al metodo de buscar usuario para mostrar su informacion usando la info de la prefencia de correo
-        buscarUsuario("http://192.168.1.104:80/lothgarder/buscarU.php?correo="+preferences.getString("Correo",""));
+        buscarUsuario("http://10.116.133.114:80/lothgarder/buscarU.php?correo="+preferences.getString("Correo",""));
 
         //Accion de Boton para salir de Perfil Usuario a la Pantalla Principal
         Button buUtoPrin = findViewById(R.id.buUtoPrin);

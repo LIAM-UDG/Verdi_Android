@@ -76,8 +76,9 @@
     <EditText
         android:id="@+id/etNombre"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:background="#E6E2C4"
+        android:hint="Nombre"
         app:layout_constraintTop_toBottomOf="@id/tvNombre"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

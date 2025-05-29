@@ -60,7 +60,7 @@ public class    InUsuario extends AppCompatActivity {
                 correo = ediCorreo.getText().toString();
                 contra = ediContra.getText().toString();
 
-                validarUsuario("http://192.168.1.104:80/lothgarder/validarU.php");
+                validarUsuario("http://10.116.133.114:80/lothgarder/validarU.php");
 
             }
         });

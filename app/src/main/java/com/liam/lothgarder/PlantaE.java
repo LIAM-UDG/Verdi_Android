@@ -39,7 +39,7 @@ public class PlantaE extends AppCompatActivity {
         int PKpl = intent.getIntExtra("PKpl",0);
 
         //Llamada al metodo de buscar usuario para mostrar su informacion usando la info de la prefencia de correo
-        buscarPlantaE("http://192.168.1.104:80/lothgarder/buscarP.php?planta="+PKpl);
+        buscarPlantaE("http://10.116.133.114:80/lothgarder/buscarP.php?planta="+PKpl);
 
         Button bplePletoEn = findViewById(R.id.bplePletoEn);
         bplePletoEn.setOnClickListener(new View.OnClickListener() {

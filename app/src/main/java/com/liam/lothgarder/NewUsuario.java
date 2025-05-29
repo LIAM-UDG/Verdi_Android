@@ -58,7 +58,7 @@ public class NewUsuario extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Guardar datos en base
-                guardarUsuario("http://192.168.1.104:80/lothgarder/insertarU.php");
+                guardarUsuario("http://10.116.133.114:80/lothgarder/insertarU.php");
                 //Cambiar la IP si se reinicia la computadora
 
                 /*
@@ -93,8 +93,8 @@ public class NewUsuario extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getApplicationContext(), "Respuesta del servidor: " + response, Toast.LENGTH_LONG).show();
-                EditText edError = findViewById(R.id.error);
-                edError.setText(response);
+                /*EditText edError = findViewById(R.id.error);
+                edError.setText(response);*/
                 //Pasar a pantalla principal tras registrar
                 Intent intRtoP = new Intent(NewUsuario.this, InUsuario.class);
                 startActivity(intRtoP);

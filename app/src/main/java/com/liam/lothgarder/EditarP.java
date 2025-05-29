@@ -4,8 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,68 +29,53 @@ import com.android.volley.toolbox.Volley;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NuevaP extends AppCompatActivity{
+public class EditarP extends AppCompatActivity{
 
     RequestQueue requestQueue;
     ImageView imgPlanta;
-    Button btnSubirFoto, btnContinuar;
-    EditText etNombre;
-    Spinner spnTipoP, spnAmbiente, spnEstadoP;
+    Button btnContinuar;
+    EditText edepNombre;
+    Spinner spnEpAmbiente, spnEpEstadoP;
+    Intent intent2 = getIntent();
+    String nombreP = intent2.getStringExtra("nombre");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_nueva_p);
+        setContentView(R.layout.activity_editar_p);
 
         // Vistas
         imgPlanta = findViewById(R.id.imgPlanta);
-        btnSubirFoto = findViewById(R.id.btnSubirFoto);
         btnContinuar = findViewById(R.id.btnContinuar);
-        etNombre = findViewById(R.id.etNombre);
-        spnTipoP = findViewById(R.id.spnTipoP);
-        spnAmbiente = findViewById(R.id.spnAmbiente);
-        spnEstadoP = findViewById(R.id.spnEstadoP);
+        edepNombre = findViewById(R.id.edepNombre);
+        spnEpAmbiente = findViewById(R.id.spnEpAmbiente);
+        spnEpEstadoP = findViewById(R.id.spnEpEstadoP);
 
-        ArrayAdapter<String> aaTPlanta = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
-        aaTPlanta.addAll("Selecciona una planta","Lavanda", "Sabila", "Menta", "Manzanilla", "Albahaca", "Romero", "Planta araña", "Bugambilia", "Cactus", "Orquidea");
-        spnTipoP.setAdapter(aaTPlanta);
 
         ArrayAdapter<String> aaTAmbiente = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
         aaTAmbiente.addAll("Selecciona una ambiente","Interior", "Exterior", "Sombra", "Luz");
-        spnAmbiente.setAdapter(aaTAmbiente);
+        spnEpAmbiente.setAdapter(aaTAmbiente);
 
         ArrayAdapter<String> aaEstadoP = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
         aaEstadoP.addAll("Selecciona un estado","Muy Saludable", "Saludable", "Regular", "Malo", "Pésimo");
-        spnEstadoP.setAdapter(aaEstadoP);
+        spnEpEstadoP.setAdapter(aaEstadoP);
 
-        Toast.makeText(NuevaP.this, "Pantalla nueva planta", Toast.LENGTH_LONG).show();
-
-        btnSubirFoto.setOnClickListener(v -> {
-            Toast.makeText(NuevaP.this, "Funcionalidad subir foto pendiente", Toast.LENGTH_SHORT).show();
-            // Aquí agregarás el selector de imagen o cámara
-        });
+        Toast.makeText(EditarP.this, "Pantalla nueva planta", Toast.LENGTH_LONG).show();
 
         btnContinuar.setOnClickListener(v -> {
-            String plantaSeleccionada = spnTipoP.getSelectedItem().toString();
-            String ambienteSeleccionado = spnAmbiente.getSelectedItem().toString();
-            String estadoSeleccionado = spnEstadoP.getSelectedItem().toString();
+            String ambienteSeleccionado = spnEpAmbiente.getSelectedItem().toString();
+            String estadoSeleccionado = spnEpEstadoP.getSelectedItem().toString();
 
-            if (plantaSeleccionada.equals("Selecciona una planta")) {
-                Toast.makeText(NuevaP.this, "Por favor selecciona una planta válido", Toast.LENGTH_SHORT).show();
-            } else {
                 if (ambienteSeleccionado.equals("Selecciona una planta")) {
-                    Toast.makeText(NuevaP.this, "Por favor selecciona un ambiente válido", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(EditarP.this, "Por favor selecciona un ambiente válido", Toast.LENGTH_SHORT).show();
                 } else {
                     if (estadoSeleccionado.equals("Selecciona un estado")) {
-                        Toast.makeText(NuevaP.this, "Por favor selecciona un estado válido", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(EditarP.this, "Por favor selecciona un estado válido", Toast.LENGTH_SHORT).show();
                     } else {
-                        guardarPlanta("http://10.116.133.114:80/lothgarder/insertarP.php");
-                        Intent intNptoPs = new Intent(NuevaP.this, Plantas.class);
-                        startActivity(intNptoPs);
+                        editarPlanta("http://10.116.133.114:80/lothgarder/editarP.php");
                     }
                 }
-            }
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -103,7 +86,7 @@ public class NuevaP extends AppCompatActivity{
     }
 
     //Metodo para guardar planta
-    private void guardarPlanta(String URL){
+    private void editarPlanta(String URL){
         //Creacion de la peticion al servidor con el metodo POST
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -126,20 +109,19 @@ public class NuevaP extends AppCompatActivity{
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 //Definicion local de editText
-                EditText edApodo = findViewById(R.id.etNombre);
+                EditText edApodo = findViewById(R.id.edepNombre);
                 //Definicion local del spinner
-                spnTipoP = findViewById(R.id.spnTipoP);
-                spnAmbiente = findViewById(R.id.spnAmbiente);
-                spnEstadoP = findViewById(R.id.spnEstadoP);
+                spnEpAmbiente = findViewById(R.id.spnEpAmbiente);
+                spnEpEstadoP = findViewById(R.id.spnEpEstadoP);
                 //Llamada de sesion
                 SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
 
                 //Metodo Map que manda los datos de la peticion al servidor extrallendo informacion del editText para guardar en la base
                 Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("nombre", spnTipoP.getSelectedItem().toString());
+                parametros.put("nombre", nombreP);
                 parametros.put("apodo", edApodo.getText().toString());
-                parametros.put("estado", spnEstadoP.getSelectedItem().toString());
-                parametros.put("lugar", spnAmbiente.getSelectedItem().toString());
+                parametros.put("estado", spnEpEstadoP.getSelectedItem().toString());
+                parametros.put("lugar", spnEpAmbiente.getSelectedItem().toString());
                 parametros.put("usuario", preferences.getString("Correo",""));
 
                 return parametros;
@@ -157,48 +139,5 @@ public class NuevaP extends AppCompatActivity{
         requestQueue.add(stringRequest);
 
     }
-
-
-    /*private void guardarPlanta(String URL) {
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, response -> {
-            Toast.makeText(getApplicationContext(), "Respuesta del servidor: " + response, Toast.LENGTH_LONG).show();
-
-            // Podrías limpiar campos o cerrar actividad
-            Intent intRtoMain = new Intent(NuevaP.this, MainActivity.class);
-            startActivity(intRtoMain);
-
-        }, error -> Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_LONG).show()) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> parametros = new HashMap<>();
-
-                String nombre = etNombre.getText().toString();
-
-                // Por ahora no tienes descripción, cuidados ni uso en el XML,
-                // si quieres agregar esos campos, crea EditText y recupéralos aquí.
-                // En este ejemplo, sólo mando nombre
-
-                parametros.put("nombre", nombre);
-
-                // Por ejemplo, podrías enviar un campo vacío o default para los demás:
-                parametros.put("descripcion", "");
-                parametros.put("cuidados", "");
-                parametros.put("uso", "");
-
-                // Imagen y ambiente no están enviándose en esta versión.
-
-                return parametros;
-            }
-        };
-
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                10000,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-
-        requestQueue = Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-    }*/
-
 }
 

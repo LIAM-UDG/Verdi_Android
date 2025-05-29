@@ -1,6 +1,8 @@
 package com.liam.lothgarder;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,8 +13,25 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Plantas extends AppCompatActivity {
+
+    planta plantaSeleccionada = null;
+    RecyclerView recyclerView;
+    adaptadorRecycler adapter;
+    List<planta> listaPlantas;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,13 +39,50 @@ public class Plantas extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_plantas);
 
-        Button bplNu2 = findViewById(R.id.bplNu2);
-        bplNu2.setOnClickListener(new View.OnClickListener() {
+        recyclerView = findViewById(R.id.rvP);
+        listaPlantas = new ArrayList<>();
+        adapter = new adaptadorRecycler(listaPlantas, planta -> {
+            plantaSeleccionada = planta;
+        });
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(adapter);
+
+        // Obtener correo del usuario desde SharedPreferences
+        SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
+        String correoU= preferences.getString("Correo", "");
+
+        if (!correoU.isEmpty()) {
+            buscarPlantas("http://10.116.133.114:80/lothgarder/buscarPs.php?correo=" + correoU);
+        } else {
+            Toast.makeText(this, "No se encontró el correo del usuario", Toast.LENGTH_SHORT).show();
+        }
+
+        Button bplNuP = findViewById(R.id.bplNuP);
+        bplNuP.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 Toast.makeText(Plantas.this, "Avanzando a registrar planta...", Toast.LENGTH_SHORT).show();
                 Intent intPltoPU = new Intent(Plantas.this, NuevaP.class);
                 startActivity(intPltoPU);
+            }
+        });
+
+        Button bplSelP = findViewById(R.id.bplSelP);
+        bplSelP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (plantaSeleccionada != null) {
+                    // Aquí guardas o usas la planta seleccionada
+                    Toast.makeText(Plantas.this, "Planta seleccionada: " + plantaSeleccionada.getNombre(), Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(Plantas.this, PlantaU.class);
+                    intent.putExtra("nombre", plantaSeleccionada.getNombre());
+                    startActivity(intent);
+
+                } else {
+                    Toast.makeText(Plantas.this, "Selecciona una planta primero", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -45,5 +101,26 @@ public class Plantas extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+
+    private void buscarPlantas(String URL) {
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL,
+                response -> {
+                    for (int i = 0; i < response.length(); i++) {
+                        try {
+                            JSONObject plantaJSON = response.getJSONObject(i);
+                            String nombre = plantaJSON.getString("nombre");
+                            listaPlantas.add(new planta(nombre));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    adapter.notifyDataSetChanged();
+                },
+                error -> Toast.makeText(this, "Error al conectar con el servidor", Toast.LENGTH_SHORT).show()
+        );
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
     }
 }
