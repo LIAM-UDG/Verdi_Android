@@ -2,6 +2,7 @@ package com.liam.lothgarder;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -58,7 +59,15 @@ public class NewUsuario extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Guardar datos en base
-                guardarUsuario("http://10.116.133.114:80/lothgarder/insertarU.php");
+                //Guardar usuario base en la nube
+                guardarUsuario("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io/?accion=insertarU");
+
+                //guardarUsuario("http://localhost/LothGarderCl/insertarULothGarder.php");
+                /*
+                Servidor local
+                guardarUsuario("http://192.168.137.128:80/lothgarder/insertarU.php");
+                */
+
                 //Cambiar la IP si se reinicia la computadora
 
                 /*
@@ -71,7 +80,7 @@ public class NewUsuario extends AppCompatActivity {
                 //Toast.makeText(NewUsuario.this, "Usuario Guardado", Toast.LENGTH_LONG).show();
                 /*Intent intRGua = new Intent(NewUsuario.this, PerfilUs.class);
                 intRGua.putExtra("Nombre", caNom);
-                intRGua.putExtra("Edad", caEdad);
+                intRGua.putExtra("Edad", caEdad);2
                 intRGua.putExtra("Correo", caCor);
                 intRGua.putExtra("Contra", caCon);
 
@@ -88,6 +97,8 @@ public class NewUsuario extends AppCompatActivity {
 
     //Metodo para guardar el usuario
     private void guardarUsuario(String URL){
+
+
         //Creacion de la peticion al servidor con el metodo POST
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
@@ -103,7 +114,8 @@ public class NewUsuario extends AppCompatActivity {
         }, new Response.ErrorListener(){
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), error.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(),"Error: " +  error.toString(),Toast.LENGTH_LONG).show();
+                Log.e("Volley Error", error.toString());
             }
 
         }) {

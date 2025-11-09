@@ -23,27 +23,27 @@ public class Enci extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_enci);
 
-        // Botón Lavanda
-        Button beLava = findViewById(R.id.beLava);
-        beLava.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intEtoLa = new Intent(Enci.this, PlantaE.class);
-                PKpl = 1;
-                intEtoLa.putExtra("PKpl", PKpl);
-                startActivity(intEtoLa);
-            }
-        });
-
         // Botón Aloe Vera
         Button beAloe = findViewById(R.id.beAloe);
         beAloe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intEtoAl = new Intent(Enci.this, PlantaE.class);
-                PKpl = 2;
+                PKpl = 1;
                 intEtoAl.putExtra("PKpl", PKpl);
                 startActivity(intEtoAl);
+            }
+        });
+
+        // Botón Lavanda
+        Button beLava = findViewById(R.id.beLava);
+        beLava.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intEtoLa = new Intent(Enci.this, PlantaE.class);
+                PKpl = 2;
+                intEtoLa.putExtra("PKpl", PKpl);
+                startActivity(intEtoLa);
             }
         });
 
@@ -83,39 +83,15 @@ public class Enci extends AppCompatActivity {
             }
         });
 
-        // Botón Bugambilia
-        Button beBugam = findViewById(R.id.beBugam);
-        beBugam.setOnClickListener(new View.OnClickListener() {
+        // Botón Romero
+        Button beRomero = findViewById(R.id.beRomero);
+        beRomero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intEtoBu = new Intent(Enci.this, PlantaE.class);
+                Intent intEtoRo = new Intent(Enci.this, PlantaE.class);
                 PKpl = 6;
-                intEtoBu.putExtra("PKpl", PKpl);
-                startActivity(intEtoBu);
-            }
-        });
-
-        // Botón Orquídea
-        Button beOrqui = findViewById(R.id.beOrqui);
-        beOrqui.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intEtoOr = new Intent(Enci.this, PlantaE.class);
-                PKpl = 7;
-                intEtoOr.putExtra("PKpl", PKpl);
-                startActivity(intEtoOr);
-            }
-        });
-
-        // Botón Cactus
-        Button beCactus = findViewById(R.id.beCactus);
-        beCactus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intEtoCa = new Intent(Enci.this, PlantaE.class);
-                PKpl = 8;
-                intEtoCa.putExtra("PKpl", PKpl);
-                startActivity(intEtoCa);
+                intEtoRo.putExtra("PKpl", PKpl);
+                startActivity(intEtoRo);
             }
         });
 
@@ -125,21 +101,45 @@ public class Enci extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intEtoAr = new Intent(Enci.this, PlantaE.class);
-                PKpl = 9;
+                PKpl = 7;
                 intEtoAr.putExtra("PKpl", PKpl);
                 startActivity(intEtoAr);
             }
         });
 
-        // Botón Romero
-        Button beRomero = findViewById(R.id.beRomero);
-        beRomero.setOnClickListener(new View.OnClickListener() {
+        // Botón Bugambilia
+        Button beBugam = findViewById(R.id.beBugam);
+        beBugam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intEtoRo = new Intent(Enci.this, PlantaE.class);
+                Intent intEtoBu = new Intent(Enci.this, PlantaE.class);
+                PKpl = 8;
+                intEtoBu.putExtra("PKpl", PKpl);
+                startActivity(intEtoBu);
+            }
+        });
+
+        // Botón Cactus
+        Button beCactus = findViewById(R.id.beCactus);
+        beCactus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intEtoCa = new Intent(Enci.this, PlantaE.class);
+                PKpl = 9;
+                intEtoCa.putExtra("PKpl", PKpl);
+                startActivity(intEtoCa);
+            }
+        });
+
+        // Botón Orquídea
+        Button beOrqui = findViewById(R.id.beOrqui);
+        beOrqui.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intEtoOr = new Intent(Enci.this, PlantaE.class);
                 PKpl = 10;
-                intEtoRo.putExtra("PKpl", PKpl);
-                startActivity(intEtoRo);
+                intEtoOr.putExtra("PKpl", PKpl);
+                startActivity(intEtoOr);
             }
         });
 

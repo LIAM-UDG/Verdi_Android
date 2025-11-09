@@ -10,14 +10,14 @@
 
     <TextView
         android:id="@+id/eiTitulo"
-        android:layout_width="255dp"
-        android:layout_height="36dp"
+        android:layout_width="280dp"
+        android:layout_height="53dp"
         android:layout_marginTop="40dp"
         android:fontFamily="serif"
         android:text="Inicio de sesión"
         android:textAlignment="center"
         android:textColor="@color/verdeF"
-        android:textSize="30sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,24 +25,25 @@
 
     <TextView
         android:id="@+id/eiCorreo"
-        android:layout_width="174dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="148dp"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="160dp"
         android:fontFamily="serif"
         android:text="Correo Electronico"
         android:textAlignment="textStart"
         android:textColor="@color/verdeF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 
     <EditText
         android:id="@+id/ediCorreo"
         android:layout_width="354dp"
         android:layout_height="48dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="30dp"
         android:background="@color/fondo2"
         android:ems="10"
         android:inputType="text"
@@ -54,16 +55,16 @@
 
     <TextView
         android:id="@+id/eiContra"
-        android:layout_width="174dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="32dp"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="45dp"
         android:fontFamily="serif"
         android:text="Contraseña"
         android:textAlignment="textStart"
         android:textColor="@color/verdeF"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.139"
+        app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ediCorreo" />
 
@@ -71,7 +72,7 @@
         android:id="@+id/ediContra"
         android:layout_width="354dp"
         android:layout_height="48dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="30dp"
         android:background="@color/fondo2"
         android:ems="10"
         android:hint="Contraseña"

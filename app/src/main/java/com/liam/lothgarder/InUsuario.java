@@ -60,7 +60,11 @@ public class    InUsuario extends AppCompatActivity {
                 correo = ediCorreo.getText().toString();
                 contra = ediContra.getText().toString();
 
-                validarUsuario("http://10.116.133.114:80/lothgarder/validarU.php");
+                validarUsuario("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io/?accion=validarU");
+
+                /*
+                Funcion de host local
+                validarUsuario("http://192.168.137.128:80/lothgarder/validarU.php");*/
 
             }
         });
@@ -151,7 +155,7 @@ public class    InUsuario extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> parametros = new HashMap<String,String>();
                 parametros.put("Correo", correo);
-                parametros.put("Contraseña", contra);
+                parametros.put("Contrasena", contra);
 
                 //parametros.put("Correo", ediCorreo.getText().toString());
                 //parametros.put("Contraseña", ediContra.getText().toString());
@@ -170,7 +174,8 @@ public class    InUsuario extends AppCompatActivity {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("Correo", correo);
         //editor.putString("Nombre", );
-        editor.putString("Contraseña", contra);
+        // Local -> editor.putString("Contraseña", contra);
+        editor.putString("Contrasena", contra);
         editor.putBoolean("Sesion",true);
         editor.commit();
 
@@ -180,7 +185,8 @@ public class    InUsuario extends AppCompatActivity {
     private void recuperarSesion() {
         SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
         ediCorreo.setText(preferences.getString("Correo","ejemplocorreo@gmail.com"));
-        ediContra.setText(preferences.getString("Contraseña","contraseña"));
+        ediContra.setText(preferences.getString("Contrasena","contrasena"));
+        //Local -> ediContra.setText(preferences.getString("Contraseña","contraseña"));
     }
 
 }

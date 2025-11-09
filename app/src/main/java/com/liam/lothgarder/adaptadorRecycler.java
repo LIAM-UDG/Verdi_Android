@@ -26,6 +26,8 @@ public class adaptadorRecycler extends RecyclerView.Adapter<adaptadorRecycler.Vi
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
+
+        //Nombre Planta Usuario
         TextView eNombrePU;
 
         public ViewHolder(View itemView) {

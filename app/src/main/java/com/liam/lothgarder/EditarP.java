@@ -73,7 +73,7 @@ public class EditarP extends AppCompatActivity{
                     if (estadoSeleccionado.equals("Selecciona un estado")) {
                         Toast.makeText(EditarP.this, "Por favor selecciona un estado válido", Toast.LENGTH_SHORT).show();
                     } else {
-                        editarPlanta("http://10.116.133.114:80/lothgarder/editarP.php");
+                        editarPlanta("http://192.168.137.128:80/lothgarder/editarP.php");
                     }
                 }
         });

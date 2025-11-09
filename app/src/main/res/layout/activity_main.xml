@@ -10,13 +10,13 @@
 
     <TextView
         android:id="@+id/emTitulo"
-        android:layout_width="251dp"
-        android:layout_height="55dp"
+        android:layout_width="296dp"
+        android:layout_height="64dp"
         android:fontFamily="serif"
         android:text="LothGarder"
         android:textAlignment="center"
         android:textColor="@color/verdeF"
-        android:textSize="40sp"
+        android:textSize="42sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -25,12 +25,11 @@
         app:layout_constraintVertical_bias="0.115" />
 
 
-
     <Button
         android:id="@+id/bmMtoIn"
         android:layout_width="250dp"
         android:layout_height="48dp"
-        android:layout_marginTop="436dp"
+        android:layout_marginTop="432dp"
         android:backgroundTint="@color/verdeM"
         android:text="Inicio de Sesión"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,8 +49,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bmMtoIn"/>
 
-
-    <!--<Button
+    <!--
+    <Button
         android:id="@+id/bmMtoPrin"
         android:layout_width="250dp"
         android:layout_height="48dp"
@@ -61,6 +60,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />-->
+        app:layout_constraintStart_toStartOf="parent" />
+    -->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

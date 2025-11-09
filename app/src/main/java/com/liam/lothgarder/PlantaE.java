@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -38,8 +39,13 @@ public class PlantaE extends AppCompatActivity {
         Intent intent = getIntent();
         int PKpl = intent.getIntExtra("PKpl",0);
 
-        //Llamada al metodo de buscar usuario para mostrar su informacion usando la info de la prefencia de correo
-        buscarPlantaE("http://10.116.133.114:80/lothgarder/buscarP.php?planta="+PKpl);
+        //Clever Cloud
+        buscarPlantaE("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io/?accion=buscarP&planta="+PKpl);
+
+        /*Llamada al metodo de buscar usuario para mostrar su informacion usando la info de la prefencia de correo
+        Local
+        buscarPlantaE("http://192.168.137.128:80/lothgarder/buscarP.php?planta="+PKpl);
+        */
 
         Button bplePletoEn = findViewById(R.id.bplePletoEn);
         bplePletoEn.setOnClickListener(new View.OnClickListener() {
@@ -103,7 +109,41 @@ public class PlantaE extends AppCompatActivity {
                     }
                 }
             }
-        }, new Response.ErrorListener() {
+        },  new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                // CAMBIO: Agregado log para debug detallado del error
+                if (error.networkResponse != null) {
+                    int statusCode = error.networkResponse.statusCode;
+                    String responseBody = "";
+                    if (error.networkResponse.data != null) {
+                        responseBody = new String(error.networkResponse.data);
+                    }
+                    Log.e("VolleyError", "Código de error: " + statusCode);
+                    Log.e("VolleyError", "Respuesta del servidor: " + responseBody);
+                } else if (error.getCause() != null) {
+                    Log.e("VolleyError", "Causa del error: " + error.getCause().getMessage());
+                } else {
+                    Log.e("VolleyError", "Error desconocido: " + error.toString());
+                }
+                Toast.makeText(getApplicationContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
+            }
+
+            /*@Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getApplicationContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
+            }*/
+        }) {
+            @Override
+            public java.util.Map<String, String> getHeaders() {
+                java.util.Map<String, String> headers = new java.util.HashMap<>();
+                headers.put("User-Agent", "Mozilla/5.0 (Android)");
+                headers.put("Accept", "application/json");
+                return headers;
+            }
+        };
+
+                /*new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
                 //Log.e("Volley", "Error: " + error.toString());
@@ -111,7 +151,7 @@ public class PlantaE extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
             }
         }
-        );
+        );*/
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);

@@ -54,6 +54,7 @@ public class NuevaP extends AppCompatActivity{
         spnAmbiente = findViewById(R.id.spnAmbiente);
         spnEstadoP = findViewById(R.id.spnEstadoP);
 
+        //El ArrayAdapter es para meterlo dentro del Spinner del XML
         ArrayAdapter<String> aaTPlanta = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
         aaTPlanta.addAll("Selecciona una planta","Lavanda", "Sabila", "Menta", "Manzanilla", "Albahaca", "Romero", "Planta araña", "Bugambilia", "Cactus", "Orquidea");
         spnTipoP.setAdapter(aaTPlanta);
@@ -87,7 +88,11 @@ public class NuevaP extends AppCompatActivity{
                     if (estadoSeleccionado.equals("Selecciona un estado")) {
                         Toast.makeText(NuevaP.this, "Por favor selecciona un estado válido", Toast.LENGTH_SHORT).show();
                     } else {
-                        guardarPlanta("http://10.116.133.114:80/lothgarder/insertarP.php");
+                        guardarPlanta("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io//?accion=insertarP");
+                        /*
+                        Guardado en local
+                        guardarPlanta("http:// 192.168.137.128:80/lothgarder/insertarP.php");
+                         */
                         Intent intNptoPs = new Intent(NuevaP.this, Plantas.class);
                         startActivity(intNptoPs);
                     }

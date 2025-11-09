@@ -28,13 +28,13 @@
         android:id="@+id/beLava"
         android:layout_width="134dp"
         android:layout_height="66dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="112dp"
         android:backgroundTint="@color/verdeC"
         android:text="Lavanda"
         android:textColorLink="@color/verdeC"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,12 +42,12 @@
         android:id="@+id/beAloe"
         android:layout_width="134dp"
         android:layout_height="66dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="112dp"
         android:backgroundTint="@color/verdeC"
         android:text="Aloe Vera"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -59,7 +59,7 @@
         android:backgroundTint="@color/verdeC"
         android:text="Menta"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -71,7 +71,7 @@
         android:backgroundTint="@color/verdeC"
         android:text="Manzanilla"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,7 +83,7 @@
         android:backgroundTint="@color/verdeC"
         android:text="Albahaca"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -95,7 +95,7 @@
         android:backgroundTint="@color/verdeC"
         android:text="Bugambilia"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/beRomero" />
 
@@ -107,7 +107,7 @@
         android:backgroundTint="@color/verdeC"
         android:text="Orquidea"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/beBugam" />
 
@@ -115,11 +115,11 @@
         android:id="@+id/beCactus"
         android:layout_width="134dp"
         android:layout_height="66dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/verdeC"
         android:text="Cactus"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/beArana" />
 
@@ -131,7 +131,7 @@
         android:backgroundTint="@color/verdeC"
         android:text="Planta araña"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/beAlba" />
 
@@ -143,27 +143,27 @@
         android:backgroundTint="@color/verdeC"
         android:text="Romero"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.776"
+        app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/beEtoMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="644dp"
+        android:layout_width="127dp"
+        android:layout_height="48dp"
+        android:layout_marginBottom="36dp"
         android:backgroundTint="@color/verdeM"
         android:text="Inicio"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.086"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/beSu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="48dp"
         android:layout_marginBottom="36dp"
         android:backgroundTint="@color/verdeM"
         android:text="Sugerir Planta"

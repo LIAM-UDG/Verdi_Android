@@ -23,7 +23,7 @@
             <TextView
                 android:id="@+id/epleTitulo"
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
+                android:layout_height="50dp"
                 android:fontFamily="serif"
                 android:text="Cargando planta..."
                 android:textColor="@color/verdeF"
@@ -31,11 +31,19 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
+
+            <TextView
                 android:id="@+id/epleBarrita"
                 android:layout_width="380dp"
                 android:layout_height="2dp"
                 android:text=""
                 android:background="@color/verdeF"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="5dp"/>
 
             <ImageView
                 android:id="@+id/imPlan"
@@ -47,7 +55,7 @@
             <TextView
                 android:id="@+id/epleDescrip"
                 android:layout_width="match_parent"
-                android:layout_height="33dp"
+                android:layout_height="40dp"
                 android:fontFamily="serif"
                 android:text="Descripción"
                 android:textColor="@color/verdeF"
@@ -66,7 +74,7 @@
             <TextView
                 android:id="@+id/epleCuidados"
                 android:layout_width="match_parent"
-                android:layout_height="33dp"
+                android:layout_height="40dp"
                 android:fontFamily="serif"
                 android:text="Cuidados"
                 android:textColor="@color/verdeF"
@@ -85,7 +93,7 @@
             <TextView
                 android:id="@+id/epleUsos"
                 android:layout_width="match_parent"
-                android:layout_height="33dp"
+                android:layout_height="40dp"
                 android:fontFamily="serif"
                 android:text="Usos"
                 android:textColor="@color/verdeF"

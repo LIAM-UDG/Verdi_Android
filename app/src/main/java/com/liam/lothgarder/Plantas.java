@@ -52,7 +52,11 @@ public class Plantas extends AppCompatActivity {
         String correoU= preferences.getString("Correo", "");
 
         if (!correoU.isEmpty()) {
-            buscarPlantas("http://10.116.133.114:80/lothgarder/buscarPs.php?correo=" + correoU);
+            buscarPlantas("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io//?accion=buscarPs&correo=" + correoU);
+            /*
+            Funcion local
+            buscarPlantas("http://192.168.137.128:80/lothgarder/buscarPs.php?correo=" + correoU);
+             */
         } else {
             Toast.makeText(this, "No se encontró el correo del usuario", Toast.LENGTH_SHORT).show();
         }

@@ -52,7 +52,7 @@ public class PlantaU extends AppCompatActivity {
         preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
         correoU = preferences.getString("Correo","");
 
-        buscarPlanatU("http://10.116.133.114:80/lothgarder/buscarPU.php?nombre=" + nombreP + "&usuario=" + correoU);
+        buscarPlanatU("http:// 192.168.137.128:80/lothgarder/buscarPU.php?nombre=" + nombreP + "&usuario=" + correoU);
 
 
         Button bpluElim = findViewById(R.id.bpluElim);
@@ -60,7 +60,7 @@ public class PlantaU extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                eliminarPlanta( "http://10.116.133.114:80/lothgarder/eliminarPU.php");
+                eliminarPlanta( "http:// 192.168.137.128:80/lothgarder/eliminarPU.php");
                 Intent intPlutoPs = new Intent(PlantaU.this, Plantas.class);
                 startActivity(intPlutoPs);
             }

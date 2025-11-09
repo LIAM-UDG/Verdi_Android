@@ -35,8 +35,13 @@ public class PerfilUs extends AppCompatActivity {
 
         //Creacion de la instancia de las preferencias(informacion de sesion)
         SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
+
         //Llamada al metodo de buscar usuario para mostrar su informacion usando la info de la prefencia de correo
-        buscarUsuario("http://10.116.133.114:80/lothgarder/buscarU.php?correo="+preferences.getString("Correo",""));
+        //buscarUsuario("http://192.168.137.128:80/lothgarder/buscarU.php?correo="+preferences.getString("Correo",""));
+
+        // local host buscarUsuario("http://192.168.137.128:80/lothgarder/buscarU.php?correo="+preferences.getString("Correo",""));
+
+        buscarUsuario("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io//?accion=buscarU&correo=" + preferences.getString("Correo",""));
 
         //Accion de Boton para salir de Perfil Usuario a la Pantalla Principal
         Button buUtoPrin = findViewById(R.id.buUtoPrin);
@@ -110,7 +115,7 @@ public class PerfilUs extends AppCompatActivity {
                         eCorrPU.setText(jsonObject.getString("Correo"));
                         eNomPU.setText(jsonObject.getString("Nombre"));
                         eEdadPU.setText(jsonObject.getString("Edad"));
-                        eContraPU.setText(jsonObject.getString("Contraseña"));
+                        eContraPU.setText(jsonObject.getString("Contrasena"));
 
                     } catch (JSONException e) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();

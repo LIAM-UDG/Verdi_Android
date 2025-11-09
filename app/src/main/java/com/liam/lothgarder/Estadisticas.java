@@ -23,7 +23,7 @@ public class Estadisticas extends AppCompatActivity {
     private TextView valueHumedad, valueEstado, valueTemperatura, valueAgua;
     private Button btnActualizar, btnRegresar;
     private RequestQueue requestQueue;
-    private static final String BASE_URL = "http://x.x.x.x:80/lothgarder/get_estadisticas.php"; // Reemplaza con tu IP real
+    private static final String BASE_URL = "http://192.168.137.128:80/lothgarder/get_estadisticas.php"; // Reemplaza con tu IP real
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
