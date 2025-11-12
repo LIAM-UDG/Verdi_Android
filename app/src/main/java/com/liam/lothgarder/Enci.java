@@ -148,15 +148,9 @@ public class Enci extends AppCompatActivity {
         beSu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                try {
-                    Intent intEtoSp = new Intent(Enci.this, SugerirP.class);
-                    startActivity(intEtoSp);
-                    Toast.makeText(Enci.this, "Abriendo Sugerir Planta", Toast.LENGTH_SHORT).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Log.e("Enci", "Error al abrir SugerirP: " + e.toString());
-                    Toast.makeText(Enci.this, "Error: " + e.toString(), Toast.LENGTH_LONG).show();
-                }
+                Intent intEtoSp = new Intent(Enci.this, SugerirP.class);
+                startActivity(intEtoSp);
+                Toast.makeText(Enci.this, "Abriendo Sugerir Planta", Toast.LENGTH_SHORT).show();
             }
         });
 

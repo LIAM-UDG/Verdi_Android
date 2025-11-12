@@ -24,6 +24,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:id="@+id/eiBarrita"
+        android:layout_width="360dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="88dp"
+        android:background="@color/verdeF"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/eiCorreo"
         android:layout_width="200dp"
         android:layout_height="40dp"
@@ -42,10 +54,11 @@
     <EditText
         android:id="@+id/ediCorreo"
         android:layout_width="354dp"
-        android:layout_height="48dp"
+        android:layout_height="70dp"
         android:layout_marginTop="30dp"
         android:background="@color/fondo2"
         android:ems="10"
+        android:padding="4dp"
         android:inputType="text"
         android:hint="Correo"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,19 +81,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ediCorreo" />
 
-    <EditText
-        android:id="@+id/ediContra"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutContrasena"
         android:layout_width="354dp"
-        android:layout_height="48dp"
+        android:layout_height="70dp"
         android:layout_marginTop="30dp"
-        android:background="@color/fondo2"
-        android:ems="10"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eiContra" />
+        app:layout_constraintTop_toBottomOf="@+id/eiContra"
+        app:passwordToggleEnabled="true" >
+        <EditText
+            android:id="@+id/ediContra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/fondo2"
+            android:ems="10"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/biItoP"

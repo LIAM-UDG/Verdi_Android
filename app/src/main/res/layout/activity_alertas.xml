@@ -8,29 +8,32 @@
     android:padding="16dp">
 
     <!-- Título -->
+
+    <!-- Línea debajo del título -->
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:text="Alertas en el Sistema"
+        android:layout_marginBottom="20dp"
         android:fontFamily="serif"
-        android:textColor="#717A31"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        android:layout_marginBottom="20dp" />
-
-    <!-- Línea debajo del título -->
-    <TextView
-        android:id="@+id/enpbarrita"
-        android:layout_width="380dp"
-        android:layout_height="2dp"
-        android:layout_marginTop="0dp"
-        android:background="#717A31"
-        android:text=""
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp" />
+        android:text="Alertas en el Sistema"
+        android:textColor="@color/verdeF"
+        android:textSize="32sp"
+        android:textStyle="bold" />
 
     <!-- Barra de búsqueda -->
+    <TextView
+        android:id="@+id/enpbarrita"
+        android:layout_width="360dp"
+        android:layout_height="2dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/verdeF"
+        android:text="" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

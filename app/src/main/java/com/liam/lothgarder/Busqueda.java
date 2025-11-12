@@ -11,7 +11,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Busqueda extends AppCompatActivity {
 
-
     private Spinner spinnerFilter;
 
     @Override

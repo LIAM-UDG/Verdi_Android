@@ -25,7 +25,14 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.widget.ImageView;
+
 public class PerfilUs extends AppCompatActivity {
+
+    private String contrasenaReal = "";
+    private boolean isPasswordVisible = false;
+    private TextView euContraPU; // Hacemos global el TextView de la contraseña
+    private ImageView ivToggleContra; // Nuevo: El icono de ojo
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,13 +40,14 @@ public class PerfilUs extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_perfil_us);
 
+        euContraPU = findViewById(R.id.euContraPU);
+        ivToggleContra = findViewById(R.id.ivToggleContra);
+
         //Creacion de la instancia de las preferencias(informacion de sesion)
         SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
 
         //Llamada al metodo de buscar usuario para mostrar su informacion usando la info de la prefencia de correo
         //buscarUsuario("http://192.168.137.128:80/lothgarder/buscarU.php?correo="+preferences.getString("Correo",""));
-
-        // local host buscarUsuario("http://192.168.137.128:80/lothgarder/buscarU.php?correo="+preferences.getString("Correo",""));
 
         buscarUsuario("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io//?accion=buscarU&correo=" + preferences.getString("Correo",""));
 
@@ -51,6 +59,14 @@ public class PerfilUs extends AppCompatActivity {
                 Toast.makeText(PerfilUs.this, "Botón presionado", Toast.LENGTH_LONG).show();
                 Intent intRtoPrin = new Intent(PerfilUs.this, PantallaPrin.class);
                 startActivity(intRtoPrin);
+            }
+        });
+
+        // 2. NUEVO: Lógica para el clic del icono de alternar
+        ivToggleContra.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                togglePasswordVisibility();
             }
         });
 
@@ -96,12 +112,14 @@ public class PerfilUs extends AppCompatActivity {
     }
 
     //Metodo para buscar usuario
+    //Metodo para buscar usuario (MODIFICADO)
     private void buscarUsuario(String URL) {
 
+        // Los TextViews que no son de la contraseña pueden seguir siendo locales
         TextView eNomPU = findViewById(R.id.euNomPU);
         TextView eEdadPU = findViewById(R.id.euEdadPU);
         TextView eCorrPU = findViewById(R.id.euCorrPU);
-        TextView eContraPU = findViewById(R.id.euContraPU);
+        // euContraPU y ivToggleContra ya están enlazados globalmente
 
         //Creacion de la peticion
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
@@ -110,12 +128,16 @@ public class PerfilUs extends AppCompatActivity {
                 JSONObject jsonObject = null;
                 for (int reco = 0; reco < response.length(); reco++) {
                     try {
-
                         jsonObject = response.getJSONObject(reco);
                         eCorrPU.setText(jsonObject.getString("Correo"));
                         eNomPU.setText(jsonObject.getString("Nombre"));
                         eEdadPU.setText(jsonObject.getString("Edad"));
-                        eContraPU.setText(jsonObject.getString("Contrasena"));
+
+                        // 3. CLAVE: Guardar la contraseña real antes de ocultarla
+                        contrasenaReal = jsonObject.getString("Contrasena");
+
+                        // Ocultar la contraseña por defecto
+                        mostrarContrasenaOculta();
 
                     } catch (JSONException e) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
@@ -125,8 +147,7 @@ public class PerfilUs extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                //Log.e("Volley", "Error: " + error.toString());
-                //error.printStackTrace();
+                // ... (código existente)
                 Toast.makeText(getApplicationContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
             }
         }
@@ -135,4 +156,34 @@ public class PerfilUs extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);
     }
+
+    private void togglePasswordVisibility() {
+        if (isPasswordVisible) {
+            // Si está visible, la ocultamos
+            mostrarContrasenaOculta();
+        } else {
+            // Si está oculta, la mostramos
+            mostrarContrasenaVisible();
+        }
+        // Invertimos el estado después de la acción
+        isPasswordVisible = !isPasswordVisible;
+    }
+
+    private void mostrarContrasenaVisible() {
+        // Muestra el valor de la variable real
+        euContraPU.setText(contrasenaReal);
+        // Cambia el icono a "ojo cerrado" (significa que al hacer clic se ocultará)
+        ivToggleContra.setImageResource(R.drawable.ic_visibility_off);
+    }
+
+    private void mostrarContrasenaOculta() {
+        // Crea una cadena de asteriscos para ocultar el texto
+        char[] chars = new char[contrasenaReal.length()];
+        java.util.Arrays.fill(chars, '•'); // Usar un punto o asterisco para ocultar
+        euContraPU.setText(new String(chars));
+
+        // Cambia el icono a "ojo abierto" (significa que al hacer clic se mostrará)
+        ivToggleContra.setImageResource(R.drawable.ic_visibility);
+    }
+
 }

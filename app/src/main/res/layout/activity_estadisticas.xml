@@ -11,24 +11,24 @@
     <!-- Título -->
     <TextView
         android:id="@+id/titleEstadisticas"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="331dp"
+        android:layout_height="67dp"
+        android:background="#F3E9C1"
         android:fontFamily="serif"
-        android:text="Estadísticas"
         android:gravity="center"
+        android:padding="16dp"
+        android:text="Estadísticas"
+        android:textColor="@color/verdeF"
         android:textSize="32sp"
         android:textStyle="bold"
-        android:textColor="@color/verdeF"
-        android:background="#F3E9C1"
-        android:padding="16dp"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Línea decorativa -->
     <TextView
         android:id="@+id/enpbarrita"
-        android:layout_width="380dp"
+        android:layout_width="360dp"
         android:layout_height="2dp"
         android:layout_gravity="center_horizontal"
         android:background="@color/verdeF"
@@ -40,7 +40,7 @@
     <!-- Tarjeta de Humedad -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardHumedad"
-        android:layout_width="0dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/enpbarrita"
@@ -75,7 +75,7 @@
     <!-- Tarjeta de Estado de Planta -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardEstado"
-        android:layout_width="0dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/cardHumedad"
@@ -110,7 +110,7 @@
     <!-- Tarjeta de Temperatura -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardTemperatura"
-        android:layout_width="0dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/cardEstado"
@@ -145,7 +145,7 @@
     <!-- Tarjeta de Uso de Agua -->
     <androidx.cardview.widget.CardView
         android:id="@+id/cardAgua"
-        android:layout_width="0dp"
+        android:layout_width="350dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@id/cardTemperatura"
@@ -178,37 +178,38 @@
     </androidx.cardview.widget.CardView>
 
     <!-- Botón Actualizar -->
-    <Button
-        android:id="@+id/btnActualizar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="16dp"
-        android:text="Actualizar"
-        android:backgroundTint="#717A31"
-        android:textColor="#FFFFFF"
-        android:textSize="16sp"
-        app:layout_constraintTop_toBottomOf="@id/cardAgua"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnRegresar"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintWidth_percent="0.45" />
 
     <!-- Botón Regresar -->
     <Button
-        android:id="@+id/btnRegresar"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:id="@+id/btnActualizar"
+        android:layout_width="136dp"
+        android:layout_height="48dp"
         android:layout_marginHorizontal="16dp"
-        android:text="Regresar"
-        android:backgroundTint="#3D4224"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#717A31"
+        android:text="Actualizar"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@id/btnRegresar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardAgua"
-        app:layout_constraintStart_toEndOf="@id/btnActualizar"
+        app:layout_constraintWidth_percent="0.45" />
+
+    <Button
+        android:id="@+id/btnRegresar"
+        android:layout_width="142dp"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#3D4224"
+        android:text="Regresar"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@id/btnActualizar"
+        app:layout_constraintTop_toBottomOf="@id/cardAgua"
         app:layout_constraintWidth_percent="0.45" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

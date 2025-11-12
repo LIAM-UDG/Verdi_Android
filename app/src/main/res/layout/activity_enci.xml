@@ -24,6 +24,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/eeBarrita"
+        android:layout_width="360dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="4dp"
+        android:background="@color/verdeF"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eeTitulo" />
+
     <Button
         android:id="@+id/beLava"
         android:layout_width="134dp"
@@ -105,7 +117,7 @@
         android:layout_height="66dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/verdeC"
-        android:text="Orquidea"
+        android:text="Orquídea"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
@@ -163,7 +175,7 @@
         android:id="@+id/beSu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="48dp"
+        android:layout_marginEnd="44dp"
         android:layout_marginBottom="36dp"
         android:backgroundTint="@color/verdeM"
         android:text="Sugerir Planta"

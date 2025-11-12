@@ -69,6 +69,8 @@ public class Plantas extends AppCompatActivity {
                 Toast.makeText(Plantas.this, "Avanzando a registrar planta...", Toast.LENGTH_SHORT).show();
                 Intent intPltoPU = new Intent(Plantas.this, NuevaP.class);
                 startActivity(intPltoPU);
+
+                finish();
             }
         });
 
@@ -84,6 +86,8 @@ public class Plantas extends AppCompatActivity {
                     intent.putExtra("nombre", plantaSeleccionada.getNombre());
                     startActivity(intent);
 
+                    finish();
+
                 } else {
                     Toast.makeText(Plantas.this, "Selecciona una planta primero", Toast.LENGTH_SHORT).show();
                 }
@@ -97,6 +101,8 @@ public class Plantas extends AppCompatActivity {
                 Toast.makeText(Plantas.this, "Regresando al inicio...", Toast.LENGTH_SHORT).show();
                 Intent intPltoPrin = new Intent(Plantas.this, PantallaPrin.class);
                 startActivity(intPltoPrin);
+
+                finish();
             }
         });
 

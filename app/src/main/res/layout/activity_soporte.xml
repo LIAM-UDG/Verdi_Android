@@ -27,7 +27,7 @@
         android:id="@+id/bsStoPrin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="644dp"
+        android:layout_marginTop="616dp"
         android:backgroundTint="@color/verdeM"
         android:text="Inicio"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,9 +48,9 @@
 
     <TextView
         android:id="@+id/esCorreo"
-        android:layout_width="238dp"
-        android:layout_height="36dp"
-        android:layout_marginBottom="148dp"
+        android:layout_width="286dp"
+        android:layout_height="41dp"
+        android:layout_marginBottom="216dp"
         android:text="lothgarder@gmail.com"
         android:textAlignment="textEnd"
         android:textColor="@color/verdeF"
@@ -58,21 +58,22 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintHorizontal_bias="0.928"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/esContacto"
-        android:layout_width="264dp"
-        android:layout_height="34dp"
-        android:layout_marginBottom="120dp"
+        android:layout_width="284dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="156dp"
         android:text="Contacto con soporte técnico"
+        android:textAlignment="textEnd"
         android:textColor="@color/verdeF"
         android:textSize="20sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.789"
+        app:layout_constraintHorizontal_bias="0.929"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

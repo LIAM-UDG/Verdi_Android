@@ -58,11 +58,40 @@ public class NewUsuario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                //Guardar datos en base
+                // Definición de campos
+                EditText edCor = findViewById(R.id.edrCor);
+                EditText edCon = findViewById(R.id.edrCon);
+                String correo = edCor.getText().toString().trim();
+                String contrasena = edCon.getText().toString();
+
+                // --- VALIDACIÓN DE CORREO (Debe contener @) ---
+                if (correo.isEmpty() || !correo.contains("@")) {
+                    Toast.makeText(NewUsuario.this, "Introduce un correo electrónico válido.", Toast.LENGTH_LONG).show();
+                    edCor.setError("Correo inválido");
+                    return; // Detiene la ejecución
+                }
+
+                // --- VALIDACIÓN DE CONTRASEÑA CON REGEX ---
+
+                // Patrón Regex: Mínimo 8 caracteres, al menos 1 mayúscula, 1 minúscula, 1 número y 1 especial.
+                String patronC = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*-]).{8,}$";
+
+                if (!contrasena.matches(patronC)) {
+
+                    String mensajeError = "La contraseña debe tener:\n" +
+                            " - Mínimo 8 caracteres.\n" +
+                            " - Al menos 1 mayúscula y 1 minúscula.\n" +
+                            " - Al menos 1 número.\n" +
+                            " - Al menos 1 caracter especial como: (!@#$%^&*).";
+
+                    Toast.makeText(NewUsuario.this, mensajeError, Toast.LENGTH_LONG).show();
+                    edCon.setError("Contraseña débil");
+                    return; // Detiene la ejecución
+                }
+
                 //Guardar usuario base en la nube
                 guardarUsuario("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io/?accion=insertarU");
 
-                //guardarUsuario("http://localhost/LothGarderCl/insertarULothGarder.php");
                 /*
                 Servidor local
                 guardarUsuario("http://192.168.137.128:80/lothgarder/insertarU.php");
@@ -104,12 +133,12 @@ public class NewUsuario extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
                 Toast.makeText(getApplicationContext(), "Respuesta del servidor: " + response, Toast.LENGTH_LONG).show();
-                /*EditText edError = findViewById(R.id.error);
-                edError.setText(response);*/
-                //Pasar a pantalla principal tras registrar
+                //Pasar a pantalla de ingresar usuario tras registrar
                 Intent intRtoP = new Intent(NewUsuario.this, InUsuario.class);
                 startActivity(intRtoP);
                 //Toast.makeText(getApplicationContext(), "Operación exitosa",Toast.LENGTH_LONG).show();
+
+                finish();
             }
         }, new Response.ErrorListener(){
             @Override
@@ -125,7 +154,9 @@ public class NewUsuario extends AppCompatActivity {
                 //Definicion local de editText
                 EditText edNom = findViewById(R.id.edrNom);
                 EditText edEdad = findViewById(R.id.edrEdad);
+
                 EditText edCor = findViewById(R.id.edrCor);
+
                 EditText edCon = findViewById(R.id.edrCon);
 
                 //Metodo Map que manda los datos de la peticion al servidor extrallendo informacion del editText para guardar en la base

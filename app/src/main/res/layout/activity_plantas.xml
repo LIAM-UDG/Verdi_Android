@@ -18,6 +18,7 @@
             android:id="@+id/eplTitulo"
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:layout_marginTop="20dp"
             android:fontFamily="serif"
             android:text="  Plantas de Usuario"
             android:textColor="@color/verdeF"
@@ -26,10 +27,10 @@
 
         <TextView
             android:id="@+id/eplBarrita"
-            android:layout_width="378dp"
+            android:layout_width="360dp"
             android:layout_height="2dp"
             android:layout_marginLeft="15dp"
-
+            android:background="@color/verdeF"
             android:text=""
             android:textColor="@color/verdeF" />
 

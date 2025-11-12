@@ -36,14 +36,16 @@ public class EditarP extends AppCompatActivity{
     Button btnContinuar;
     EditText edepNombre;
     Spinner spnEpAmbiente, spnEpEstadoP;
-    Intent intent2 = getIntent();
-    String nombreP = intent2.getStringExtra("nombre");
+    String nombreP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_editar_p);
+
+        Intent intent = getIntent();
+        nombreP = intent.getStringExtra("nombrePSel");
 
         // Vistas
         imgPlanta = findViewById(R.id.imgPlanta);
@@ -73,7 +75,17 @@ public class EditarP extends AppCompatActivity{
                     if (estadoSeleccionado.equals("Selecciona un estado")) {
                         Toast.makeText(EditarP.this, "Por favor selecciona un estado válido", Toast.LENGTH_SHORT).show();
                     } else {
+                        editarPlanta("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io/?accion=editarP");
+
+                        Intent intEdiPtoPs = new Intent(EditarP.this, Plantas.class);
+                        startActivity(intEdiPtoPs);
+
+                        finish();
+
+                        /*
+                        Funcion local
                         editarPlanta("http://192.168.137.128:80/lothgarder/editarP.php");
+                         */
                     }
                 }
         });

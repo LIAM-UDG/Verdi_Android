@@ -52,35 +52,37 @@ public class PlantaU extends AppCompatActivity {
         preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
         correoU = preferences.getString("Correo","");
 
+        buscarPlanatU("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io/?accion=buscarPU" + "&nombre=" + nombreP + "&usuario=" + correoU);
+
+        /*
+        Funcion local
         buscarPlanatU("http:// 192.168.137.128:80/lothgarder/buscarPU.php?nombre=" + nombreP + "&usuario=" + correoU);
+         */
 
 
         Button bpluElim = findViewById(R.id.bpluElim);
         bpluElim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                eliminarPlanta("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io/?accion=eliminarPU");
+                /*
+                Funcion local
                 eliminarPlanta( "http:// 192.168.137.128:80/lothgarder/eliminarPU.php");
+                */
                 Intent intPlutoPs = new Intent(PlantaU.this, Plantas.class);
                 startActivity(intPlutoPs);
+
+                finish();
             }
         });
-
-        //Prueba de paso de nombre de plantas de usuario
-        /*
-        TextView eNombreP = findViewById(R.id.epluTitulo);
-        Intent intent2 = getIntent();
-        nombreP = intent2.getStringExtra("nombre");
-        eNombreP.setText(nombreP);*/
 
         Button bplEdiP = findViewById(R.id.bplEdiP);
         bplEdiP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intPlutoEp = new Intent(PlantaU.this, EditarP.class);
-                Intent intent2 = getIntent();
-                nombreP = intent2.getStringExtra("nombre");
-                intPlutoEp.putExtra(nombreP, "");
+
+                intPlutoEp.putExtra("nombrePSel", nombreP);
                 startActivity(intPlutoEp);
             }
         });

@@ -17,7 +17,7 @@
         android:text=" Logros de las Plantas"
         android:textAlignment="textStart"
         android:textColor="@color/verdeF"
-        android:textSize="30sp"
+        android:textSize="29sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.615"
@@ -26,7 +26,7 @@
 
     <TextView
         android:id="@+id/elpBarrita"
-        android:layout_width="380dp"
+        android:layout_width="360dp"
         android:layout_height="2dp"
         android:layout_marginTop="92dp"
         android:background="@color/verdeF"
@@ -99,7 +99,7 @@
         android:layout_marginTop="164dp"
         android:background="@color/fondo2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Nivel 1 de Plantas                                    Has obtenido el nivel 1, tras registrar 1 planta en la app" />
@@ -138,13 +138,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.807"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Nivel 4 de Plantas                                    Has obtenido el nivel 4, tras registrar 50 plantas en la app" />
+        tools:text="Nivel 4 de Plantas                                 Has obtenido el nivel 4, tras registrar 50 plantas en la app" />
 
     <EditText
         android:id="@+id/felicitacion_uno"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="104dp"
         android:ems="10"
         android:inputType="text"
         android:text="Felicidades!          "
@@ -157,7 +157,7 @@
         android:id="@+id/felicitacion_dos"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="256dp"
+        android:layout_marginTop="232dp"
         android:ems="10"
         android:inputType="text"
         android:text="Felicidades!"
@@ -170,7 +170,7 @@
         android:id="@+id/felicitacion_tres"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginTop="384dp"
+        android:layout_marginTop="360dp"
         android:ems="10"
         android:inputType="text"
         android:text="Felicidades!"
@@ -183,13 +183,13 @@
         android:id="@+id/felicitacion_cuatro"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:layout_marginBottom="176dp"
+        android:layout_marginBottom="192dp"
         android:ems="10"
         android:inputType="text"
         android:text="Felicidades!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.661"
+        app:layout_constraintHorizontal_bias="0.691"
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -29,7 +29,7 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class    InUsuario extends AppCompatActivity {
+public class InUsuario extends AppCompatActivity {
 
     //Definicion global
     EditText ediCorreo, ediContra;
@@ -111,22 +111,25 @@ public class    InUsuario extends AppCompatActivity {
                     switch (estado) {
                         case "Ok":
                             /*Si la peticion es exitosa el codigo PHP manda un OK y se ejecuta el metodo de guardar sesion
-                            Y saca el nombre del usuario para darle una bienvenida
+                            Y saca el nombre del usuario para darle la bienvenida
                              */
 
                             guardarSesion();
                             String nombre = jsonObject.getString("nombre");
                             Toast.makeText(InUsuario.this, "Bienvenido " + nombre, Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), PantallaPrin.class));
+
                             finish();
                             break;
 
                         case "Correo_Incorrecto":
                             Toast.makeText(InUsuario.this, "Correo incorrecto", Toast.LENGTH_SHORT).show();
+                            ediCorreo.setError("Correo Incorrecto");
                             break;
 
                         case "Contrasena_Incorrecta":
                             Toast.makeText(InUsuario.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
+                            ediContra.setError("Contraseña incorrecta");
                             break;
 
                         case "Vacio":
@@ -185,7 +188,7 @@ public class    InUsuario extends AppCompatActivity {
     private void recuperarSesion() {
         SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
         ediCorreo.setText(preferences.getString("Correo","ejemplocorreo@gmail.com"));
-        ediContra.setText(preferences.getString("Contrasena","contrasena"));
+        ediContra.setText(preferences.getString("Contrasena","contraseña"));
         //Local -> ediContra.setText(preferences.getString("Contraseña","contraseña"));
     }
 

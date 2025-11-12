@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intMtoInUs = new Intent(MainActivity.this, InUsuario.class);
                 startActivity(intMtoInUs);
+
             }
         });
 
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intMtoRegis = new Intent(MainActivity.this, NewUsuario.class);
                 startActivity(intMtoRegis);
+
             }
         });
 
