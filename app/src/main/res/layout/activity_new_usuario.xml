@@ -143,20 +143,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edrCon"
-        android:layout_width="360dp"
-        android:layout_height="50dp"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutContrasena2"
+        android:layout_width="354dp"
+        android:layout_height="70dp"
         android:layout_marginTop="15dp"
-        android:background="@color/fondo2"
-        android:ems="10"
-        android:padding="4sp"
-        android:hint="Contraseña"
-        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/erContra" />
+        app:layout_constraintTop_toBottomOf="@+id/erContra"
+        app:passwordToggleEnabled="true" >
+        <EditText
+            android:id="@+id/edrCon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/fondo2"
+            android:ems="10"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/brRtoP"

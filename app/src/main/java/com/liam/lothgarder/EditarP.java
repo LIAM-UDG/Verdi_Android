@@ -75,7 +75,11 @@ public class EditarP extends AppCompatActivity{
                     if (estadoSeleccionado.equals("Selecciona un estado")) {
                         Toast.makeText(EditarP.this, "Por favor selecciona un estado válido", Toast.LENGTH_SHORT).show();
                     } else {
-                        editarPlanta("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io/?accion=editarP");
+
+                        //Extraccion del link de dominio desde strings.xml
+                        String link_domain = getString(R.string.link_domain);
+
+                        editarPlanta(link_domain + "?accion=editarP");
 
                         Intent intEdiPtoPs = new Intent(EditarP.this, Plantas.class);
                         startActivity(intEdiPtoPs);

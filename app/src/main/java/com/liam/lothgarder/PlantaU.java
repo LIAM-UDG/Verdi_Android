@@ -52,7 +52,10 @@ public class PlantaU extends AppCompatActivity {
         preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
         correoU = preferences.getString("Correo","");
 
-        buscarPlanatU("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io/?accion=buscarPU" + "&nombre=" + nombreP + "&usuario=" + correoU);
+        //Extraccion del link de dominio desde strings.xml
+        String link_domain = getString(R.string.link_domain);
+
+        buscarPlanatU(link_domain + "?accion=buscarPU" + "&nombre=" + nombreP + "&usuario=" + correoU);
 
         /*
         Funcion local
@@ -64,7 +67,11 @@ public class PlantaU extends AppCompatActivity {
         bpluElim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                eliminarPlanta("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io/?accion=eliminarPU");
+
+                //Extraccion del link de dominio desde strings.xml
+                String link_domain = getString(R.string.link_domain);
+
+                eliminarPlanta(link_domain + "?accion=eliminarPU");
                 /*
                 Funcion local
                 eliminarPlanta( "http:// 192.168.137.128:80/lothgarder/eliminarPU.php");

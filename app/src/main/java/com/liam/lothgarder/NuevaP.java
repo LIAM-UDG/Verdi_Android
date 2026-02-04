@@ -88,7 +88,11 @@ public class NuevaP extends AppCompatActivity{
                     if (estadoSeleccionado.equals("Selecciona un estado")) {
                         Toast.makeText(NuevaP.this, "Por favor selecciona un estado válido", Toast.LENGTH_SHORT).show();
                     } else {
-                        guardarPlanta("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io//?accion=insertarP");
+
+                        //Extraccion del link de dominio desde strings.xml
+                        String link_domain = getString(R.string.link_domain);
+
+                        guardarPlanta(link_domain + "?accion=insertarP");
                         /*
                         Guardado en local
                         guardarPlanta("http:// 192.168.137.128:80/lothgarder/insertarP.php");

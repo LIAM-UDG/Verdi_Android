@@ -39,8 +39,11 @@ public class PlantaE extends AppCompatActivity {
         Intent intent = getIntent();
         int PKpl = intent.getIntExtra("PKpl",0);
 
-        //Clever Cloud
-        buscarPlantaE("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io/?accion=buscarP&planta="+PKpl);
+        //Extraccion del link de dominio desde strings.xml
+        String link_domain = getString(R.string.link_domain);
+
+        //Conexión a AwardSpace
+        buscarPlantaE(link_domain + "?accion=buscarP&planta="+PKpl);
 
         /*Llamada al metodo de buscar usuario para mostrar su informacion usando la info de la prefencia de correo
         Local

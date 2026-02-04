@@ -49,7 +49,10 @@ public class PerfilUs extends AppCompatActivity {
         //Llamada al metodo de buscar usuario para mostrar su informacion usando la info de la prefencia de correo
         //buscarUsuario("http://192.168.137.128:80/lothgarder/buscarU.php?correo="+preferences.getString("Correo",""));
 
-        buscarUsuario("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io//?accion=buscarU&correo=" + preferences.getString("Correo",""));
+        //Extraccion del link de dominio desde strings.xml
+        String link_domain = getString(R.string.link_domain);
+
+        buscarUsuario(link_domain + "?accion=buscarU&correo=" + preferences.getString("Correo",""));
 
         //Accion de Boton para salir de Perfil Usuario a la Pantalla Principal
         Button buUtoPrin = findViewById(R.id.buUtoPrin);

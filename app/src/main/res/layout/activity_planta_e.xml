@@ -65,7 +65,7 @@
             <TextView
                 android:id="@+id/epleDescText"
                 android:layout_width="match_parent"
-                android:layout_height="462dp"
+                android:layout_height="480dp"
                 android:fontFamily="serif"
                 android:text="Cargando descripción..."
                 android:textColor="@color/verdeF"

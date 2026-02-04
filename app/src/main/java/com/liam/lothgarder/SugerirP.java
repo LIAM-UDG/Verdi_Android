@@ -79,12 +79,13 @@ public class SugerirP extends AppCompatActivity {
             // Mostrar un mensaje con los datos ingresados
             Toast.makeText(this, "Planta sugerida:\nNombre: " + nombre + "\nDescripción: " + descripcion, Toast.LENGTH_LONG).show();
 
-            sugerirP("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io//?accion=insertarS");
+            //Extraccion del link de dominio desde strings.xml
+            String link_domain = getString(R.string.link_domain);
+
+            sugerirP(link_domain + "?accion=insertarS");
 
             // Pasar los datos a la pantalla Plantas y regresar
             Intent intent = new Intent(SugerirP.this, Plantas.class);
-            intent.putExtra("nombre_planta", nombre);
-            intent.putExtra("descripcion_planta", descripcion);
             startActivity(intent);
             finish(); // Cierra la actividad actual
         });

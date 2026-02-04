@@ -60,7 +60,10 @@ public class InUsuario extends AppCompatActivity {
                 correo = ediCorreo.getText().toString();
                 contra = ediContra.getText().toString();
 
-                validarUsuario("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io/?accion=validarU");
+                //Extraccion del link de dominio desde strings.xml
+                String link_domain = getString(R.string.link_domain);
+
+                validarUsuario(link_domain + "?accion=validarU");
 
                 /*
                 Funcion de host local

@@ -59,22 +59,32 @@ public class NewUsuario extends AppCompatActivity {
             public void onClick(View v) {
 
                 // Definición de campos
+                EditText edNom = findViewById(R.id.edrNom);
                 EditText edCor = findViewById(R.id.edrCor);
                 EditText edCon = findViewById(R.id.edrCon);
+                String nombre = edNom.getText().toString().trim();
                 String correo = edCor.getText().toString().trim();
                 String contrasena = edCon.getText().toString();
-
-                // --- VALIDACIÓN DE CORREO (Debe contener @) ---
-                if (correo.isEmpty() || !correo.contains("@")) {
-                    Toast.makeText(NewUsuario.this, "Introduce un correo electrónico válido.", Toast.LENGTH_LONG).show();
-                    edCor.setError("Correo inválido");
-                    return; // Detiene la ejecución
-                }
 
                 // --- VALIDACIÓN DE CONTRASEÑA CON REGEX ---
 
                 // Patrón Regex: Mínimo 8 caracteres, al menos 1 mayúscula, 1 minúscula, 1 número y 1 especial.
                 String patronC = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*-]).{8,}$";
+                //Cada para evaluar el nombre valido
+                String nombreV = "(?=.*[a-z])(?=.*[A-Z]))";
+
+                if (!nombre.contains(nombreV)) {
+                    Toast.makeText(NewUsuario.this, "Nombre inválido.", Toast.LENGTH_LONG).show();
+                    edNom.setError("Nombre inválido");
+                    return;
+                }
+
+                // --- VALIDACIÓN DE CORREO (Debe contener @) ---
+                if (correo.isEmpty() || !correo.contains("@") || correo.contains("@@") || correo.contains(" ")) {
+                    Toast.makeText(NewUsuario.this, "Introduce un correo electrónico válido.", Toast.LENGTH_LONG).show();
+                    edCor.setError("Correo inválido");
+                    return; // Detiene la ejecución
+                }
 
                 if (!contrasena.matches(patronC)) {
 
@@ -89,8 +99,11 @@ public class NewUsuario extends AppCompatActivity {
                     return; // Detiene la ejecución
                 }
 
+                //Extraccion del link de dominio desde strings.xml
+                String link_domain = getString(R.string.link_domain);
+
                 //Guardar usuario base en la nube
-                guardarUsuario("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io/?accion=insertarU");
+                guardarUsuario(link_domain + "?accion=insertarU");
 
                 /*
                 Servidor local

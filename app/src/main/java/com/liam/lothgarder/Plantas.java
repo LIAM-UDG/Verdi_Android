@@ -52,7 +52,11 @@ public class Plantas extends AppCompatActivity {
         String correoU= preferences.getString("Correo", "");
 
         if (!correoU.isEmpty()) {
-            buscarPlantas("https://app-d9fd7517-b3e4-4e1e-8fba-66483bfb6711.cleverapps.io//?accion=buscarPs&correo=" + correoU);
+
+            //Extraccion del link de dominio desde strings.xml
+            String link_domain = getString(R.string.link_domain);
+
+            buscarPlantas(link_domain + "?accion=buscarPs&correo=" + correoU);
             /*
             Funcion local
             buscarPlantas("http://192.168.137.128:80/lothgarder/buscarPs.php?correo=" + correoU);
