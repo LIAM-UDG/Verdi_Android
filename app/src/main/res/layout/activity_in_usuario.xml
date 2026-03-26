@@ -11,8 +11,8 @@
     <TextView
         android:id="@+id/eiTitulo"
         android:layout_width="280dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="35dp"
         android:fontFamily="serif"
         android:text="Inicio de sesión"
         android:textAlignment="center"
@@ -27,7 +27,7 @@
         android:id="@+id/eiBarrita"
         android:layout_width="360dp"
         android:layout_height="2dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="85dp"
         android:background="@color/verdeF"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
@@ -53,10 +53,10 @@
 
     <EditText
         android:id="@+id/ediCorreo"
-        android:layout_width="354dp"
-        android:layout_height="70dp"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
         android:layout_marginTop="30dp"
-        android:background="@color/fondo2"
+        android:background="@drawable/rounded_edittext_background"
         android:ems="10"
         android:padding="4dp"
         android:inputType="text"
@@ -83,19 +83,20 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutContrasena"
-        android:layout_width="354dp"
-        android:layout_height="70dp"
+        android:layout_width="350dp"
+        android:layout_height="60dp"
         android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/eiContra"
         app:passwordToggleEnabled="true" >
+
         <EditText
             android:id="@+id/ediContra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/fondo2"
+            android:background="@drawable/rounded_edittext_background"
             android:ems="10"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>

@@ -18,9 +18,10 @@
             android:id="@+id/eplTitulo"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="40dp"
             android:fontFamily="serif"
             android:text="  Plantas de Usuario"
+            android:textAlignment="center"
             android:textColor="@color/verdeF"
             android:textSize="30sp"
             android:textStyle="bold" />
@@ -38,7 +39,7 @@
             android:id="@+id/bplNuP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="190dp"
+            android:layout_marginLeft="200dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/verdeM"
@@ -47,7 +48,11 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvP"
             android:layout_width="match_parent"
-            android:layout_height="488dp" />
+            android:layout_height="488dp"
+            android:background="@drawable/selector_item"
+            android:clickable="true"
+            android:focusable="true"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -63,14 +68,15 @@
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/verdeM"
                 android:text="Inicio" />
+
             <Button
                 android:id="@+id/bplSelP"
                 android:layout_width="203dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="35dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/verdeM"
-                android:text="Seleccionar planta" />
+                android:text="Seleccionar" />
 
         </LinearLayout>
 

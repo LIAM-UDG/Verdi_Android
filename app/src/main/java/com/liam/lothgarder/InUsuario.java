@@ -60,6 +60,14 @@ public class InUsuario extends AppCompatActivity {
                 correo = ediCorreo.getText().toString();
                 contra = ediContra.getText().toString();
 
+                // 2. VALIDACIÓN NATIVA (Lo que tienes en la imagen 3)
+                if (correo.isEmpty() || contra.isEmpty()) {
+                    Toast.makeText(InUsuario.this, "Debes ingresar ambos campos", Toast.LENGTH_SHORT).show();
+                    if(correo.isEmpty()) ediCorreo.setError("Campo obligatorio");
+                    if(contra.isEmpty()) ediContra.setError("Campo obligatorio");
+                    return;
+                }
+
                 //Extraccion del link de dominio desde strings.xml
                 String link_domain = getString(R.string.link_domain);
 
@@ -97,6 +105,7 @@ public class InUsuario extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
+
                 /*
                 PROVICIONAL
                 if(!response.equals("0")) {
@@ -106,6 +115,7 @@ public class InUsuario extends AppCompatActivity {
                 } else {
                     Toast.makeText(InUsuario.this, "Error Usuario o Contraseña Incorrecta", Toast.LENGTH_LONG).show();
                 }*/
+
                 try {
                     //Creacion de un objeto JSON con la respuesta del servidor
                     JSONObject jsonObject = new JSONObject(response);
@@ -133,10 +143,6 @@ public class InUsuario extends AppCompatActivity {
                         case "Contrasena_Incorrecta":
                             Toast.makeText(InUsuario.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
                             ediContra.setError("Contraseña incorrecta");
-                            break;
-
-                        case "Vacio":
-                            Toast.makeText(InUsuario.this, "Debes ingresar ambos campos", Toast.LENGTH_SHORT).show();
                             break;
 
                         default:

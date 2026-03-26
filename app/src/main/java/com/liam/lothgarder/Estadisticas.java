@@ -48,7 +48,6 @@ public class Estadisticas extends AppCompatActivity {
         // Inicializar RequestQueue de Volley
         requestQueue = Volley.newRequestQueue(this);
         // Cargar datos por defecto inicialmente
-        cargarDatosPorDefecto();
         // Obtener datos del servidor
         obtenerEstadisticasDesdeServidor();
     }
@@ -89,12 +88,10 @@ public class Estadisticas extends AppCompatActivity {
                         Toast.makeText(this, "Datos actualizados", Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
                         Toast.makeText(this, "Error al analizar datos: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                        cargarDatosPorDefecto();
                     }
                 },
                 error -> {
                     Toast.makeText(this, "Error de connexion: " + error.getMessage(), Toast.LENGTH_LONG).show();
-                    cargarDatosPorDefecto();
                 });
 
         // Configurar política de reintento
@@ -107,11 +104,11 @@ public class Estadisticas extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
-    private void cargarDatosPorDefecto() {
+    /*private void cargarDatosPorDefecto() {
         // Datos por defecto en caso de error
         valueHumedad.setText("50%");
         valueEstado.setText("Saludable");
         valueTemperatura.setText("25°C");
         valueAgua.setText("250 ml");
-    }
+    }*/
 }

@@ -35,7 +35,7 @@ public class NuevaP extends AppCompatActivity{
 
     RequestQueue requestQueue;
     ImageView imgPlanta;
-    Button btnSubirFoto, btnContinuar;
+    Button btnSubirFoto, btnContinuar, btnNptoPrin;
     EditText etNombre;
     Spinner spnTipoP, spnAmbiente, spnEstadoP;
 
@@ -48,6 +48,7 @@ public class NuevaP extends AppCompatActivity{
         // Vistas
         imgPlanta = findViewById(R.id.imgPlanta);
         btnSubirFoto = findViewById(R.id.btnSubirFoto);
+        btnNptoPrin = findViewById(R.id.btnNptoPrin);
         btnContinuar = findViewById(R.id.btnContinuar);
         etNombre = findViewById(R.id.etNombre);
         spnTipoP = findViewById(R.id.spnTipoP);
@@ -67,11 +68,17 @@ public class NuevaP extends AppCompatActivity{
         aaEstadoP.addAll("Selecciona un estado","Muy Saludable", "Saludable", "Regular", "Malo", "Pésimo");
         spnEstadoP.setAdapter(aaEstadoP);
 
-        Toast.makeText(NuevaP.this, "Pantalla nueva planta", Toast.LENGTH_LONG).show();
+        //Toast.makeText(NuevaP.this, "Pantalla nueva planta", Toast.LENGTH_LONG).show();
 
         btnSubirFoto.setOnClickListener(v -> {
             Toast.makeText(NuevaP.this, "Funcionalidad subir foto pendiente", Toast.LENGTH_SHORT).show();
             // Aquí agregarás el selector de imagen o cámara
+        });
+
+        btnNptoPrin.setOnClickListener( v -> {
+            Intent intNPrin = new Intent(NuevaP.this, PantallaPrin.class);
+            startActivity(intNPrin);
+            finish();
         });
 
         btnContinuar.setOnClickListener(v -> {

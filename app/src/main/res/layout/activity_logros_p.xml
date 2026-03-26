@@ -14,7 +14,7 @@
         android:layout_height="43dp"
         android:layout_marginTop="48dp"
         android:fontFamily="serif"
-        android:text=" Logros de las Plantas"
+        android:text="Logros de las Plantas"
         android:textAlignment="textStart"
         android:textColor="@color/verdeF"
         android:textSize="29sp"
@@ -40,13 +40,13 @@
         android:id="@+id/blpLptoPrin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="644dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/verdeM"
         android:text="Inicio"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.086"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.077"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/Logro_uno"
@@ -87,58 +87,61 @@
         android:layout_height="118dp"
         android:layout_marginBottom="124dp"
         android:src="@drawable/logro_four"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
+
         android:id="@+id/descripcion_uno"
         android:layout_width="240dp"
-        android:layout_height="54dp"
+        android:layout_height="60dp"
         android:layout_marginTop="164dp"
         android:background="@color/fondo2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Nivel 1 de Plantas                                    Has obtenido el nivel 1, tras registrar 1 planta en la app" />
+        android:text="Nivel 1 de Plantas\nHas obtenido el nivel 1, tras registrar 1 planta en la app" />
 
     <TextView
         android:id="@+id/descripcion_dos"
         android:layout_width="240dp"
-        android:layout_height="54dp"
+        android:layout_height="60dp"
         android:layout_marginTop="296dp"
         android:background="@color/fondo2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.807"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Nivel 2 de Plantas                                    Has obtenido el nivel 2, tras registrar 5 plantas en la app" />
+        android:text="Nivel 2 de Plantas\nHas obtenido el nivel 2, tras registrar 5 plantas en la app" />
 
     <TextView
         android:id="@+id/descripcion_tres"
         android:layout_width="240dp"
-        android:layout_height="54dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="252dp"
         android:background="@color/fondo2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.807"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Nivel 3 de Plantas                                    Has obtenido el nivel 3, tras registrar 25 plantas en la app" />
+        android:text="Nivel 3 de Plantas\nHas obtenido el nivel 3, tras registrar 25 plantas en la app" />
 
     <TextView
         android:id="@+id/descripcion_cuatro"
         android:layout_width="240dp"
-        android:layout_height="54dp"
+        android:layout_height="60dp"
         android:layout_marginBottom="124dp"
         android:background="@color/fondo2"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.807"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Nivel 4 de Plantas                                 Has obtenido el nivel 4, tras registrar 50 plantas en la app" />
+        android:text="Nivel 4 de Plantas\nHas obtenido el nivel 4, tras registrar 50 plantas en la app" />
 
     <EditText
         android:id="@+id/felicitacion_uno"
@@ -187,6 +190,7 @@
         android:ems="10"
         android:inputType="text"
         android:text="Felicidades!"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.691"

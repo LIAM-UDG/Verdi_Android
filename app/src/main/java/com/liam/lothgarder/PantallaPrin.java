@@ -87,7 +87,7 @@ public class PantallaPrin extends AppCompatActivity {
         bpPtoL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intPtoL = new Intent(PantallaPrin.this, LogrosS.class);
+                Intent intPtoL = new Intent(PantallaPrin.this, LogrosP.class);
                 startActivity(intPtoL);
             }
         });

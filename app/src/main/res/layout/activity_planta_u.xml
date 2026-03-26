@@ -63,14 +63,14 @@
 
     <TextView
         android:id="@+id/epluTexto"
-        android:layout_width="186dp"
-        android:layout_height="28dp"
+        android:layout_width="190dp"
+        android:layout_height="30dp"
         android:layout_marginTop="316dp"
         android:fontFamily="serif"
         android:text="Datos de la planta"
         android:textAlignment="textStart"
         android:textColor="@color/verdeF"
-        android:textSize="16sp"
+        android:textSize="19sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.046"
@@ -125,7 +125,7 @@
 
     <TextView
         android:id="@+id/epluTemp"
-        android:layout_width="125dp"
+        android:layout_width="130dp"
         android:layout_height="26dp"
         android:layout_marginTop="444dp"
         android:fontFamily="serif"
@@ -141,7 +141,7 @@
 
     <TextView
         android:id="@+id/epluHume"
-        android:layout_width="91dp"
+        android:layout_width="95dp"
         android:layout_height="27dp"
         android:layout_marginTop="488dp"
         android:fontFamily="serif"
@@ -233,7 +233,7 @@
         android:layout_height="27dp"
         android:layout_marginTop="360dp"
         android:fontFamily="serif"
-        android:text="Apodo"
+        android:text="Apodo:"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

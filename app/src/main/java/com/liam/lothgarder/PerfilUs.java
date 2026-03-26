@@ -31,8 +31,8 @@ public class PerfilUs extends AppCompatActivity {
 
     private String contrasenaReal = "";
     private boolean isPasswordVisible = false;
-    private TextView euContraPU; // Hacemos global el TextView de la contraseña
-    private ImageView ivToggleContra; // Nuevo: El icono de ojo
+    private TextView euContraPU;
+    private ImageView ivToggleContra;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +51,7 @@ public class PerfilUs extends AppCompatActivity {
 
         //Extraccion del link de dominio desde strings.xml
         String link_domain = getString(R.string.link_domain);
-
+        //Función para buscar el usuario y mostrar su perfil
         buscarUsuario(link_domain + "?accion=buscarU&correo=" + preferences.getString("Correo",""));
 
         //Accion de Boton para salir de Perfil Usuario a la Pantalla Principal
@@ -62,10 +62,11 @@ public class PerfilUs extends AppCompatActivity {
                 Toast.makeText(PerfilUs.this, "Botón presionado", Toast.LENGTH_LONG).show();
                 Intent intRtoPrin = new Intent(PerfilUs.this, PantallaPrin.class);
                 startActivity(intRtoPrin);
+                finish();
             }
         });
 
-        // 2. NUEVO: Lógica para el clic del icono de alternar
+        //Lógica para el clic del icono de contraseña y alternar
         ivToggleContra.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -115,14 +116,13 @@ public class PerfilUs extends AppCompatActivity {
     }
 
     //Metodo para buscar usuario
-    //Metodo para buscar usuario (MODIFICADO)
     private void buscarUsuario(String URL) {
 
         // Los TextViews que no son de la contraseña pueden seguir siendo locales
         TextView eNomPU = findViewById(R.id.euNomPU);
         TextView eEdadPU = findViewById(R.id.euEdadPU);
         TextView eCorrPU = findViewById(R.id.euCorrPU);
-        // euContraPU y ivToggleContra ya están enlazados globalmente
+        //El textview de contraseña en global para ocultar y mostrar
 
         //Creacion de la peticion
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
@@ -136,7 +136,7 @@ public class PerfilUs extends AppCompatActivity {
                         eNomPU.setText(jsonObject.getString("Nombre"));
                         eEdadPU.setText(jsonObject.getString("Edad"));
 
-                        // 3. CLAVE: Guardar la contraseña real antes de ocultarla
+                        //Guardar la contraseña real antes de ocultarla
                         contrasenaReal = jsonObject.getString("Contrasena");
 
                         // Ocultar la contraseña por defecto
@@ -150,7 +150,6 @@ public class PerfilUs extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // ... (código existente)
                 Toast.makeText(getApplicationContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
             }
         }

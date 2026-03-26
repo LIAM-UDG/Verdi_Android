@@ -29,19 +29,32 @@ public class adaptadorRecycler extends RecyclerView.Adapter<adaptadorRecycler.Vi
 
         //Nombre Planta Usuario
         TextView eNombrePU;
+        TextView eIdPu;
 
         public ViewHolder(View itemView) {
             super(itemView);
             eNombrePU = itemView.findViewById(R.id.eNombrePlanta);
+            eIdPu = itemView.findViewById(R.id.eIdPlanta);
         }
 
+        //public void bind(planta plantaItem, boolean estaSeleccionada, int numeroParaUsuario) {
         public void bind(planta plantaItem, boolean estaSeleccionada) {
             eNombrePU.setText(plantaItem.getNombre());
+            //eIdPu.setText("Numero de planta: " + plantaItem.getId());
+            if (eIdPu != null) {
+                eIdPu.setText("ID: " + plantaItem.getId());
+            }
+
+            int color = estaSeleccionada ? Color.parseColor("#C8E6C9") : Color.TRANSPARENT;
+            itemView.setBackgroundColor(color);
+
+            // Forzar a la vista a redibujarse
+            itemView.invalidate();
 
             // Cambiar color de fondo si está seleccionado
-            itemView.setBackgroundColor(
+            /*itemView.setBackgroundColor(
                     estaSeleccionada ? Color.parseColor("#C8E6C9") : Color.TRANSPARENT
-            );
+            );*/
         }
     }
 
@@ -56,7 +69,11 @@ public class adaptadorRecycler extends RecyclerView.Adapter<adaptadorRecycler.Vi
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         planta plantaItem = listaPlantas.get(position);
+
+        //int numeroVisible = position + 1;
+
         boolean estaSeleccionada = position == posicionSeleccionada;
+        //holder.bind(plantaItem, position == posicionSeleccionada, numeroVisible);
         holder.bind(plantaItem, estaSeleccionada);
 
         holder.itemView.setOnClickListener(v -> {

@@ -93,7 +93,7 @@ public class SugerirP extends AppCompatActivity {
         // Listener para el botón Atrás
         bnpNptoPrin.setOnClickListener(v -> {
             Toast.makeText(this, "Regresando...", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(SugerirP.this, Plantas.class);
+            Intent intent = new Intent(SugerirP.this, PantallaPrin.class);
             startActivity(intent);
             finish(); // Cierra la actividad actual
         });

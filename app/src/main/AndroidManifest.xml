@@ -28,9 +28,6 @@
             android:name=".LogrosP"
             android:exported="false" />
         <activity
-            android:name=".LogrosS"
-            android:exported="false" />
-        <activity
             android:name=".Faq"
             android:exported="false" />
         <activity

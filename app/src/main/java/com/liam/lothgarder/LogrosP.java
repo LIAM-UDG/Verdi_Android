@@ -19,6 +19,8 @@ public class LogrosP extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_logros_p);
 
+
+
         Button blpLptoPrin = findViewById(R.id.blpLptoPrin);
         blpLptoPrin.setOnClickListener(new View.OnClickListener() {
             @Override

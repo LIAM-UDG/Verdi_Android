@@ -67,7 +67,6 @@ public class Plantas extends AppCompatActivity {
 
         Button bplNuP = findViewById(R.id.bplNuP);
         bplNuP.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
                 Toast.makeText(Plantas.this, "Avanzando a registrar planta...", Toast.LENGTH_SHORT).show();
@@ -87,6 +86,7 @@ public class Plantas extends AppCompatActivity {
                     Toast.makeText(Plantas.this, "Planta seleccionada: " + plantaSeleccionada.getNombre(), Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(Plantas.this, PlantaU.class);
+                    //intent.putExtra("nombre", plantaSeleccionada.getNombre(), "", plantaSeleccionada.getId());
                     intent.putExtra("nombre", plantaSeleccionada.getNombre());
                     startActivity(intent);
 
@@ -102,7 +102,7 @@ public class Plantas extends AppCompatActivity {
         bplPltoPrin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Plantas.this, "Regresando al inicio...", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(Plantas.this, "Regresando al inicio...", Toast.LENGTH_SHORT).show();
                 Intent intPltoPrin = new Intent(Plantas.this, PantallaPrin.class);
                 startActivity(intPltoPrin);
 
@@ -124,11 +124,16 @@ public class Plantas extends AppCompatActivity {
                         try {
                             JSONObject plantaJSON = response.getJSONObject(i);
                             String nombre = plantaJSON.getString("nombre");
-                            listaPlantas.add(new planta(nombre));
+                            int id = plantaJSON.getInt("ID_InfoP");
+                            listaPlantas.add(new planta(nombre, id));
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
                     }
+
+                    //Opcion para mostrar numero
+                    //listaPlantas.sort((p1, p2) -> Integer.compare(p1.getId(), p2.getId()));
+
                     adapter.notifyDataSetChanged();
                 },
                 error -> Toast.makeText(this, "Error al conectar con el servidor", Toast.LENGTH_SHORT).show()

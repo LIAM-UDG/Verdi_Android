@@ -3,6 +3,7 @@ package com.liam.lothgarder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -71,30 +72,38 @@ public class NewUsuario extends AppCompatActivity {
                 // Patrón Regex: Mínimo 8 caracteres, al menos 1 mayúscula, 1 minúscula, 1 número y 1 especial.
                 String patronC = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*-]).{8,}$";
                 //Cada para evaluar el nombre valido
-                String nombreV = "(?=.*[a-z])(?=.*[A-Z]))";
+                String nombreV = "^[a-zA-ZáéíóúÁÉÍÓÚñÑ][a-zA-ZáéíóúÁÉÍÓÚñÑ ]{1,99}$";
 
-                if (!nombre.contains(nombreV)) {
+                if (!nombre.matches(nombreV)) {
                     Toast.makeText(NewUsuario.this, "Nombre inválido.", Toast.LENGTH_LONG).show();
-                    edNom.setError("Nombre inválido");
+                    edNom.setError("Nombre inválido solo se permiten letras");
                     return;
                 }
 
-                // --- VALIDACIÓN DE CORREO (Debe contener @) ---
-                if (correo.isEmpty() || !correo.contains("@") || correo.contains("@@") || correo.contains(" ")) {
+                // --- VALIDACIÓN DE CORREO ---
+                if (correo.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
                     Toast.makeText(NewUsuario.this, "Introduce un correo electrónico válido.", Toast.LENGTH_LONG).show();
                     edCor.setError("Correo inválido");
-                    return; // Detiene la ejecución
+                    return;
                 }
 
                 if (!contrasena.matches(patronC)) {
-
-                    String mensajeError = "La contraseña debe tener:\n" +
+                    new androidx.appcompat.app.AlertDialog.Builder(NewUsuario.this)
+                            .setTitle("Contraseña poco segura")
+                            .setMessage("La contraseña debe tener:\n\n" +
+                                    "• Mínimo 8 caracteres.\n" +
+                                    "• Al menos 1 mayúscula y 1 minúscula.\n" +
+                                    "• Al menos 1 número.\n" +
+                                    "• Al menos 1 carácter especial (!@#$%^&*).")
+                            .setPositiveButton("Aceptar", null)
+                            .show();
+                    /*String mensajeError = "La contraseña debe tener:\n" +
                             " - Mínimo 8 caracteres.\n" +
                             " - Al menos 1 mayúscula y 1 minúscula.\n" +
                             " - Al menos 1 número.\n" +
                             " - Al menos 1 caracter especial como: (!@#$%^&*).";
 
-                    Toast.makeText(NewUsuario.this, mensajeError, Toast.LENGTH_LONG).show();
+                    Toast.makeText(NewUsuario.this, mensajeError, Toast.LENGTH_LONG).show();*/
                     edCon.setError("Contraseña débil");
                     return; // Detiene la ejecución
                 }

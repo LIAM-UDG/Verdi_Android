@@ -37,6 +37,7 @@ import java.util.Map;
 public class PlantaU extends AppCompatActivity {
 
     String nombreP;
+    //int idP;
     SharedPreferences preferences;
 
     @Override
@@ -49,6 +50,7 @@ public class PlantaU extends AppCompatActivity {
 
         Intent intent = getIntent();
         nombreP = intent.getStringExtra("nombre");
+        //idP = intent.getStringExtra("id");
         preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
         correoU = preferences.getString("Correo","");
 
