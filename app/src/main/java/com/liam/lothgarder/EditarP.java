@@ -34,9 +34,9 @@ public class EditarP extends AppCompatActivity{
     RequestQueue requestQueue;
     ImageView imgPlanta;
     Button btnContinuar;
-    EditText edepNombre;
+    EditText edepApodo;
     Spinner spnEpAmbiente, spnEpEstadoP;
-    String nombreP;
+    String nombreP, ambienteSeleccionado, estadoSeleccionado, apodo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,13 +50,12 @@ public class EditarP extends AppCompatActivity{
         // Vistas
         imgPlanta = findViewById(R.id.imgPlanta);
         btnContinuar = findViewById(R.id.btnContinuar);
-        edepNombre = findViewById(R.id.edepNombre);
+        edepApodo = findViewById(R.id.edepNombre);
         spnEpAmbiente = findViewById(R.id.spnEpAmbiente);
         spnEpEstadoP = findViewById(R.id.spnEpEstadoP);
 
-
         ArrayAdapter<String> aaTAmbiente = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
-        aaTAmbiente.addAll("Selecciona una ambiente","Interior", "Exterior", "Sombra", "Luz");
+        aaTAmbiente.addAll("Selecciona un ambiente","Interior", "Exterior", "Sombra", "Luz");
         spnEpAmbiente.setAdapter(aaTAmbiente);
 
         ArrayAdapter<String> aaEstadoP = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
@@ -66,32 +65,32 @@ public class EditarP extends AppCompatActivity{
         Toast.makeText(EditarP.this, "Pantalla nueva planta", Toast.LENGTH_LONG).show();
 
         btnContinuar.setOnClickListener(v -> {
-            String ambienteSeleccionado = spnEpAmbiente.getSelectedItem().toString();
-            String estadoSeleccionado = spnEpEstadoP.getSelectedItem().toString();
 
-                if (ambienteSeleccionado.equals("Selecciona una planta")) {
-                    Toast.makeText(EditarP.this, "Por favor selecciona un ambiente válido", Toast.LENGTH_SHORT).show();
-                } else {
-                    if (estadoSeleccionado.equals("Selecciona un estado")) {
-                        Toast.makeText(EditarP.this, "Por favor selecciona un estado válido", Toast.LENGTH_SHORT).show();
-                    } else {
+            ambienteSeleccionado = spnEpAmbiente.getSelectedItem().toString();
+            estadoSeleccionado = spnEpEstadoP.getSelectedItem().toString();
+            apodo = edepApodo.getText().toString();
 
-                        //Extraccion del link de dominio desde strings.xml
-                        String link_domain = getString(R.string.link_domain);
+                if (!apodo.isEmpty() || !estadoSeleccionado.equals("Selecciona un estado") || !ambienteSeleccionado.equals("Selecciona un ambiente")){
+                    String link_domain = getString(R.string.link_domain);
 
-                        editarPlanta(link_domain + "?accion=editarP");
-
-                        Intent intEdiPtoPs = new Intent(EditarP.this, Plantas.class);
-                        startActivity(intEdiPtoPs);
-
-                        finish();
-
-                        /*
-                        Funcion local
-                        editarPlanta("http://192.168.137.128:80/lothgarder/editarP.php");
-                         */
+                    if (estadoSeleccionado.equals("Selecciona un estado")){
+                        estadoSeleccionado = "";
                     }
+
+                    if (ambienteSeleccionado.equals("Selecciona un ambiente")){
+                        ambienteSeleccionado = "";
+                    }
+
+                    //Llamado a la funcion para editar la planta de usuario
+                    editarPlanta(link_domain + "?accion=editarP");
+
+                    Intent intEdiPtoPs = new Intent(EditarP.this, Plantas.class);
+                    startActivity(intEdiPtoPs);
+                    finish();
+                } else {
+                    Toast.makeText(EditarP.this, "Debes realizar al menos un cambio", Toast.LENGTH_LONG).show();
                 }
+
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -101,18 +100,14 @@ public class EditarP extends AppCompatActivity{
         });
     }
 
-    //Metodo para guardar planta
+    //Funcion para editar planta de usuario
     private void editarPlanta(String URL){
         //Creacion de la peticion al servidor con el metodo POST
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), "Respuesta del servidor: " + response, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Respuesta del servidor: " + response, Toast.LENGTH_LONG).show();
 
-                /*Pasar a pantalla principal tras registrar
-                Intent intRtoP = new Intent(NewUsuario.this, InUsuario.class);
-                startActivity(intRtoP);
-                Toast.makeText(getApplicationContext(), "Operación exitosa",Toast.LENGTH_LONG).show();*/
             }
         }, new Response.ErrorListener(){
             @Override
@@ -124,24 +119,22 @@ public class EditarP extends AppCompatActivity{
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
 
-                //Definicion local de editText
-                EditText edApodo = findViewById(R.id.edepNombre);
-                //Definicion local del spinner
-                spnEpAmbiente = findViewById(R.id.spnEpAmbiente);
-                spnEpEstadoP = findViewById(R.id.spnEpEstadoP);
+                Intent intent = getIntent();
+                int idP;
                 //Llamada de sesion
                 SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
+                idP = intent.getIntExtra("id", 0);
 
                 //Metodo Map que manda los datos de la peticion al servidor extrallendo informacion del editText para guardar en la base
                 Map<String, String> parametros = new HashMap<String, String>();
+                parametros.put("idPu", String.valueOf(idP));
                 parametros.put("nombre", nombreP);
-                parametros.put("apodo", edApodo.getText().toString());
-                parametros.put("estado", spnEpEstadoP.getSelectedItem().toString());
-                parametros.put("lugar", spnEpAmbiente.getSelectedItem().toString());
+                parametros.put("apodo", apodo);
+                parametros.put("estado", estadoSeleccionado);
+                parametros.put("lugar", ambienteSeleccionado);
                 parametros.put("usuario", preferences.getString("Correo",""));
 
                 return parametros;
-                //return super.getParams();
             }
         };
 

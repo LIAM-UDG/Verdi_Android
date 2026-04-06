@@ -13,6 +13,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Definicion de variables globales
+    private Button bmMtoIn, bmMtoNew;
+
     //Funcion principal
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Accion del boton para cambiar de la pantalla main al ingreso de usuario (si tiene cuenta)
-        Button bmMtoIn = findViewById(R.id.bmMtoIn);
+        bmMtoIn = findViewById(R.id.bmMtoIn);
         bmMtoIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -33,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //Accion del boton para de la pantalla main al registro de usuario (para crear cuenta)
-        Button bmMtoNew = findViewById(R.id.bmMtoNew);
+        bmMtoNew = findViewById(R.id.bmMtoNew);
         bmMtoNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -43,16 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
-        /*Button bmMtoPrin = findViewById(R.id.bmMtoPrin);
-        bmMtoPrin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intMtoPrin = new Intent(MainActivity.this, PantallaPrin.class);
-                startActivity(intMtoPrin);
-            }
-        });*/
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());

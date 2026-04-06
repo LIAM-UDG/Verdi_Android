@@ -15,7 +15,10 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Enci extends AppCompatActivity {
 
-    int PKpl;
+    //Definicion de variables globales
+    private int PKpl;
+    private Button beAloe, beLava, beMenta, beManza, beAlba, beRomero, beArana,
+            beBugam, beCactus, beOrqui, beSu, beEtoMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +27,7 @@ public class Enci extends AppCompatActivity {
         setContentView(R.layout.activity_enci);
 
         // Botón Aloe Vera
-        Button beAloe = findViewById(R.id.beAloe);
+        beAloe = findViewById(R.id.beAloe);
         beAloe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,7 +39,7 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Lavanda
-        Button beLava = findViewById(R.id.beLava);
+        beLava = findViewById(R.id.beLava);
         beLava.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,7 +51,7 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Menta
-        Button beMenta = findViewById(R.id.beMenta);
+        beMenta = findViewById(R.id.beMenta);
         beMenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,7 +63,7 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Manzanilla
-        Button beManza = findViewById(R.id.beManza);
+        beManza = findViewById(R.id.beManza);
         beManza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,7 +75,7 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Albahaca
-        Button beAlba = findViewById(R.id.beAlba);
+        beAlba = findViewById(R.id.beAlba);
         beAlba.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,7 +87,7 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Romero
-        Button beRomero = findViewById(R.id.beRomero);
+        beRomero = findViewById(R.id.beRomero);
         beRomero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,7 +99,7 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Planta Araña
-        Button beArana = findViewById(R.id.beArana);
+        beArana = findViewById(R.id.beArana);
         beArana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,7 +111,7 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Bugambilia
-        Button beBugam = findViewById(R.id.beBugam);
+        beBugam = findViewById(R.id.beBugam);
         beBugam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -120,7 +123,7 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Cactus
-        Button beCactus = findViewById(R.id.beCactus);
+        beCactus = findViewById(R.id.beCactus);
         beCactus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -132,7 +135,7 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Orquídea
-        Button beOrqui = findViewById(R.id.beOrqui);
+        beOrqui = findViewById(R.id.beOrqui);
         beOrqui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -144,7 +147,7 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Sugerir Planta
-        Button beSu = findViewById(R.id.beSu);
+        beSu = findViewById(R.id.beSu);
         beSu.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,12 +158,13 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Volver a Principal
-        Button beEtoMain = findViewById(R.id.beEtoMain);
+        beEtoMain = findViewById(R.id.beEtoMain);
         beEtoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intEtoPrin = new Intent(Enci.this, PantallaPrin.class);
                 startActivity(intEtoPrin);
+                finish();
             }
         });
 

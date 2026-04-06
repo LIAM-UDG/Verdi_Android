@@ -29,9 +29,11 @@ import android.widget.ImageView;
 
 public class PerfilUs extends AppCompatActivity {
 
+    //Definicion de variables globales
     private String contrasenaReal = "";
     private boolean isPasswordVisible = false;
     private TextView euContraPU;
+    private Button buUtoPrin;
     private ImageView ivToggleContra;
 
     @Override
@@ -46,16 +48,13 @@ public class PerfilUs extends AppCompatActivity {
         //Creacion de la instancia de las preferencias(informacion de sesion)
         SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
 
-        //Llamada al metodo de buscar usuario para mostrar su informacion usando la info de la prefencia de correo
-        //buscarUsuario("http://192.168.137.128:80/lothgarder/buscarU.php?correo="+preferences.getString("Correo",""));
-
         //Extraccion del link de dominio desde strings.xml
         String link_domain = getString(R.string.link_domain);
-        //Función para buscar el usuario y mostrar su perfil
+        //Llamado a la funcion para buscar el usuario y mostrar su perfil
         buscarUsuario(link_domain + "?accion=buscarU&correo=" + preferences.getString("Correo",""));
 
         //Accion de Boton para salir de Perfil Usuario a la Pantalla Principal
-        Button buUtoPrin = findViewById(R.id.buUtoPrin);
+        buUtoPrin = findViewById(R.id.buUtoPrin);
         buUtoPrin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,40 +73,6 @@ public class PerfilUs extends AppCompatActivity {
             }
         });
 
-        /*
-        PRUEBAS/PROVICIONALES
-        Button buBus = findViewById(R.id.buBus);
-        buBus.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                TextView eNomPU = findViewById(R.id.euNomPU);
-                EditText edCorr = findViewById(R.id.edCorr);
-
-                Toast.makeText(PerfilUs.this, "Buscando usuario", Toast.LENGTH_LONG).show();
-                SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
-
-                buscarUsuario("http://10.116.133.114:80/lothgarder/buscarU.php?correo="+preferences.getString("Correo",""));
-                //buscarUsuario("http://10.0.2.2/lothgarder/buscar.php?correo="+edCorr.getText().toString());
-            }
-        });
-
-        Modo de variable
-        TextView eNomPU = findViewById(R.id.eNomPU);
-        TextView eEdadPU = findViewById(R.id.eEdadPU);
-        TextView eCorrPU = findViewById(R.id.eCorrPU);
-        TextView eContraPU = findViewById(R.id.eContraPU);
-
-        String nombrePU = getIntent().getExtras().getString("Nombre");
-        String edadPU = getIntent().getExtras().getString("Edad");
-        String correoPU = getIntent().getExtras().getString("Correo");
-        String contraPU = getIntent().getExtras().getString("Contra");
-
-        eNomPU.setText(nombrePU);
-        eEdadPU.setText(edadPU);
-        eCorrPU.setText(correoPU);
-        eContraPU.setText(contraPU);*/
-
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -115,7 +80,7 @@ public class PerfilUs extends AppCompatActivity {
         });
     }
 
-    //Metodo para buscar usuario
+    //FUncion para buscar usuario
     private void buscarUsuario(String URL) {
 
         // Los TextViews que no son de la contraseña pueden seguir siendo locales

@@ -53,6 +53,10 @@
         android:layout_marginTop="40dp"
         android:fontFamily="serif"
         android:text="Verdi"
+        android:shadowColor="@color/verdeM"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="5"
         android:textAlignment="center"
         android:textColor="@color/verdeF"
         android:textSize="50sp"
@@ -60,6 +64,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <Button
         android:id="@+id/bpPtoU"
@@ -72,6 +78,8 @@
         android:textSize="17sp"
         app:icon="@drawable/perfil"
         app:iconTint="@color/fondo1"
+        android:elevation="30dp"
+        android:translationZ="13dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
@@ -88,6 +96,8 @@
         android:textSize="17sp"
         app:icon="@drawable/enciclopedia"
         app:iconTint="@color/fondo1"
+        android:elevation="30dp"
+        android:translationZ="13dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.524"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,6 +114,8 @@
         android:textSize="17sp"
         app:icon="@drawable/planta"
         app:iconTint="@color/fondo1"
+        android:elevation="30dp"
+        android:translationZ="13dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
@@ -115,11 +127,13 @@
         android:layout_height="60dp"
         android:layout_marginTop="35dp"
         android:backgroundTint="@color/verdeM"
-        android:text="Estadisticas de Sistema"
+        android:text="Sistema de Usuario"
         android:textColor="@color/fondo1"
         android:textSize="17sp"
-        app:icon="@drawable/grafico"
+        app:icon="@drawable/baseline_developer_board_24"
         app:iconTint="@color/fondo1"
+        android:elevation="30dp"
+        android:translationZ="13dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
@@ -136,6 +150,8 @@
         android:textSize="17sp"
         app:icon="@android:drawable/ic_dialog_info"
         app:iconTint="@color/fondo1"
+        android:elevation="30dp"
+        android:translationZ="13dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.43"
         app:layout_constraintStart_toStartOf="parent"
@@ -148,9 +164,36 @@
         android:layout_marginTop="644dp"
         android:backgroundTint="@color/verdeM"
         android:text="Salir"
+        android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/linea1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:width="90dp"
+        android:height="2dp"
+        android:background="@color/verdeF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/epTitulo" />
+
+    <TextView
+        android:id="@+id/linea2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:width="90dp"
+        android:height="2dp"
+        android:background="@color/verdeF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.884"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/epTitulo" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

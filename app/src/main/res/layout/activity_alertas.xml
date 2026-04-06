@@ -48,13 +48,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:background="#E6E2C4"
-        android:backgroundTint="#E6E2C4"
+        android:background="@drawable/rounded_edittext_background"
         android:backgroundTintMode="src_in"
         android:padding="12dp"
         android:drawableStart="@android:drawable/ic_menu_search"
         android:drawablePadding="10dp"
-        android:hint="🔎Buscar fallos"
+        android:hint="Buscar fallos"
         android:textColorHint="#3D4224" />
 
     <!-- Filtro (Spinner) -->
@@ -72,8 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/filter_options"
-        android:background="#E6E2C4"
-        android:backgroundTint="#E6E2C4"
+        android:background="@drawable/rounded_spinner_background"
         android:backgroundTintMode="src_in"
         android:padding="12dp"
         android:layout_marginBottom="20dp" />

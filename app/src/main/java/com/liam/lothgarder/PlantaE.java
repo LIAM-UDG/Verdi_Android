@@ -30,6 +30,10 @@ import org.json.JSONObject;
 
 public class PlantaE extends AppCompatActivity {
 
+    //Definicion de variables globales
+    private int PKpl;
+    private Button bplePletoEn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,28 +41,25 @@ public class PlantaE extends AppCompatActivity {
         setContentView(R.layout.activity_planta_e);
 
         Intent intent = getIntent();
-        int PKpl = intent.getIntExtra("PKpl",0);
+        //Extraccion de la informacion del ID e la planta mediante el intent
+        PKpl = intent.getIntExtra("PKpl",0);
 
         //Extraccion del link de dominio desde strings.xml
         String link_domain = getString(R.string.link_domain);
 
-        //Conexión a AwardSpace
+        //Llamado a la funcion para buscar la planta de enciclopedia
         buscarPlantaE(link_domain + "?accion=buscarP&planta="+PKpl);
 
-        /*Llamada al metodo de buscar usuario para mostrar su informacion usando la info de la prefencia de correo
-        Local
-        buscarPlantaE("http://192.168.137.128:80/lothgarder/buscarP.php?planta="+PKpl);
-        */
-
-        Button bplePletoEn = findViewById(R.id.bplePletoEn);
+        //Accion de boton para regresar a la enciclopedia
+        bplePletoEn = findViewById(R.id.bplePletoEn);
         bplePletoEn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intPletoEn = new Intent(PlantaE.this, Enci.class);
                 startActivity(intPletoEn);
+                finish();
             }
         });
-
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
@@ -67,6 +68,7 @@ public class PlantaE extends AppCompatActivity {
         });
     }
 
+    //Funcion para buscar la planta de enciclopedia
     private void buscarPlantaE(String URL) {
 
         TextView epleTitulo = findViewById(R.id.epleTitulo);
@@ -85,17 +87,19 @@ public class PlantaE extends AppCompatActivity {
                     try {
                         jsonObject = response.getJSONObject(reco);
 
+                        //Extraccion del texto del servidor
                         String nombre = jsonObject.getString("Nombre");
                         String desc = jsonObject.getString("Descripcion");
                         String cuid = jsonObject.getString("Cuidados");
                         String usos = jsonObject.getString("Uso");
-
                         String imagenBase64 = jsonObject.getString("Imagen");
+
                         nombre = nombre.replace("\\n", "\n\n");  // Reemplaza \\n por salto de línea real
                         desc = desc.replace("\\n", "\n\n");
                         cuid = cuid.replace("\\n", "\n\n");
                         usos = usos.replace("\\n", "\n\n");
 
+                        //Asignacion del texto cargado a la etiqueta
                         epleTitulo.setText(nombre);
                         epleDescText.setText(desc);
                         epleCuidadText.setText(cuid);
@@ -115,7 +119,6 @@ public class PlantaE extends AppCompatActivity {
         },  new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                // CAMBIO: Agregado log para debug detallado del error
                 if (error.networkResponse != null) {
                     int statusCode = error.networkResponse.statusCode;
                     String responseBody = "";
@@ -131,11 +134,6 @@ public class PlantaE extends AppCompatActivity {
                 }
                 Toast.makeText(getApplicationContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
             }
-
-            /*@Override
-            public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
-            }*/
         }) {
             @Override
             public java.util.Map<String, String> getHeaders() {
@@ -145,16 +143,6 @@ public class PlantaE extends AppCompatActivity {
                 return headers;
             }
         };
-
-                /*new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-                //Log.e("Volley", "Error: " + error.toString());
-                //error.printStackTrace();
-                Toast.makeText(getApplicationContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
-            }
-        }
-        );*/
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(jsonArrayRequest);

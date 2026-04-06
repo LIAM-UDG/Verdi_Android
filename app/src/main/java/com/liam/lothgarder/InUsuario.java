@@ -31,10 +31,10 @@ import java.util.Map;
 
 public class InUsuario extends AppCompatActivity {
 
-    //Definicion global
-    EditText ediCorreo, ediContra;
-    Button biCon;
-    String correo,nombre,edad,contra,tiempo;
+    //Definicion de variables globales
+    private EditText ediCorreo, ediContra;
+    private Button biItoP,biCon;
+    private String correo,contra;
 
 
     @Override
@@ -60,7 +60,7 @@ public class InUsuario extends AppCompatActivity {
                 correo = ediCorreo.getText().toString();
                 contra = ediContra.getText().toString();
 
-                // 2. VALIDACIÓN NATIVA (Lo que tienes en la imagen 3)
+                //Validacion de que ninguno de los campos este vacio
                 if (correo.isEmpty() || contra.isEmpty()) {
                     Toast.makeText(InUsuario.this, "Debes ingresar ambos campos", Toast.LENGTH_SHORT).show();
                     if(correo.isEmpty()) ediCorreo.setError("Campo obligatorio");
@@ -71,23 +71,22 @@ public class InUsuario extends AppCompatActivity {
                 //Extraccion del link de dominio desde strings.xml
                 String link_domain = getString(R.string.link_domain);
 
+                //Llamada a la funcion de validar usuario
                 validarUsuario(link_domain + "?accion=validarU");
 
-                /*
-                Funcion de host local
-                validarUsuario("http://192.168.137.128:80/lothgarder/validarU.php");*/
 
             }
         });
 
         //Accion del boton para volver al inicio
-        Button biItoP = findViewById(R.id.biItoP);
+        biItoP = findViewById(R.id.biItoP);
         biItoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent intRMain = new Intent(InUsuario.this, MainActivity.class);
                 startActivity(intRMain);
+                finish();
             }
         });
 
@@ -106,16 +105,6 @@ public class InUsuario extends AppCompatActivity {
             @Override
             public void onResponse(String response) {
 
-                /*
-                PROVICIONAL
-                if(!response.equals("0")) {
-                    Log.d("RESPUESTA_LOGIN", "Respuesta del servidor: " + response);
-                    Intent intent = new Intent(getApplicationContext(),PantallaPrin.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(InUsuario.this, "Error Usuario o Contraseña Incorrecta", Toast.LENGTH_LONG).show();
-                }*/
-
                 try {
                     //Creacion de un objeto JSON con la respuesta del servidor
                     JSONObject jsonObject = new JSONObject(response);
@@ -123,15 +112,10 @@ public class InUsuario extends AppCompatActivity {
                     //Segun la respuesta del servidor (en la validacion del usuario)
                     switch (estado) {
                         case "Ok":
-                            /*Si la peticion es exitosa el codigo PHP manda un OK y se ejecuta el metodo de guardar sesion
-                            Y saca el nombre del usuario para darle la bienvenida
-                             */
-
                             guardarSesion();
                             String nombre = jsonObject.getString("nombre");
                             Toast.makeText(InUsuario.this, "Bienvenido " + nombre, Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(), PantallaPrin.class));
-
                             finish();
                             break;
 
@@ -166,11 +150,8 @@ public class InUsuario extends AppCompatActivity {
            //Metodo Map que manda los datos de la peticion al servidor
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String,String> parametros = new HashMap<String,String>();
-                parametros.put("Correo", correo);
-                parametros.put("Contrasena", contra);
-
-                //parametros.put("Correo", ediCorreo.getText().toString());
-                //parametros.put("Contraseña", ediContra.getText().toString());
+                parametros.put("correo", correo);
+                parametros.put("contrasena", contra);
 
                 return parametros;
             }
@@ -185,8 +166,6 @@ public class InUsuario extends AppCompatActivity {
         SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("Correo", correo);
-        //editor.putString("Nombre", );
-        // Local -> editor.putString("Contraseña", contra);
         editor.putString("Contrasena", contra);
         editor.putBoolean("Sesion",true);
         editor.commit();

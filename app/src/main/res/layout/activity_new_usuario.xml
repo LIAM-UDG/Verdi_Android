@@ -54,7 +54,7 @@
     <EditText
         android:id="@+id/edrNom"
         android:layout_width="350dp"
-        android:layout_height="55dp"
+        android:layout_height="60dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/rounded_edittext_background"
         android:ems="10"
@@ -70,7 +70,7 @@
         android:id="@+id/erEdad"
         android:layout_width="120dp"
         android:layout_height="25dp"
-        android:layout_marginTop="212dp"
+        android:layout_marginTop="215dp"
         android:fontFamily="serif"
         android:text="Edad"
         android:textColor="@color/verdeF"
@@ -84,7 +84,7 @@
     <EditText
         android:id="@+id/edrEdad"
         android:layout_width="350dp"
-        android:layout_height="55dp"
+        android:layout_height="60dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/rounded_edittext_background"
         android:ems="10"
@@ -100,7 +100,7 @@
         android:id="@+id/erCor"
         android:layout_width="120dp"
         android:layout_height="25dp"
-        android:layout_marginTop="316dp"
+        android:layout_marginTop="320dp"
         android:fontFamily="serif"
         android:text="Correo"
         android:textColor="@color/verdeF"
@@ -114,7 +114,7 @@
     <EditText
         android:id="@+id/edrCor"
         android:layout_width="350dp"
-        android:layout_height="55dp"
+        android:layout_height="60dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/rounded_edittext_background"
         android:ems="10"
@@ -146,7 +146,7 @@
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutContrasena2"
         android:layout_width="350dp"
-        android:layout_height="55dp"
+        android:layout_height="60dp"
         android:layout_marginTop="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"

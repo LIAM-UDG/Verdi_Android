@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -18,6 +19,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class PantallaPrin extends AppCompatActivity {
 
+    private Button bpPtoU, bpPtoE, bpPtoSop, bpPtoPU, bpPtoEst, bpPtoMain;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,43 +28,27 @@ public class PantallaPrin extends AppCompatActivity {
         setContentView(R.layout.activity_pantalla_prin);
 
         //Accion de Boton para pasar de Pantalla Principal a Perfil de Usuario
-        Button bpPtoU = findViewById(R.id.bpPtoU);
+        bpPtoU = findViewById(R.id.bpPtoU);
         bpPtoU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intPPerUs = new Intent(PantallaPrin.this, PerfilUs.class);
                 startActivity(intPPerUs);
-
             }
         });
 
         //Accion de Boton para pasar de Pantalla principal a Enciclopedia
-        Button bpPtoE = findViewById(R.id.bpPtoE);
+        bpPtoE = findViewById(R.id.bpPtoE);
         bpPtoE.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intPEnci = new Intent(PantallaPrin.this, Enci.class);
                 startActivity(intPEnci);
-
             }
         });
 
-        //Accion de Boton de Pantalla principal a Soporte
-        Button bpPtoSop = findViewById(R.id.bpPtoSop);
-        bpPtoSop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Intent intPSop = new Intent(PantallaPrin.this, Soporte.class);
-                startActivity(intPSop);
-
-            }
-        });
-
-            //Accion de Boton de Pantalla principal a Plantas de Usuario
-        Button bpPtoPU = findViewById(R.id.bpPtoPU);
+        //Accion de Boton de Pantalla principal a Plantas de Usuario
+        bpPtoPU = findViewById(R.id.bpPtoPU);
         bpPtoPU.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,17 +57,25 @@ public class PantallaPrin extends AppCompatActivity {
             }
         });
 
-        //Accion de Boton de Pantalla principal a Estadisticas
-
-        Button bpPtoEst = findViewById(R.id.bpPtoEst);
+        //Accion de Boton de Pantalla principal a Sistema de Usuario
+        bpPtoEst = findViewById(R.id.bpPtoEst);
         bpPtoEst.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intPtoEst = new Intent(PantallaPrin.this, Estadisticas.class);
+                Intent intPtoEst = new Intent(PantallaPrin.this, SistemaU.class);
                 startActivity(intPtoEst);
             }
         });
 
+        //Accion de Boton de Pantalla principal a Soporte
+        bpPtoSop = findViewById(R.id.bpPtoSop);
+        bpPtoSop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intPSop = new Intent(PantallaPrin.this, Soporte.class);
+                startActivity(intPSop);
+            }
+        });
 
         //Botón de pantalla principal a Logros
         ImageView bpPtoL = findViewById(R.id.bpPtoL);
@@ -115,7 +110,7 @@ public class PantallaPrin extends AppCompatActivity {
         });
 
         //Accion de Boton para salir de tu sesion
-        Button bpPtoMain = findViewById(R.id.bpPtoMain);
+        bpPtoMain = findViewById(R.id.bpPtoMain);
         bpPtoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

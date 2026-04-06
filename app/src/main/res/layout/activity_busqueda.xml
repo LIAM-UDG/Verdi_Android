@@ -34,7 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Buscar"
-        android:background="#E6E2C4"
+        android:background="@drawable/rounded_edittext_background"
         android:drawableStart="@android:drawable/ic_menu_search"
         android:drawablePadding="10dp"
         android:padding="12dp"
@@ -47,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:entries="@array/filter_options"
-        android:background="#E6E2C4"
+        android:background="@drawable/rounded_spinner_background"
         android:padding="12dp" />
 
 

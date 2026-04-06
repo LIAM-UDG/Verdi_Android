@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo1"
+    tools:context=".SistemaU">
+
+    <TextView
+        android:id="@+id/esuTitulo"
+        android:layout_width="350dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="serif"
+        android:text="Sistema de Usuario"
+        android:textAlignment="center"
+        android:textColor="@color/verdeF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/esubarrita"
+        android:layout_width="360dp"
+        android:layout_height="2dp"
+        android:layout_marginTop="92dp"
+        android:background="@color/verdeF"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/esuNom"
+        android:layout_width="80dp"
+        android:layout_height="27dp"
+        android:layout_marginTop="124dp"
+        android:fontFamily="serif"
+        android:text="Nombre:"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/esuNoPla"
+        android:layout_width="171dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="230dp"
+        android:fontFamily="serif"
+        android:text="Numero de plantas:"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/esuNoMo"
+        android:layout_width="171dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="316dp"
+        android:fontFamily="serif"
+        android:text="Numero de módulos:"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.133"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/esuNomV"
+        android:layout_width="150dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="8dp"
+        android:text="Cargando\n nombre..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/esuNom" />
+
+    <TextView
+        android:id="@+id/esuNoPV"
+        android:layout_width="173dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="116dp"
+        android:text="Cargando\n plantas..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/esuNom" />
+
+    <TextView
+        android:id="@+id/esuNoMoV"
+        android:layout_width="173dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="204dp"
+        android:text="Cargando\n módulos..."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/esuNom" />
+
+    <Button
+        android:id="@+id/bsuAgre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Agregar"
+        android:textColor="@color/fondo1"
+        app:icon="@drawable/agregar"
+        app:iconTint="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/esubarrita" />
+
+    <Button
+        android:id="@+id/bsuEli"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Eliminar"
+        app:icon="@drawable/eliminar"
+        app:iconTint="@color/fondo1"
+        android:textColor="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bsuAgre" />
+
+    <Button
+        android:id="@+id/bsuSutoPrin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="645dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Inicio"
+        android:textColor="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bsuActSu"
+        android:layout_width="359dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="456dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Activar Sistema"
+        android:textColor="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/bsuSutoEst"
+        android:layout_width="359dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="520dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Estadisticas"
+        app:icon="@drawable/grafico"
+        app:iconTint="@color/fondo1"
+        android:textColor="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

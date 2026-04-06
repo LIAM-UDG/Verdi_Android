@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -31,25 +32,26 @@ public class adaptadorRecycler extends RecyclerView.Adapter<adaptadorRecycler.Vi
         TextView eNombrePU;
         TextView eIdPu;
 
+        View container;
+
         public ViewHolder(View itemView) {
             super(itemView);
             eNombrePU = itemView.findViewById(R.id.eNombrePlanta);
             eIdPu = itemView.findViewById(R.id.eIdPlanta);
+            container = itemView.findViewById(R.id.containerP);
         }
 
-        //public void bind(planta plantaItem, boolean estaSeleccionada, int numeroParaUsuario) {
-        public void bind(planta plantaItem, boolean estaSeleccionada) {
+        public void bind(planta plantaItem, boolean estaSeleccionada, int numeroVeUsuario) {
+        //public void bind(planta plantaItem, boolean estaSeleccionada) {
             eNombrePU.setText(plantaItem.getNombre());
-            //eIdPu.setText("Numero de planta: " + plantaItem.getId());
-            if (eIdPu != null) {
-                eIdPu.setText("ID: " + plantaItem.getId());
-            }
+            //eIdPu.setText("Numero de planta: " + numeroVeUsuario + "id" + plantaItem.getId());
+            eIdPu.setText("No." + numeroVeUsuario);
 
-            int color = estaSeleccionada ? Color.parseColor("#C8E6C9") : Color.TRANSPARENT;
-            itemView.setBackgroundColor(color);
+            int color = estaSeleccionada
+                    ? ContextCompat.getColor(itemView.getContext(), R.color.verdeC)
+                    : ContextCompat.getColor(itemView.getContext(), R.color.fondo1);
 
-            // Forzar a la vista a redibujarse
-            itemView.invalidate();
+            container.setBackgroundColor(color);
 
             // Cambiar color de fondo si está seleccionado
             /*itemView.setBackgroundColor(
@@ -70,11 +72,11 @@ public class adaptadorRecycler extends RecyclerView.Adapter<adaptadorRecycler.Vi
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         planta plantaItem = listaPlantas.get(position);
 
-        //int numeroVisible = position + 1;
-
+        int numeroVisible = position + 1;
         boolean estaSeleccionada = position == posicionSeleccionada;
-        //holder.bind(plantaItem, position == posicionSeleccionada, numeroVisible);
-        holder.bind(plantaItem, estaSeleccionada);
+
+        holder.bind(plantaItem, estaSeleccionada, numeroVisible);
+        //holder.bind(plantaItem, estaSeleccionada);
 
         holder.itemView.setOnClickListener(v -> {
             int posicionAnterior = posicionSeleccionada;

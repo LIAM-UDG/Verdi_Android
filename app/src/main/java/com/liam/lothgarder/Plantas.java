@@ -86,7 +86,7 @@ public class Plantas extends AppCompatActivity {
                     Toast.makeText(Plantas.this, "Planta seleccionada: " + plantaSeleccionada.getNombre(), Toast.LENGTH_SHORT).show();
 
                     Intent intent = new Intent(Plantas.this, PlantaU.class);
-                    //intent.putExtra("nombre", plantaSeleccionada.getNombre(), "", plantaSeleccionada.getId());
+                    intent.putExtra("id", plantaSeleccionada.getId());
                     intent.putExtra("nombre", plantaSeleccionada.getNombre());
                     startActivity(intent);
 
@@ -123,7 +123,7 @@ public class Plantas extends AppCompatActivity {
                     for (int i = 0; i < response.length(); i++) {
                         try {
                             JSONObject plantaJSON = response.getJSONObject(i);
-                            String nombre = plantaJSON.getString("nombre");
+                            String nombre = plantaJSON.getString("Nombre");
                             int id = plantaJSON.getInt("ID_InfoP");
                             listaPlantas.add(new planta(nombre, id));
                         } catch (JSONException e) {
@@ -132,8 +132,7 @@ public class Plantas extends AppCompatActivity {
                     }
 
                     //Opcion para mostrar numero
-                    //listaPlantas.sort((p1, p2) -> Integer.compare(p1.getId(), p2.getId()));
-
+                    listaPlantas.sort((p1, p2) -> Integer.compare(p1.getId(), p2.getId()));
                     adapter.notifyDataSetChanged();
                 },
                 error -> Toast.makeText(this, "Error al conectar con el servidor", Toast.LENGTH_SHORT).show()

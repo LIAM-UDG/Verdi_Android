@@ -43,13 +43,16 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:backgroundTint="@color/verdeM"
-            android:text="Registrar Planta" />
+            android:text="Registrar Planta"
+            app:icon="@drawable/agregar"
+            app:iconTint="@color/fondo1"
+            />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvP"
             android:layout_width="match_parent"
             android:layout_height="488dp"
-            android:background="@drawable/selector_item"
+            android:background="@color/fondo1"
             android:clickable="true"
             android:focusable="true"
             />
@@ -61,9 +64,9 @@
 
             <Button
                 android:id="@+id/bplPltoPrin"
-                android:layout_width="120dp"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="@color/verdeM"
@@ -71,9 +74,9 @@
 
             <Button
                 android:id="@+id/bplSelP"
-                android:layout_width="203dp"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="35dp"
+                android:layout_marginLeft="70dp"
                 android:layout_marginTop="10dp"
                 android:backgroundTint="@color/verdeM"
                 android:text="Seleccionar" />

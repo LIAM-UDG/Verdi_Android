@@ -85,9 +85,9 @@ public class SugerirP extends AppCompatActivity {
             sugerirP(link_domain + "?accion=insertarS");
 
             // Pasar los datos a la pantalla Plantas y regresar
-            Intent intent = new Intent(SugerirP.this, Plantas.class);
+            Intent intent = new Intent(SugerirP.this, Enci.class);
             startActivity(intent);
-            finish(); // Cierra la actividad actual
+            finish();
         });
 
         // Listener para el botón Atrás

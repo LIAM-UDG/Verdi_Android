@@ -36,8 +36,8 @@ import java.util.Map;
 
 public class PlantaU extends AppCompatActivity {
 
-    String nombreP;
-    //int idP;
+    private Button bpluElim, bplEdiP, bpluPlutoPrin;
+    private String nombreP, correoU;
     SharedPreferences preferences;
 
     @Override
@@ -46,26 +46,23 @@ public class PlantaU extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_planta_u);
 
-        String correoU;
-
         Intent intent = getIntent();
+
         nombreP = intent.getStringExtra("nombre");
-        //idP = intent.getStringExtra("id");
+        int idP = intent.getIntExtra("id", 0);
+
         preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
         correoU = preferences.getString("Correo","");
 
         //Extraccion del link de dominio desde strings.xml
         String link_domain = getString(R.string.link_domain);
+        Toast.makeText(getApplicationContext(), "Id: " + idP, Toast.LENGTH_SHORT).show();
 
-        buscarPlanatU(link_domain + "?accion=buscarPU" + "&nombre=" + nombreP + "&usuario=" + correoU);
+        //Llamada a la funcion para buscar planta de usuario
+        buscarPlantaU(link_domain + "?accion=buscarPU" + "&idPu=" + idP + "&correo=" + correoU);
 
-        /*
-        Funcion local
-        buscarPlanatU("http:// 192.168.137.128:80/lothgarder/buscarPU.php?nombre=" + nombreP + "&usuario=" + correoU);
-         */
-
-
-        Button bpluElim = findViewById(R.id.bpluElim);
+        //Accion de boton para eliminar planta de usuario
+        bpluElim = findViewById(R.id.bpluElim);
         bpluElim.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,35 +70,35 @@ public class PlantaU extends AppCompatActivity {
                 //Extraccion del link de dominio desde strings.xml
                 String link_domain = getString(R.string.link_domain);
 
+                //Llamada a la funcion para eliminar planta de usuario
                 eliminarPlanta(link_domain + "?accion=eliminarPU");
-                /*
-                Funcion local
-                eliminarPlanta( "http:// 192.168.137.128:80/lothgarder/eliminarPU.php");
-                */
+
                 Intent intPlutoPs = new Intent(PlantaU.this, Plantas.class);
                 startActivity(intPlutoPs);
-
                 finish();
             }
         });
 
-        Button bplEdiP = findViewById(R.id.bplEdiP);
+        //Accion de boton para editar planta de usuario
+        bplEdiP = findViewById(R.id.bplEdiP);
         bplEdiP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intPlutoEp = new Intent(PlantaU.this, EditarP.class);
-
+                intPlutoEp.putExtra("id", idP);
                 intPlutoEp.putExtra("nombrePSel", nombreP);
                 startActivity(intPlutoEp);
             }
         });
 
-        Button bpluPlutoPrin = findViewById(R.id.bpluPlutoPrin);
+        //Accion de boton para regresar al inicio
+        bpluPlutoPrin = findViewById(R.id.bpluPlutoPrin);
         bpluPlutoPrin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intPlutoPrin = new Intent(PlantaU.this, PantallaPrin.class);
                 startActivity(intPlutoPrin);
+                finish();
             }
         });
 
@@ -112,8 +109,8 @@ public class PlantaU extends AppCompatActivity {
         });
     }
 
-    //Metodo para buscar planta de usuario
-    private void buscarPlanatU(String URL) {
+    //Funcion para buscar planta de usuario
+    private void buscarPlantaU(String URL) {
 
         TextView eNomPlU = findViewById(R.id.epluTitulo);
         TextView eApodoPlU = findViewById(R.id.epluApot);
@@ -142,6 +139,7 @@ public class PlantaU extends AppCompatActivity {
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+                //Para ver error en cado de fallo
                 //Log.e("Volley", "Error: " + error.toString());
                 //error.printStackTrace();
                 Toast.makeText(getApplicationContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
@@ -176,16 +174,16 @@ public class PlantaU extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 //Definicion local de variables
-                String nombreP;
                 Intent intent = getIntent();
-                nombreP = intent.getStringExtra("nombre");
+                int idP;
                 getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
                 String correoU= preferences.getString("Correo", "");
+                idP = intent.getIntExtra("id", 0);
 
                 //Metodo Map que manda los datos de la peticion al servidor extrallendo informacion del editText para guardar en la base
                 Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("nombre", nombreP);
-                parametros.put("correo", correoU);
+                parametros.put("idPu", String.valueOf(idP));
+                parametros.put("usuario", correoU);
 
                 return parametros;
             }
