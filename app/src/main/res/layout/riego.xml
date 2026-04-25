@@ -1,0 +1,57 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="12dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="10dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    app:cardBackgroundColor="@color/fondo2">
+
+    <LinearLayout
+        android:id="@+id/containerR"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/etPlantaR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Planta 1"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:textColor="@color/verdeF" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="8dp"
+            android:background="@color/verdeM"/>
+
+        <TextView
+            android:id="@+id/etFechaR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fecha"
+            android:textColor="@color/verdeF"/>
+
+        <TextView
+            android:id="@+id/etSegR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Segundos"
+            android:textColor="@color/verdeF"/>
+
+        <TextView
+            android:id="@+id/etAguaR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Agua estimada"
+            android:textColor="@color/verdeF"/>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

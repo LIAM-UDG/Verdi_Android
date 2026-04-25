@@ -9,7 +9,7 @@
     tools:context=".PerfilUs">
 
     <TextView
-        android:id="@+id/tuTitulo"
+        android:id="@+id/etPUTitulo"
         android:layout_width="340dp"
         android:layout_height="50dp"
         android:layout_marginTop="35dp"
@@ -26,7 +26,7 @@
 
 
     <TextView
-        android:id="@+id/euNombre"
+        android:id="@+id/etPUNomb"
         android:layout_width="125dp"
         android:layout_height="40dp"
         android:layout_marginTop="124dp"
@@ -41,20 +41,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/euNomPU"
+        android:id="@+id/etPUNombre"
         android:layout_width="330dp"
         android:layout_height="85dp"
         android:layout_marginTop="15dp"
         android:fontFamily="serif"
-        android:text=""
+        android:text="Cargando nombre..."
+        android:textColor="@color/verdeF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/euNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/etPUNomb" />
 
     <TextView
-        android:id="@+id/euEdad"
+        android:id="@+id/etPUEda"
         android:layout_width="110dp"
         android:layout_height="40dp"
         android:layout_marginTop="288dp"
@@ -69,12 +70,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/euEdadPU"
+        android:id="@+id/etPUEdad"
         android:layout_width="196dp"
         android:layout_height="40dp"
         android:layout_marginTop="290dp"
         android:fontFamily="serif"
-        android:text=""
+        android:text="Cargando edad..."
         android:textColor="@color/verdeF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +84,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/euCorreo"
+        android:id="@+id/etPUCorr"
         android:layout_width="110dp"
         android:layout_height="40dp"
         android:layout_marginTop="344dp"
@@ -98,21 +99,21 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/euCorrPU"
+        android:id="@+id/etPUCorreo"
         android:layout_width="330dp"
         android:layout_height="65dp"
         android:layout_marginTop="16dp"
         android:fontFamily="serif"
-        android:text=""
+        android:text="cargando correo..."
         android:textColor="@color/verdeF"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/euCorreo" />
+        app:layout_constraintTop_toBottomOf="@+id/etPUCorr" />
 
     <TextView
-        android:id="@+id/euContra"
+        android:id="@+id/etPUContr"
         android:layout_width="180dp"
         android:layout_height="40dp"
         android:layout_marginTop="484dp"
@@ -134,14 +135,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/euContra">
+        app:layout_constraintTop_toBottomOf="@+id/etPUContr">
 
         <TextView
-            android:id="@+id/euContraPU"
+            android:id="@+id/etPUContra"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:fontFamily="serif"
-            android:text="Cargando..."
+            android:text="Cargando contraseña..."
             android:textColor="@color/verdeF"
             android:textSize="18sp"
             android:gravity="center_vertical"
@@ -165,11 +166,12 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
-        android:id="@+id/buUtoPrin"
+        android:id="@+id/btnPUtoP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="644dp"
         android:backgroundTint="@color/verdeM"
+        android:textColor="@color/fondo1"
         android:text="Inicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.086"
@@ -177,7 +179,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/euBarrita"
+        android:id="@+id/etPUBarrita"
         android:layout_width="360dp"
         android:layout_height="2dp"
         android:layout_marginTop="85dp"

@@ -114,7 +114,8 @@
                 android:layout_width="105dp"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/verdeM"
-                android:text="Atrás" />
+                android:text="Atrás"
+                android:textColor="@color/fondo1"/>
 
 
         </LinearLayout>

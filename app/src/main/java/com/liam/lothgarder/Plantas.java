@@ -30,8 +30,9 @@ public class Plantas extends AppCompatActivity {
 
     planta plantaSeleccionada = null;
     RecyclerView recyclerView;
-    adaptadorRecycler adapter;
+    plantaAdapter adapter;
     List<planta> listaPlantas;
+    Button btnPlsRegisP, btnPlsSelect, btnPlstoP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,9 +40,9 @@ public class Plantas extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_plantas);
 
-        recyclerView = findViewById(R.id.rvP);
+        recyclerView = findViewById(R.id.rvPlsPlanti);
         listaPlantas = new ArrayList<>();
-        adapter = new adaptadorRecycler(listaPlantas, planta -> {
+        adapter = new plantaAdapter(listaPlantas, planta -> {
             plantaSeleccionada = planta;
         });
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -52,7 +53,6 @@ public class Plantas extends AppCompatActivity {
         String correoU= preferences.getString("Correo", "");
 
         if (!correoU.isEmpty()) {
-
             //Extraccion del link de dominio desde strings.xml
             String link_domain = getString(R.string.link_domain);
 
@@ -65,8 +65,8 @@ public class Plantas extends AppCompatActivity {
             Toast.makeText(this, "No se encontró el correo del usuario", Toast.LENGTH_SHORT).show();
         }
 
-        Button bplNuP = findViewById(R.id.bplNuP);
-        bplNuP.setOnClickListener(new View.OnClickListener() {
+        btnPlsRegisP = findViewById(R.id.btnPlsRegisP);
+        btnPlsRegisP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(Plantas.this, "Avanzando a registrar planta...", Toast.LENGTH_SHORT).show();
@@ -77,8 +77,8 @@ public class Plantas extends AppCompatActivity {
             }
         });
 
-        Button bplSelP = findViewById(R.id.bplSelP);
-        bplSelP.setOnClickListener(new View.OnClickListener() {
+        btnPlsSelect = findViewById(R.id.btnPlsSelect);
+        btnPlsSelect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (plantaSeleccionada != null) {
@@ -98,15 +98,14 @@ public class Plantas extends AppCompatActivity {
             }
         });
 
-        Button bplPltoPrin = findViewById(R.id.bplPltoPrin);
-        bplPltoPrin.setOnClickListener(new View.OnClickListener() {
+        btnPlstoP = findViewById(R.id.btnPlstoP);
+        btnPlstoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(Plantas.this, "Regresando al inicio...", Toast.LENGTH_SHORT).show();
                 Intent intPltoPrin = new Intent(Plantas.this, PantallaPrin.class);
+                intPltoPrin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intPltoPrin);
-
-                finish();
             }
         });
 
@@ -120,6 +119,8 @@ public class Plantas extends AppCompatActivity {
     private void buscarPlantas(String URL) {
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL,
                 response -> {
+
+                    //listaPlantas.clear();
                     for (int i = 0; i < response.length(); i++) {
                         try {
                             JSONObject plantaJSON = response.getJSONObject(i);

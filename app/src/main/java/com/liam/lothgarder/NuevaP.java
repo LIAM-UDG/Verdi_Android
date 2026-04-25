@@ -1,9 +1,15 @@
 package com.liam.lothgarder;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,6 +34,8 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,10 +43,10 @@ public class NuevaP extends AppCompatActivity{
 
     //Definicion de variables globales
     private RequestQueue requestQueue;
-    ImageView imgPlanta;
-    private Button btnSubirFoto, btnContinuar, btnNptoPrin;
-    EditText etNombre;
-    private Spinner spnTipoP, spnAmbiente, spnEstadoP;
+    ImageView imgNPPlanta;
+    private Button btnNPSubFoto, btnNPConti, btnNPtoP;
+    EditText edNPApodo;
+    private Spinner spnNPTipoP, spnNPAmbi, spnNPEstadoP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,46 +55,53 @@ public class NuevaP extends AppCompatActivity{
         setContentView(R.layout.activity_nueva_p);
 
         //Paso de la componentes de xml a java
-        imgPlanta = findViewById(R.id.imgPlanta);
-        btnSubirFoto = findViewById(R.id.btnSubirFoto);
-        btnNptoPrin = findViewById(R.id.btnNptoPrin);
-        btnContinuar = findViewById(R.id.btnContinuar);
-        etNombre = findViewById(R.id.etNombre);
-        spnTipoP = findViewById(R.id.spnTipoP);
-        spnAmbiente = findViewById(R.id.spnAmbiente);
-        spnEstadoP = findViewById(R.id.spnEstadoP);
+        imgNPPlanta = findViewById(R.id.imgNPPlanta);
+        btnNPSubFoto = findViewById(R.id.btnNPSubFoto);
+        btnNPtoP = findViewById(R.id.btnNPtoP);
+        btnNPConti = findViewById(R.id.btnNPConti);
+        edNPApodo = findViewById(R.id.edNPApodo);
+        spnNPTipoP = findViewById(R.id.spnNPTipoP);
+        spnNPAmbi = findViewById(R.id.spnNPAmbi);
+        spnNPEstadoP = findViewById(R.id.spnNPRiegoP);
 
         //El ArrayAdapter es para meterlo dentro del Spinner del XML
-        ArrayAdapter<String> aaTPlanta = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
-        aaTPlanta.addAll("Selecciona una planta","Lavanda", "Sabila", "Menta", "Manzanilla", "Albahaca", "Romero", "Planta araña", "Bugambilia", "Cactus", "Orquidea");
-        spnTipoP.setAdapter(aaTPlanta);
+        //ArrayAdapter<String> aaTPlanta = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
+        //aaTPlanta.addAll("Selecciona una planta","Lavanda", "Sabila", "Menta", "Manzanilla", "Albahaca", "Romero", "Planta araña", "Bugambilia", "Cactus", "Orquidea");
+        //spnNPTipoP.setAdapter(aaTPlanta);
 
-        ArrayAdapter<String> aaTAmbiente = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
-        aaTAmbiente.addAll("Selecciona una ambiente","Interior", "Exterior", "Sombra", "Luz");
-        spnAmbiente.setAdapter(aaTAmbiente);
+        //ArrayAdapter<String> aaTAmbiente = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
+        //aaTAmbiente.addAll("Selecciona una ambiente","Interior", "Exterior", "Sombra", "Luz");
+        //spnNPAmbi.setAdapter(aaTAmbiente);
 
-        ArrayAdapter<String> aaEstadoP = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
-        aaEstadoP.addAll("Selecciona un estado","Muy Saludable", "Saludable", "Regular", "Malo", "Pésimo");
-        spnEstadoP.setAdapter(aaEstadoP);
+        //ArrayAdapter<String> aaEstadoP = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
+        //aaEstadoP.addAll("Selecciona un estado","Muy Saludable", "Saludable", "Regular", "Malo", "Pésimo");
+        //spnNPEstadoP.setAdapter(aaEstadoP);
 
         //Accion de boton para subir o tomar foto
-        btnSubirFoto.setOnClickListener(v -> {
-            Toast.makeText(NuevaP.this, "Funcionalidad subir foto pendiente", Toast.LENGTH_SHORT).show();
-            // Aquí agregarás el selector de imagen o cámara
+        btnNPSubFoto.setOnClickListener(v -> {
+            Intent intNPtoTF= new Intent(NuevaP.this, TomarFoto.class);
+            startActivity(intNPtoTF);
+
         });
 
+        //Llamado a la función para eliminar fotos anteriores
+        limpiarFs();
+
+        //LLamado a la funcion para carga vista de foto
+        cargarVistaF(0);
+
         //Accion de boton de cambiar de pantalla de nueva planta a plantas
-        btnNptoPrin.setOnClickListener( v -> {
+        btnNPtoP.setOnClickListener( v -> {
             Intent intNPls= new Intent(NuevaP.this, Plantas.class);
             startActivity(intNPls);
             finish();
         });
 
         //Boton de continuar para guardar la planta
-        btnContinuar.setOnClickListener(v -> {
-            String plantaSeleccionada = spnTipoP.getSelectedItem().toString();
-            String ambienteSeleccionado = spnAmbiente.getSelectedItem().toString();
-            String estadoSeleccionado = spnEstadoP.getSelectedItem().toString();
+        btnNPConti.setOnClickListener(v -> {
+            String plantaSeleccionada = spnNPTipoP.getSelectedItem().toString();
+            String ambienteSeleccionado = spnNPAmbi.getSelectedItem().toString();
+            String estadoSeleccionado = spnNPEstadoP.getSelectedItem().toString();
 
             if (plantaSeleccionada.equals("Selecciona una planta")) {
                 Toast.makeText(NuevaP.this, "Por favor selecciona una planta válido", Toast.LENGTH_SHORT).show();
@@ -94,7 +109,7 @@ public class NuevaP extends AppCompatActivity{
                 if (ambienteSeleccionado.equals("Selecciona una planta")) {
                     Toast.makeText(NuevaP.this, "Por favor selecciona un ambiente válido", Toast.LENGTH_SHORT).show();
                 } else {
-                    if (estadoSeleccionado.equals("Selecciona un estado")) {
+                    if (estadoSeleccionado.equals("Selecciona un tipo de riego")) {
                         Toast.makeText(NuevaP.this, "Por favor selecciona un estado válido", Toast.LENGTH_SHORT).show();
                     } else {
 
@@ -119,14 +134,86 @@ public class NuevaP extends AppCompatActivity{
         });
     }
 
+    //Funcion para cargar la vista previa al tomar foto
+    @Override
+    protected void onResume() {
+        super.onResume();
+        cargarVistaF(0);
+    }
+
+    //Función para eliminar fotos anteriores
+    private void limpiarFs() {
+        try {
+            AdministradorSQLite admin = new AdministradorSQLite(this);
+            SQLiteDatabase db = admin.getWritableDatabase();
+
+            db.delete("fotos", "tipo_foto = ? AND id_referencia = ?",
+                    new String[]{"PLANTA", "0"});
+
+            db.close();
+
+            Log.d("Verdi", "Fotos temporales eliminadas");
+        } catch (Exception e) {
+            Log.e("Verdi", "Error limpiando fotos: " + e.getMessage());
+        }
+    }
+
+    //Funcion para cargar foto
+    private void cargarVistaF(int idPlanta) {
+        try {
+            AdministradorSQLite admin = new AdministradorSQLite(this);
+            SQLiteDatabase db = admin.getReadableDatabase();
+
+            // Consulta: buscamos la ruta donde el id_referencia coincida
+            Cursor cursor = db.rawQuery("SELECT ruta_foto FROM fotos WHERE id_referencia = ? AND tipo_foto = 'PLANTA' LIMIT 1",
+                    new String[]{String.valueOf(idPlanta)});
+
+            if (cursor.moveToFirst()) {
+                String rutaUri = cursor.getString(0);
+
+                Uri uriFoto = Uri.parse(rutaUri);
+
+                imgNPPlanta.setImageURI(uriFoto);
+
+                imgNPPlanta.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+                Log.d("Verdi", "Foto cargada desde: " + rutaUri);
+            } else {
+                Log.d("Verdi", "No se encontró foto para el ID: " + idPlanta);
+                imgNPPlanta.setImageDrawable(Drawable.createFromPath("gallery_thumb"));
+            }
+            cursor.close();
+            db.close();
+        } catch (Exception e) {
+            Log.e("Verdi", "Error al cargar foto local: " + e.getMessage());
+        }
+    }
+
     //Funcion para guardar planta
     private void guardarPlanta(String URL){
         //Creacion de la peticion al servidor con el metodo POST
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), "Respuesta del servidor: " + response, Toast.LENGTH_LONG).show();
+                try {
+                    //Respuesta del servidor
+                    JSONObject jsonResponse = new JSONObject(response);
 
+                    if (jsonResponse.getString("status").equals("success")) {
+                        int idAsignado = jsonResponse.getInt("id_planta");
+
+                        //Vinculo de ID y ruta
+                        AdministradorSQLite admin = new AdministradorSQLite(NuevaP.this);
+                        //Uso de le metodo actualizar ID
+                        admin.actualizarIdPu(idAsignado, "PLANTA");
+
+                        Toast.makeText(NuevaP.this, "Planta registrada", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (Exception e) {
+                    Log.e("Verdi", "Error al procesar JSON: " + e.getMessage());
+
+                    Toast.makeText(getApplicationContext(), "Error en respuesta: " + response, Toast.LENGTH_LONG).show();
+                }
             }
         }, new Response.ErrorListener(){
             @Override
@@ -139,20 +226,20 @@ public class NuevaP extends AppCompatActivity{
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 //Definicion local de editText
-                EditText edApodo = findViewById(R.id.etNombre);
+                edNPApodo = findViewById(R.id.edNPApodo);
                 //Definicion local del spinner
-                spnTipoP = findViewById(R.id.spnTipoP);
-                spnAmbiente = findViewById(R.id.spnAmbiente);
-                spnEstadoP = findViewById(R.id.spnEstadoP);
+                spnNPTipoP = findViewById(R.id.spnNPTipoP);
+                spnNPAmbi = findViewById(R.id.spnNPAmbi);
+                spnNPEstadoP = findViewById(R.id.spnNPRiegoP);
                 //Llamada de sesion
                 SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
 
                 //Metodo Map que manda los datos de la peticion al servidor extrallendo informacion del editText para guardar en la base
                 Map<String, String> parametros = new HashMap<String, String>();
-                parametros.put("nombre", spnTipoP.getSelectedItem().toString());
-                parametros.put("apodo", edApodo.getText().toString());
-                parametros.put("estado", spnEstadoP.getSelectedItem().toString());
-                parametros.put("lugar", spnAmbiente.getSelectedItem().toString());
+                parametros.put("nombre", spnNPTipoP.getSelectedItem().toString());
+                parametros.put("apodo", edNPApodo.getText().toString());
+                parametros.put("estado", spnNPEstadoP.getSelectedItem().toString());
+                parametros.put("lugar", spnNPAmbi.getSelectedItem().toString());
                 parametros.put("usuario", preferences.getString("Correo",""));
 
                 return parametros;

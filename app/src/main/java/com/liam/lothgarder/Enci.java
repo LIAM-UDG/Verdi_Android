@@ -17,8 +17,8 @@ public class Enci extends AppCompatActivity {
 
     //Definicion de variables globales
     private int PKpl;
-    private Button beAloe, beLava, beMenta, beManza, beAlba, beRomero, beArana,
-            beBugam, beCactus, beOrqui, beSu, beEtoMain;
+    private Button btnESabila, btnELava, btnEMenta, btnEManza, btnEAlba, btnERomero, btnEArana,
+            btnEBugam, btnEConchita, btnEOrqui, btnEtoE2, btnEtoM;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,8 +27,8 @@ public class Enci extends AppCompatActivity {
         setContentView(R.layout.activity_enci);
 
         // Botón Aloe Vera
-        beAloe = findViewById(R.id.beAloe);
-        beAloe.setOnClickListener(new View.OnClickListener() {
+        btnESabila = findViewById(R.id.btnESabila);
+        btnESabila.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intEtoAl = new Intent(Enci.this, PlantaE.class);
@@ -39,8 +39,8 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Lavanda
-        beLava = findViewById(R.id.beLava);
-        beLava.setOnClickListener(new View.OnClickListener() {
+        btnELava = findViewById(R.id.btnELava);
+        btnELava.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intEtoLa = new Intent(Enci.this, PlantaE.class);
@@ -51,8 +51,8 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Menta
-        beMenta = findViewById(R.id.beMenta);
-        beMenta.setOnClickListener(new View.OnClickListener() {
+        btnEMenta = findViewById(R.id.btnEMenta);
+        btnEMenta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intEtoMe = new Intent(Enci.this, PlantaE.class);
@@ -63,8 +63,8 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Manzanilla
-        beManza = findViewById(R.id.beManza);
-        beManza.setOnClickListener(new View.OnClickListener() {
+        btnEManza = findViewById(R.id.btnEManza);
+        btnEManza.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intEtoMa = new Intent(Enci.this, PlantaE.class);
@@ -75,8 +75,8 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Albahaca
-        beAlba = findViewById(R.id.beAlba);
-        beAlba.setOnClickListener(new View.OnClickListener() {
+        btnEAlba = findViewById(R.id.btnEAlba);
+        btnEAlba.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intEtoAlba = new Intent(Enci.this, PlantaE.class);
@@ -87,8 +87,8 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Romero
-        beRomero = findViewById(R.id.beRomero);
-        beRomero.setOnClickListener(new View.OnClickListener() {
+        btnERomero = findViewById(R.id.btnERomero);
+        btnERomero.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intEtoRo = new Intent(Enci.this, PlantaE.class);
@@ -99,8 +99,8 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Planta Araña
-        beArana = findViewById(R.id.beArana);
-        beArana.setOnClickListener(new View.OnClickListener() {
+        btnEArana = findViewById(R.id.btnEArana);
+        btnEArana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intEtoAr = new Intent(Enci.this, PlantaE.class);
@@ -111,8 +111,8 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Bugambilia
-        beBugam = findViewById(R.id.beBugam);
-        beBugam.setOnClickListener(new View.OnClickListener() {
+        btnEBugam = findViewById(R.id.btnEBugam);
+        btnEBugam.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intEtoBu = new Intent(Enci.this, PlantaE.class);
@@ -123,8 +123,8 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Cactus
-        beCactus = findViewById(R.id.beCactus);
-        beCactus.setOnClickListener(new View.OnClickListener() {
+        btnEConchita = findViewById(R.id.btnEConchita);
+        btnEConchita.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intEtoCa = new Intent(Enci.this, PlantaE.class);
@@ -135,8 +135,8 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Orquídea
-        beOrqui = findViewById(R.id.beOrqui);
-        beOrqui.setOnClickListener(new View.OnClickListener() {
+        btnEOrqui = findViewById(R.id.btnEOrqui);
+        btnEOrqui.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intEtoOr = new Intent(Enci.this, PlantaE.class);
@@ -147,24 +147,25 @@ public class Enci extends AppCompatActivity {
         });
 
         // Botón Sugerir Planta
-        beSu = findViewById(R.id.beSu);
-        beSu.setOnClickListener(new View.OnClickListener() {
+        btnEtoE2 = findViewById(R.id.btnEtoE2);
+        btnEtoE2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intEtoSp = new Intent(Enci.this, SugerirP.class);
+                Intent intEtoSp = new Intent(Enci.this, EnciPt2.class);
                 startActivity(intEtoSp);
-                Toast.makeText(Enci.this, "Abriendo Sugerir Planta", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Enci.this, "Abriendo Segunda Parte", Toast.LENGTH_SHORT).show();
+                finish();
             }
         });
 
         // Botón Volver a Principal
-        beEtoMain = findViewById(R.id.beEtoMain);
-        beEtoMain.setOnClickListener(new View.OnClickListener() {
+        btnEtoM = findViewById(R.id.btnEtoM);
+        btnEtoM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intEtoPrin = new Intent(Enci.this, PantallaPrin.class);
+                intEtoPrin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intEtoPrin);
-                finish();
             }
         });
 

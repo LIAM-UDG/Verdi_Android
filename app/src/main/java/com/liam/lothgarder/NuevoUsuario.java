@@ -3,7 +3,6 @@ package com.liam.lothgarder;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,12 +27,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class NewUsuario extends AppCompatActivity {
+public class NuevoUsuario extends AppCompatActivity {
 
     //Definicion de variables globales
     private RequestQueue requestQueue;
-    private EditText edNom, edEdad, edCor ,edCon;
-    private Button brRtoP, brGuar;
+    private EditText edNUNombre, edNUEdad, edNUCorreo ,edNUContra;
+    private Button btnRtoM, btnNUGuar;
 
 
     @Override
@@ -41,36 +40,35 @@ public class NewUsuario extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_new_usuario);
+        setContentView(R.layout.activity_nuevo_usuario);
 
-        Toast.makeText(NewUsuario.this, "Pantalla usuario nuevo", Toast.LENGTH_LONG).show();
+        Toast.makeText(NuevoUsuario.this, "Pantalla Nuevo Usuario", Toast.LENGTH_SHORT).show();
 
         //Accion del boton para cambiar de la pantalla de registro a la main
-        brRtoP = findViewById(R.id.brRtoP);
-        brRtoP.setOnClickListener(new View.OnClickListener() {
+        btnRtoM = findViewById(R.id.btnRtoM);
+        btnRtoM.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(NewUsuario.this, "Llendo a la pantalla de inicio", Toast.LENGTH_SHORT).show();
-                Intent intRMain = new Intent(NewUsuario.this, MainActivity.class);
+                Intent intRMain = new Intent(NuevoUsuario.this, MainActivity.class);
                 startActivity(intRMain);
                 finish();
             }
         });
 
         //Accion del boton para guardar el registro del nuevo usuario
-        brGuar = findViewById(R.id.brGuar);
-        brGuar.setOnClickListener(new View.OnClickListener() {
+        btnNUGuar = findViewById(R.id.btnNUGuar);
+        btnNUGuar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //Paso de la componentes de xml a java
-                edNom = findViewById(R.id.edrNom);
-                edCor = findViewById(R.id.edrCor);
-                edCon = findViewById(R.id.edrCon);
+                edNUNombre = findViewById(R.id.edNUNombre);
+                edNUCorreo = findViewById(R.id.edNUCorreo);
+                edNUContra = findViewById(R.id.edNUContra);
                 //Extraccion de los string de los campos del xml
-                String nombre = edNom.getText().toString().trim();
-                String correo = edCor.getText().toString().trim();
-                String contrasena = edCon.getText().toString();
+                String nombre = edNUNombre.getText().toString().trim();
+                String correo = edNUCorreo.getText().toString().trim();
+                String contrasena = edNUContra.getText().toString();
 
                 // Patrón Regex: Mínimo 8 caracteres, al menos 1 mayúscula, 1 minúscula, 1 número y 1 especial.
                 String patronC = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*-]).{8,}$";
@@ -79,22 +77,22 @@ public class NewUsuario extends AppCompatActivity {
 
                 //Funcion para validar que el nombre sea valido
                 if (!nombre.matches(nombreV)) {
-                    Toast.makeText(NewUsuario.this, "Nombre inválido.", Toast.LENGTH_LONG).show();
-                    edNom.setError("Nombre inválido solo se permiten letras");
+                    Toast.makeText(NuevoUsuario.this, "Nombre inválido.", Toast.LENGTH_LONG).show();
+                    edNUNombre.setError("Nombre inválido solo se permiten letras");
                     return;
                 }
 
                 //Funcion para validar el correo, que contenga los componentes de uno
                 if (correo.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(correo).matches()) {
-                    Toast.makeText(NewUsuario.this, "Introduce un correo electrónico válido.", Toast.LENGTH_LONG).show();
-                    edCor.setError("Correo inválido");
+                    Toast.makeText(NuevoUsuario.this, "Introduce un correo electrónico válido.", Toast.LENGTH_LONG).show();
+                    edNUCorreo.setError("Correo inválido");
                     return;
                 }
 
                 //Funcion para validar que la contraseña sea segura
                 if (!contrasena.matches(patronC)) {
                     //Ventana emergente para indicar el formato de contraseña
-                    new androidx.appcompat.app.AlertDialog.Builder(NewUsuario.this)
+                    new androidx.appcompat.app.AlertDialog.Builder(NuevoUsuario.this)
                             .setTitle("Contraseña poco segura")
                             .setMessage("La contraseña debe tener:\n\n" +
                                     "• Mínimo 8 caracteres.\n" +
@@ -103,7 +101,7 @@ public class NewUsuario extends AppCompatActivity {
                                     "• Al menos 1 carácter especial (!@#$%^&*).")
                             .setPositiveButton("Aceptar", null)
                             .show();
-                    edCon.setError("Contraseña débil");
+                    edNUContra.setError("Contraseña débil");
                     return;
                 }
 
@@ -129,11 +127,10 @@ public class NewUsuario extends AppCompatActivity {
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                Toast.makeText(getApplicationContext(), "Respuesta del servidor: " + response, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Respuesta: " + response, Toast.LENGTH_LONG).show();
                 //Pasar a pantalla de ingresar usuario tras registrar
-                Intent intRtoP = new Intent(NewUsuario.this, InUsuario.class);
-                startActivity(intRtoP);
-
+                Intent intRtoIn = new Intent(NuevoUsuario.this, InUsuario.class);
+                startActivity(intRtoIn);
                 finish();
             }
         }, new Response.ErrorListener(){
@@ -148,18 +145,18 @@ public class NewUsuario extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 //Definicion local de editText contenedor del que se extrae la informacion
-                edNom = findViewById(R.id.edrNom);
-                edEdad = findViewById(R.id.edrEdad);
-                edCor = findViewById(R.id.edrCor);
-                edCon = findViewById(R.id.edrCon);
+                edNUNombre = findViewById(R.id.edNUNombre);
+                edNUEdad = findViewById(R.id.edNUEdad);
+                edNUCorreo = findViewById(R.id.edNUCorreo);
+                edNUContra = findViewById(R.id.edNUContra);
 
                 //Metodo Map que manda los datos de la peticion al servidor extrallendo informacion del editText para guardar en la base
                 Map<String, String> parametros = new HashMap<String, String>();
                 //Dentro de map ademas de mandar los datos tambien los extra en cadena del editext
-                parametros.put("correo", edCor.getText().toString());
-                parametros.put("nombre", edNom.getText().toString());
-                parametros.put("edad", edEdad.getText().toString());
-                parametros.put("contrasena", edCon.getText().toString());
+                parametros.put("correo", edNUCorreo.getText().toString());
+                parametros.put("nombre", edNUNombre.getText().toString());
+                parametros.put("edad", edNUEdad.getText().toString());
+                parametros.put("contrasena", edNUContra.getText().toString());
 
                 return parametros;
             }

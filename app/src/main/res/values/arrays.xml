@@ -1,17 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="filter_options">
+    <string-array name="filtro_busqueda">
         <item>Filtro</item>
-        <item>Datos</item>
-        <item>Sensores</item>
-        <item>Alertas</item>
+        <item>Notificación de Riego</item>
+        <item>Historial de Gasto</item>
+        <item>Alertas de Falla</item>
     </string-array>
 
-    <string-array name="ambientes_array">
+    <string-array name="tipo_planta">
+        <item>Selecciona una planta</item>
+        <item>Lavanda</item>
+        <item>Sábila</item>
+        <item>Menta</item>
+        <item>Manzanilla</item>
+        <item>Albahaca</item>
+        <item>Romero</item>
+        <item>Planta araña</item>
+        <item>Bugambilia</item>
+        <item>Conchita</item>
+        <item>Orquidea</item>
+        <item>Dalia</item>
+        <item>Jazmín</item>
+        <item>Clavel</item>
+        <item>Ruda</item>
+        <item>Hierbabuena</item>
+        <item>Gardenia</item>
+        <item>Orégano</item>
+        <item>Kalanchoe</item>
+        <item>Lantana</item>
+        <item>Lengua de suegra</item>
+        <item>Costilla de adán</item>
+        <item>Duranta</item>
+        <item>Abundancia</item>
+        <item>Cuna de moises</item>
+        <item>Hibisco</item>
+        <item>Malva</item>
+        <item>Corona de cristo</item>
+        <item>Hierba santa</item>
+        <item>Millonaria</item>
+        <item>Planta cebra</item>
+    </string-array>
+
+    <string-array name="estado_planta">
+        <item>Filtro</item>
+        <item>Notificación de Riego</item>
+        <item>Historial de Gasto</item>
+        <item>Alertas de Falla</item>
+    </string-array>
+
+    <string-array name="ambientes_planta">
         <item>Selecciona un ambiente</item>
         <item>Interior</item>
         <item>Exterior</item>
-        <item>Sombra</item>
         <item>Sol directo</item>
+        <item>Semi-sombra</item>
+        <item>Sombra</item>
+    </string-array>
+
+    <string-array name="riego_planta">
+        <item>Selecciona un tipo de riego</item>
+        <item>Manual</item>
+        <item>Automático</item>
     </string-array>
 </resources>

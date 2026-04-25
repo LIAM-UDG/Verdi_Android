@@ -31,12 +31,12 @@ import java.util.Map;
 public class SugerirP extends AppCompatActivity {
 
     RequestQueue requestQueue;
-    ImageView imgPlanta;
-    Button btnSubirFoto;
-    EditText etNombre;
-    EditText etDescripcion;
-    Button btnContinuar;
-    Button bnpNptoPrin;
+    ImageView imgSPPlanta;
+    Button btnSPSubFoto;
+    EditText edSPNombre;
+    EditText edSPDescrip;
+    Button btnSPConti;
+    Button btnSPtoP;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -46,33 +46,33 @@ public class SugerirP extends AppCompatActivity {
         setContentView(R.layout.activity_sugerir_p);
 
         // Inicializar los elementos del layout
-        imgPlanta = findViewById(R.id.imgPlanta);
-        btnSubirFoto = findViewById(R.id.btnSubirFoto);
-        etNombre = findViewById(R.id.etNombre);
-        etDescripcion = findViewById(R.id.etDescripcion);
-        btnContinuar = findViewById(R.id.btnContinuar);
-        bnpNptoPrin = findViewById(R.id.bnpNptoPrin);
+        imgSPPlanta = findViewById(R.id.imgSPPlanta);
+        btnSPSubFoto = findViewById(R.id.btnSPSubFoto);
+        edSPNombre = findViewById(R.id.edSPNombre);
+        edSPDescrip = findViewById(R.id.edSPDescrip);
+        btnSPConti = findViewById(R.id.btnSPConti);
+        btnSPtoP = findViewById(R.id.btnSPtoP);
 
         // Listener para el botón Subir Foto
-        btnSubirFoto.setOnClickListener(v -> {
+        btnSPSubFoto.setOnClickListener(v -> {
             Toast.makeText(this, "Funcionalidad de subir foto proximamente", Toast.LENGTH_SHORT).show();
             // Aquí podrías implementar la selección de una foto en el futuro
         });
 
         // Listener para el botón Continuar
-        btnContinuar.setOnClickListener(v -> {
-            String nombre = etNombre.getText().toString().trim();
-            String descripcion = etDescripcion.getText().toString().trim();
+        btnSPConti.setOnClickListener(v -> {
+            String nombre = edSPNombre.getText().toString().trim();
+            String descripcion = edSPDescrip.getText().toString().trim();
 
             // Validar que los campos no estén vacíos
             if (nombre.isEmpty()) {
-                etNombre.setError("Por favor, ingresa el nombre de la planta");
-                etNombre.requestFocus();
+                edSPNombre.setError("Por favor, ingresa el nombre de la planta");
+                edSPNombre.requestFocus();
                 return;
             }
             if (descripcion.isEmpty()) {
-                etDescripcion.setError("Por favor, ingresa una descripción");
-                etDescripcion.requestFocus();
+                edSPDescrip.setError("Por favor, ingresa una descripción");
+                edSPDescrip.requestFocus();
                 return;
             }
 
@@ -82,7 +82,7 @@ public class SugerirP extends AppCompatActivity {
             //Extraccion del link de dominio desde strings.xml
             String link_domain = getString(R.string.link_domain);
 
-            sugerirP(link_domain + "?accion=insertarS");
+            sugerirP(link_domain + "?accion=insertarSug");
 
             // Pasar los datos a la pantalla Plantas y regresar
             Intent intent = new Intent(SugerirP.this, Enci.class);
@@ -91,7 +91,7 @@ public class SugerirP extends AppCompatActivity {
         });
 
         // Listener para el botón Atrás
-        bnpNptoPrin.setOnClickListener(v -> {
+        btnSPtoP.setOnClickListener(v -> {
             Toast.makeText(this, "Regresando...", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(SugerirP.this, PantallaPrin.class);
             startActivity(intent);
@@ -124,8 +124,8 @@ public class SugerirP extends AppCompatActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
 
                 //Definicion local de editText
-                EditText edNombre = findViewById(R.id.etNombre);
-                EditText edDescripcion = findViewById(R.id.etDescripcion);
+                EditText edNombre = findViewById(R.id.edSPNombre);
+                EditText edDescripcion = findViewById(R.id.edSPDescrip);
 
                 //Metodo Map que manda los datos de la peticion al servidor extrallendo informacion del editText para guardar en la base
                 Map<String, String> parametros = new HashMap<String, String>();

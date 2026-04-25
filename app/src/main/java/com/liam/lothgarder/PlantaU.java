@@ -3,10 +3,16 @@ package com.liam.lothgarder;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,9 +42,11 @@ import java.util.Map;
 
 public class PlantaU extends AppCompatActivity {
 
-    private Button bpluElim, bplEdiP, bpluPlutoPrin;
+    private Button btnPlUElimin, btnPlUEditar, btnPlUtoP;
     private String nombreP, correoU;
     SharedPreferences preferences;
+    int idP;
+    ImageView imgPlUPlanta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +55,10 @@ public class PlantaU extends AppCompatActivity {
         setContentView(R.layout.activity_planta_u);
 
         Intent intent = getIntent();
+        imgPlUPlanta = findViewById(R.id.imgPlUPlanta);
 
         nombreP = intent.getStringExtra("nombre");
-        int idP = intent.getIntExtra("id", 0);
+        idP = intent.getIntExtra("id", 0);
 
         preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
         correoU = preferences.getString("Correo","");
@@ -60,10 +69,12 @@ public class PlantaU extends AppCompatActivity {
 
         //Llamada a la funcion para buscar planta de usuario
         buscarPlantaU(link_domain + "?accion=buscarPU" + "&idPu=" + idP + "&correo=" + correoU);
+        //Llamada a la funcion para cargar foto
+        cargarFLocal(idP);
 
         //Accion de boton para eliminar planta de usuario
-        bpluElim = findViewById(R.id.bpluElim);
-        bpluElim.setOnClickListener(new View.OnClickListener() {
+        btnPlUElimin = findViewById(R.id.btnPlUElimin);
+        btnPlUElimin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -80,8 +91,8 @@ public class PlantaU extends AppCompatActivity {
         });
 
         //Accion de boton para editar planta de usuario
-        bplEdiP = findViewById(R.id.bplEdiP);
-        bplEdiP.setOnClickListener(new View.OnClickListener() {
+        btnPlUEditar = findViewById(R.id.btnPlUEditar);
+        btnPlUEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intPlutoEp = new Intent(PlantaU.this, EditarP.class);
@@ -92,8 +103,8 @@ public class PlantaU extends AppCompatActivity {
         });
 
         //Accion de boton para regresar al inicio
-        bpluPlutoPrin = findViewById(R.id.bpluPlutoPrin);
-        bpluPlutoPrin.setOnClickListener(new View.OnClickListener() {
+        btnPlUtoP = findViewById(R.id.btnPlUtoP);
+        btnPlUtoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intPlutoPrin = new Intent(PlantaU.this, PantallaPrin.class);
@@ -112,10 +123,12 @@ public class PlantaU extends AppCompatActivity {
     //Funcion para buscar planta de usuario
     private void buscarPlantaU(String URL) {
 
-        TextView eNomPlU = findViewById(R.id.epluTitulo);
-        TextView eApodoPlU = findViewById(R.id.epluApot);
-        TextView eEstadoPlU = findViewById(R.id.epluEstadoT);
-        TextView eLugarPlU = findViewById(R.id.epluLugarT);
+        TextView eNomPlU = findViewById(R.id.etPlUTitulo);
+        TextView eApodoPlU = findViewById(R.id.etPlUApodoV);
+        TextView etPlUHumedV = findViewById(R.id.etPlUHumedV);
+        TextView etPlUTempV = findViewById(R.id.etPlUTempV);
+        TextView eEstadoPlU = findViewById(R.id.etPlUEstadoV);
+        TextView eLugarPlU = findViewById(R.id.etPlULugarV);
 
         //Creacion de la peticion
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
@@ -128,8 +141,10 @@ public class PlantaU extends AppCompatActivity {
                         jsonObject = response.getJSONObject(reco);
                         eNomPlU.setText(jsonObject.getString("Nombre"));
                         eApodoPlU.setText(jsonObject.getString("Apodo"));
+                        etPlUHumedV.setText(jsonObject.getString("Humedad"));
                         eEstadoPlU.setText(jsonObject.getString("Estado"));
                         eLugarPlU.setText(jsonObject.getString("Lugar"));
+                        etPlUTempV.setText(jsonObject.getString("Temperatura"));
 
                     } catch (JSONException e) {
                         Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
@@ -140,7 +155,7 @@ public class PlantaU extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError error) {
                 //Para ver error en cado de fallo
-                //Log.e("Volley", "Error: " + error.toString());
+                Log.e("Volley", "Error: " + error.toString());
                 //error.printStackTrace();
                 Toast.makeText(getApplicationContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
             }
@@ -151,15 +166,45 @@ public class PlantaU extends AppCompatActivity {
         requestQueue.add(jsonArrayRequest);
     }
 
-    //Metodo para eliminar planta
+    //Funcion para cargar foto
+    private void cargarFLocal(int idPlanta) {
+        try {
+            AdministradorSQLite admin = new AdministradorSQLite(this);
+            SQLiteDatabase db = admin.getReadableDatabase();
+
+            // Consulta: buscamos la ruta donde el id_referencia coincida
+            Cursor cursor = db.rawQuery("SELECT ruta_foto FROM fotos WHERE id_referencia = ? AND tipo_foto = 'PLANTA' LIMIT 1",
+                    new String[]{String.valueOf(idPlanta)});
+
+            if (cursor.moveToFirst()) {
+                String rutaUri = cursor.getString(0);
+
+                Uri uriFoto = Uri.parse(rutaUri);
+
+                imgPlUPlanta.setImageURI(uriFoto);
+
+                imgPlUPlanta.setScaleType(ImageView.ScaleType.CENTER_CROP);
+
+                Log.d("Verdi", "Foto cargada desde: " + rutaUri);
+            } else {
+                Log.d("Verdi", "No se encontró foto para el ID: " + idPlanta);
+                imgPlUPlanta.setImageDrawable(Drawable.createFromPath("gallery_thumb"));
+            }
+            cursor.close();
+            db.close();
+        } catch (Exception e) {
+            Log.e("Verdi", "Error al cargar foto local: " + e.getMessage());
+        }
+    }
+
+    //Función para eliminar planta
     private void eliminarPlanta(String URL){
         //Creacion de la peticion al servidor con el metodo POST
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-                /*Toast.makeText(getApplicationContext(), "Respuesta del servidor: " + response, Toast.LENGTH_LONG).show();
-                EditText edError = findViewById(R.id.error);
-                edError.setText(response);*/
+                //Llamado ala funcion para borrar el campo de la foto de SQLite
+                eliminarFLocal(idP);
 
                 Toast.makeText(getApplicationContext(), "Operación exitosa",Toast.LENGTH_LONG).show();
             }
@@ -172,13 +217,6 @@ public class PlantaU extends AppCompatActivity {
         }) {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
-
-                //Definicion local de variables
-                Intent intent = getIntent();
-                int idP;
-                getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
-                String correoU= preferences.getString("Correo", "");
-                idP = intent.getIntExtra("id", 0);
 
                 //Metodo Map que manda los datos de la peticion al servidor extrallendo informacion del editText para guardar en la base
                 Map<String, String> parametros = new HashMap<String, String>();
@@ -198,6 +236,23 @@ public class PlantaU extends AppCompatActivity {
         RequestQueue requestQueue = Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
+    }
+
+    //Funcion para eliminar la foto
+    private void eliminarFLocal(int idPlanta) {
+        try {
+            AdministradorSQLite admin = new AdministradorSQLite(this);
+            SQLiteDatabase db = admin.getWritableDatabase();
+
+            // Borramos la fila donde el id_referencia sea el de esta planta
+            int filasBorradas = db.delete("fotos", "id_referencia = ? AND tipo_foto = 'PLANTA'",
+                    new String[]{String.valueOf(idPlanta)});
+
+            db.close();
+            Log.d("Verdi", "Registros de fotos eliminados en SQLite: " + filasBorradas);
+        } catch (Exception e) {
+            Log.e("Verdi", "Error al eliminar foto local: " + e.getMessage());
+        }
     }
 
 }

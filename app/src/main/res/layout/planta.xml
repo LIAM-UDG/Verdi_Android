@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="serif"
         android:text="ID planta"
+        android:textColor="@color/verdeF"
         android:textSize="17sp" />
 
     <TextView
@@ -22,6 +23,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="serif"
         android:text="Nombre planta"
+        android:textColor="@color/verdeF"
         android:textSize="17sp" />
 
 </LinearLayout>

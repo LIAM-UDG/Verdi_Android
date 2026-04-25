@@ -1,6 +1,5 @@
 package com.liam.lothgarder;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class adaptadorRecycler extends RecyclerView.Adapter<adaptadorRecycler.ViewHolder> {
+public class plantaAdapter extends RecyclerView.Adapter<plantaAdapter.ViewHolder> {
+
+    //Definición de varibales globales
     private List<planta> listaPlantas;
     private OnItemClickListener listener;
     private int posicionSeleccionada = RecyclerView.NO_POSITION;
@@ -21,7 +22,7 @@ public class adaptadorRecycler extends RecyclerView.Adapter<adaptadorRecycler.Vi
         void onItemClick(planta plantaSeleccionada);
     }
 
-    public adaptadorRecycler(List<planta> listaPlantas, OnItemClickListener listener) {
+    public plantaAdapter(List<planta> listaPlantas, OnItemClickListener listener) {
         this.listaPlantas = listaPlantas;
         this.listener = listener;
     }
@@ -29,9 +30,7 @@ public class adaptadorRecycler extends RecyclerView.Adapter<adaptadorRecycler.Vi
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         //Nombre Planta Usuario
-        TextView eNombrePU;
-        TextView eIdPu;
-
+        TextView eNombrePU, eIdPu;
         View container;
 
         public ViewHolder(View itemView) {
@@ -42,9 +41,7 @@ public class adaptadorRecycler extends RecyclerView.Adapter<adaptadorRecycler.Vi
         }
 
         public void bind(planta plantaItem, boolean estaSeleccionada, int numeroVeUsuario) {
-        //public void bind(planta plantaItem, boolean estaSeleccionada) {
             eNombrePU.setText(plantaItem.getNombre());
-            //eIdPu.setText("Numero de planta: " + numeroVeUsuario + "id" + plantaItem.getId());
             eIdPu.setText("No." + numeroVeUsuario);
 
             int color = estaSeleccionada
@@ -52,11 +49,6 @@ public class adaptadorRecycler extends RecyclerView.Adapter<adaptadorRecycler.Vi
                     : ContextCompat.getColor(itemView.getContext(), R.color.fondo1);
 
             container.setBackgroundColor(color);
-
-            // Cambiar color de fondo si está seleccionado
-            /*itemView.setBackgroundColor(
-                    estaSeleccionada ? Color.parseColor("#C8E6C9") : Color.TRANSPARENT
-            );*/
         }
     }
 

@@ -32,8 +32,8 @@ import java.util.Map;
 public class InUsuario extends AppCompatActivity {
 
     //Definicion de variables globales
-    private EditText ediCorreo, ediContra;
-    private Button biItoP,biCon;
+    private EditText edIUCorreo, edIUContra;
+    private Button btnIUtoP,btnIUCon;
     private String correo,contra;
 
 
@@ -44,27 +44,29 @@ public class InUsuario extends AppCompatActivity {
         setContentView(R.layout.activity_in_usuario);
 
         //Paso de la componentes de xml a java
-        ediCorreo = findViewById(R.id.ediCorreo);
-        ediContra = findViewById(R.id.ediContra);
-        biCon = findViewById(R.id.biCon);
+        edIUCorreo = findViewById(R.id.edIUCorreo);
+        edIUContra = findViewById(R.id.edIUContra);
+        btnIUCon = findViewById(R.id.btnIUCon);
+
+        Toast.makeText(InUsuario.this, "Pantalla Ingresar Usuario", Toast.LENGTH_SHORT).show();
 
         //Busqueda de sesion
         recuperarSesion();
 
         //Accion del boton para validar el usuario
-        biCon.setOnClickListener(new View.OnClickListener() {
+        btnIUCon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //Captura de valores del editText a las varibles(string) globales
-                correo = ediCorreo.getText().toString();
-                contra = ediContra.getText().toString();
+                correo = edIUCorreo.getText().toString();
+                contra = edIUContra.getText().toString();
 
                 //Validacion de que ninguno de los campos este vacio
                 if (correo.isEmpty() || contra.isEmpty()) {
                     Toast.makeText(InUsuario.this, "Debes ingresar ambos campos", Toast.LENGTH_SHORT).show();
-                    if(correo.isEmpty()) ediCorreo.setError("Campo obligatorio");
-                    if(contra.isEmpty()) ediContra.setError("Campo obligatorio");
+                    if(correo.isEmpty()) edIUCorreo.setError("Campo obligatorio");
+                    if(contra.isEmpty()) edIUContra.setError("Campo obligatorio");
                     return;
                 }
 
@@ -79,8 +81,8 @@ public class InUsuario extends AppCompatActivity {
         });
 
         //Accion del boton para volver al inicio
-        biItoP = findViewById(R.id.biItoP);
-        biItoP.setOnClickListener(new View.OnClickListener() {
+        btnIUtoP = findViewById(R.id.btnIUtoP);
+        btnIUtoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -115,18 +117,19 @@ public class InUsuario extends AppCompatActivity {
                             guardarSesion();
                             String nombre = jsonObject.getString("nombre");
                             Toast.makeText(InUsuario.this, "Bienvenido " + nombre, Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), PantallaPrin.class));
-                            finish();
+                            Intent intIntoP = new Intent(InUsuario.this, PantallaPrin.class);
+                            intIntoP.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                            startActivity(intIntoP);
                             break;
 
                         case "Correo_Incorrecto":
                             Toast.makeText(InUsuario.this, "Correo incorrecto", Toast.LENGTH_SHORT).show();
-                            ediCorreo.setError("Correo Incorrecto");
+                            edIUCorreo.setError("Correo Incorrecto");
                             break;
 
                         case "Contrasena_Incorrecta":
                             Toast.makeText(InUsuario.this, "Contraseña incorrecta", Toast.LENGTH_SHORT).show();
-                            ediContra.setError("Contraseña incorrecta");
+                            edIUContra.setError("Contraseña incorrecta");
                             break;
 
                         default:
@@ -175,8 +178,8 @@ public class InUsuario extends AppCompatActivity {
     //Metodo para recuperar la sesion
     private void recuperarSesion() {
         SharedPreferences preferences = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
-        ediCorreo.setText(preferences.getString("Correo","ejemplocorreo@gmail.com"));
-        ediContra.setText(preferences.getString("Contrasena","contraseña"));
+        edIUCorreo.setText(preferences.getString("Correo","ejemplocorreo@gmail.com"));
+        edIUContra.setText(preferences.getString("Contrasena","contraseña"));
         //Local -> ediContra.setText(preferences.getString("Contraseña","contraseña"));
     }
 

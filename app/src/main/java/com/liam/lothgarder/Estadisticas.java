@@ -1,114 +1,112 @@
 package com.liam.lothgarder;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class Estadisticas extends AppCompatActivity {
 
-    private TextView valueHumedad, valueEstado, valueTemperatura, valueAgua;
-    private Button btnActualizar, btnRegresar;
-    private RequestQueue requestQueue;
-    private static final String BASE_URL = "http://192.168.137.128:80/lothgarder/get_estadisticas.php"; // Reemplaza con tu IP real
+    private TextView etEsHumedadV, etEsTempV, etEsAguaV, etEsTotalPV;
+    private Button btnEsActuali, btnEstoP;
+
+    private String link_domain, idSis, correo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_estadisticas);
 
-        initViews();
-        initData();
-        setupListeners();
-    }
+        link_domain = getString(R.string.link_domain);
 
-    private void initViews() {
-        valueHumedad = findViewById(R.id.valueHumedad);
-        valueEstado = findViewById(R.id.valueEstado);
-        valueTemperatura = findViewById(R.id.valueTemperatura);
-        valueAgua = findViewById(R.id.valueAgua);
-        btnActualizar = findViewById(R.id.btnActualizar);
-        btnRegresar = findViewById(R.id.btnRegresar);
-    }
+        //Definicion local de variables
+        SharedPreferences preferencesU = getSharedPreferences("guardarSesion", Context.MODE_PRIVATE);
+        SharedPreferences preferencesS = getSharedPreferences("guardarSistema", Context.MODE_PRIVATE);
+        idSis = preferencesS.getString("ID", "");
+        correo = preferencesU.getString("Correo", "");
 
-    private void initData() {
-        // Inicializar RequestQueue de Volley
-        requestQueue = Volley.newRequestQueue(this);
-        // Cargar datos por defecto inicialmente
-        // Obtener datos del servidor
-        obtenerEstadisticasDesdeServidor();
-    }
+        obtenerEstadisticasDesdeServidor(link_domain + "?accion=buscarEst" + "&idS=" + idSis + "&correo=" + correo);
 
-    private void setupListeners() {
-        // Botón Actualizar
-        btnActualizar.setOnClickListener(v -> {
+        //Accion de boton para actualizar las estadisticas
+        btnEsActuali = findViewById(R.id.btnEsActuali);
+        btnEsActuali.setOnClickListener(v -> {
             Toast.makeText(this, "Actualizando estadísticas...", Toast.LENGTH_SHORT).show();
-            obtenerEstadisticasDesdeServidor();
+
+            obtenerEstadisticasDesdeServidor(link_domain + "?accion=buscarEst" + "&idS=" + idSis + "&correo=" + correo);
         });
 
         // Botón Regresar
-        btnRegresar.setOnClickListener(v -> {
+        btnEstoP = findViewById(R.id.btnEstoP);
+        btnEstoP.setOnClickListener(v -> {
             Toast.makeText(this, "Regresando...", Toast.LENGTH_SHORT).show();
             finish();
         });
 
-        // Manejar insets de la ventana para pantalla edge-to-edge
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            // Obtener los insets del sistema (barras de estado y navegación)
-            androidx.core.graphics.Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            // Aplicar padding usando los valores de los insets
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
     }
 
-    private void obtenerEstadisticasDesdeServidor() {
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, BASE_URL,
-                response -> {
+    private void obtenerEstadisticasDesdeServidor(String URL) {
+
+        etEsHumedadV = findViewById(R.id.etEsHumedadV);
+        etEsTempV = findViewById(R.id.etEsTempV);
+        etEsAguaV = findViewById(R.id.etEsAguaV);
+        etEsTotalPV = findViewById(R.id.etEsTotalPV);
+
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                for (int reco = 0; reco < response.length(); reco++) {
                     try {
-                        JSONObject jsonObject = new JSONObject(response);
-                        // Usar optString para manejar campos faltantes
-                        valueHumedad.setText(jsonObject.optString("humedad", "No disponible"));
-                        valueEstado.setText(jsonObject.optString("estado", "No disponible"));
-                        valueTemperatura.setText(jsonObject.optString("temperatura", "No disponible"));
-                        valueAgua.setText(jsonObject.optString("agua", "No disponible"));
-                        Toast.makeText(this, "Datos actualizados", Toast.LENGTH_SHORT).show();
+                        jsonObject = response.getJSONObject(reco);
+                        etEsHumedadV.setText(jsonObject.getString("Humedad"));
+                        etEsTempV.setText(jsonObject.getString("Temperatura"));
+                        etEsAguaV.setText(jsonObject.getString("AguaDia"));
+                        etEsTotalPV.setText(jsonObject.getString("Plantas"));
+                        Toast.makeText(Estadisticas.this, "Datos actualizados", Toast.LENGTH_SHORT).show();
+
                     } catch (JSONException e) {
-                        Toast.makeText(this, "Error al analizar datos: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG).show();
                     }
-                },
-                error -> {
-                    Toast.makeText(this, "Error de connexion: " + error.getMessage(), Toast.LENGTH_LONG).show();
-                });
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                //Para ver error en cado de fallo
+                Log.e("Volley", "Error: " + error.toString());
+                //error.printStackTrace();
+                Toast.makeText(getApplicationContext(), "ERROR DE CONEXIÓN", Toast.LENGTH_SHORT).show();
+            }
+        }
+        );
 
-        // Configurar política de reintento
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                10000, // 10 segundos de tiempo de espera
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-
-        // Agregar solicitud a la cola
-        requestQueue.add(stringRequest);
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(jsonArrayRequest);
     }
-
-    /*private void cargarDatosPorDefecto() {
-        // Datos por defecto en caso de error
-        valueHumedad.setText("50%");
-        valueEstado.setText("Saludable");
-        valueTemperatura.setText("25°C");
-        valueAgua.setText("250 ml");
-    }*/
 }

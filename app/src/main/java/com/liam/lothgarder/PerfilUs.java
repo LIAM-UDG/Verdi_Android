@@ -32,8 +32,8 @@ public class PerfilUs extends AppCompatActivity {
     //Definicion de variables globales
     private String contrasenaReal = "";
     private boolean isPasswordVisible = false;
-    private TextView euContraPU;
-    private Button buUtoPrin;
+    private TextView etPUContra;
+    private Button btnPUtoP;
     private ImageView ivToggleContra;
 
     @Override
@@ -42,7 +42,7 @@ public class PerfilUs extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_perfil_us);
 
-        euContraPU = findViewById(R.id.euContraPU);
+        etPUContra = findViewById(R.id.etPUContra);
         ivToggleContra = findViewById(R.id.ivToggleContra);
 
         //Creacion de la instancia de las preferencias(informacion de sesion)
@@ -54,14 +54,13 @@ public class PerfilUs extends AppCompatActivity {
         buscarUsuario(link_domain + "?accion=buscarU&correo=" + preferences.getString("Correo",""));
 
         //Accion de Boton para salir de Perfil Usuario a la Pantalla Principal
-        buUtoPrin = findViewById(R.id.buUtoPrin);
-        buUtoPrin.setOnClickListener(new View.OnClickListener() {
+        btnPUtoP = findViewById(R.id.btnPUtoP);
+        btnPUtoP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(PerfilUs.this, "Botón presionado", Toast.LENGTH_LONG).show();
                 Intent intRtoPrin = new Intent(PerfilUs.this, PantallaPrin.class);
+                intRtoPrin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intRtoPrin);
-                finish();
             }
         });
 
@@ -84,9 +83,9 @@ public class PerfilUs extends AppCompatActivity {
     private void buscarUsuario(String URL) {
 
         // Los TextViews que no son de la contraseña pueden seguir siendo locales
-        TextView eNomPU = findViewById(R.id.euNomPU);
-        TextView eEdadPU = findViewById(R.id.euEdadPU);
-        TextView eCorrPU = findViewById(R.id.euCorrPU);
+        TextView etPUNombre = findViewById(R.id.etPUNombre);
+        TextView etPUEdad = findViewById(R.id.etPUEdad);
+        TextView etPUCorreo = findViewById(R.id.etPUCorreo);
         //El textview de contraseña en global para ocultar y mostrar
 
         //Creacion de la peticion
@@ -97,9 +96,9 @@ public class PerfilUs extends AppCompatActivity {
                 for (int reco = 0; reco < response.length(); reco++) {
                     try {
                         jsonObject = response.getJSONObject(reco);
-                        eCorrPU.setText(jsonObject.getString("Correo"));
-                        eNomPU.setText(jsonObject.getString("Nombre"));
-                        eEdadPU.setText(jsonObject.getString("Edad"));
+                        etPUCorreo.setText(jsonObject.getString("Correo"));
+                        etPUNombre.setText(jsonObject.getString("Nombre"));
+                        etPUEdad.setText(jsonObject.getString("Edad"));
 
                         //Guardar la contraseña real antes de ocultarla
                         contrasenaReal = jsonObject.getString("Contrasena");
@@ -138,7 +137,7 @@ public class PerfilUs extends AppCompatActivity {
 
     private void mostrarContrasenaVisible() {
         // Muestra el valor de la variable real
-        euContraPU.setText(contrasenaReal);
+        etPUContra.setText(contrasenaReal);
         // Cambia el icono a "ojo cerrado" (significa que al hacer clic se ocultará)
         ivToggleContra.setImageResource(R.drawable.ic_visibility_off);
     }
@@ -147,7 +146,7 @@ public class PerfilUs extends AppCompatActivity {
         // Crea una cadena de asteriscos para ocultar el texto
         char[] chars = new char[contrasenaReal.length()];
         java.util.Arrays.fill(chars, '•'); // Usar un punto o asterisco para ocultar
-        euContraPU.setText(new String(chars));
+        etPUContra.setText(new String(chars));
 
         // Cambia el icono a "ojo abierto" (significa que al hacer clic se mostrará)
         ivToggleContra.setImageResource(R.drawable.ic_visibility);

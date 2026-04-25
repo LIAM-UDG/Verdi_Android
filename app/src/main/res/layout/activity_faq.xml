@@ -45,19 +45,98 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/enpTitulo2"
+            android:id="@+id/FaqPre1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" android:layout_marginTop="0dp" android:fontFamily="serif"
-            android:text=" •¿Qué tipo de base de datos utilizamos?\nSe utiliza una base de datos relacional para almacenar información sobre los sensores, horarios de riego y configuraciones del usuario.
-        \n\n •¿Cómo se almacenan los datos de los sensores?\nLos datos de los sensores se registran en tiempo real en la base de datos, incluyendo valores de humedad, temperatura y luz.
-        \n\n •¿Cómo se protege la información almacenada en la base de  datos? \nLa base de datos está protegida mediante encriptación y autenticación de usuarios para garantizar la seguridad de los datos.
-        \n\n •¿Qué sucede si se pierde la conexión a internet?\nLa aplicación almacena temporalmente los datos en caché y los sincroniza con la base de datos una vez que se reestablezca la conexión.
-        \n\n •¿Qué hacer si la base de datos presenta errores? \nSe recomienda reiniciar la aplicación y, si el problema persiste, contactar con soporte técnico para solucionarlo.
-"
+            android:text="¿Cómo registro una planta?"
+            android:textAlignment="textStart"
+            android:textColor="@color/verdeF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/FaqResp1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresa en el apartado de 'Plantas de Usuario' a continuación pulsa el botón de 'Registrar Planta' e ingresa la información solicitada junto con la selección de la foto de la planta, por último oprime el botón de 'continuar'."
             android:textAlignment="textStart"
             android:textColor="@color/verdeF"
             android:textSize="16sp"
             android:textStyle="normal" />
+
+        <TextView
+            android:id="@+id/FaqPre2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\n¿Cómo edito o elimino una planta?"
+            android:textAlignment="textStart"
+            android:textColor="@color/verdeF"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/FaqResp2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresa en el apartado de 'Plantas de Usuario', luego pulsa la planta que deseas seleccionar y pulsa el botón de 'Seleccionar', para eliminar la planta pulsa el botón de eliminar o si se desea editar pulsa el botón de 'Editar Planta' y cuando se termine de cambiar la información pulsa en continuar."
+            android:textAlignment="textStart"
+            android:textColor="@color/verdeF"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+        <TextView
+            android:id="@+id/FaqPre3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\n¿Cómo agrego mi sistema?"
+            android:textAlignment="textStart"
+            android:textColor="@color/verdeF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/FaqResp3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Para agregar el módulo al sistema ingresa al apartado de 'Sistema Usuario' y a continuación pulsa el botón de 'Agregar' a continuación deberas de visualizar el ID y código de validación en el mismo dispositivo que se tenga ."
+            android:textAlignment="textStart"
+            android:textColor="@color/verdeF"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+        <TextView
+            android:id="@+id/FaqPre4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\n¿Cómo puedo actualizar las estadísticas?"
+            android:textAlignment="textStart"
+            android:textColor="@color/verdeF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/FaqResp4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresa al apartado de 'Sistema Usuario' y pulsa el botón de 'Estadísticas', en esta parte se mostrarán las estadísticas actuales pero si se desean actualizar, pulsa el botón de 'Actualizar'."
+            android:textAlignment="textStart"
+            android:textColor="@color/verdeF"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+        <TextView
+            android:id="@+id/FaqPre5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\n¿Se pueden sugerir plantas para la enciclopedia?"
+            android:textAlignment="textStart"
+            android:textColor="@color/verdeF"
+            android:textSize="17sp"
+            android:textStyle="bold" />
+        <TextView
+            android:id="@+id/FaqResp5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="¡Claro! En el apartado de 'Enciclopedia' en la parte inferior se encuentra un botón de 'Sugerir Planta', presionalo e ingresa la información que se te pide, por último presiona en continuar.\n\n"
+            android:textAlignment="textStart"
+            android:textColor="@color/verdeF"
+            android:textSize="16sp"
+            android:textStyle="normal" />
+
 
     </LinearLayout>
 </ScrollView>

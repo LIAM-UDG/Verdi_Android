@@ -6,11 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo1"
-    tools:context=".Enci">
-
+    tools:context=".EnciPt2">
 
     <TextView
-        android:id="@+id/etETitulo"
+        android:id="@+id/etE2Titulo"
         android:layout_width="240dp"
         android:layout_height="50dp"
         android:layout_marginTop="35dp"
@@ -27,10 +26,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/etEBarrita"
+        android:id="@+id/etE2Barrita"
         android:layout_width="360dp"
         android:layout_height="2dp"
-        android:layout_marginTop="85dp"
+        android:layout_marginTop="84dp"
         android:background="@color/verdeF"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,14 +38,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnELava"
+        android:id="@+id/btnE2Jazmin"
         android:layout_width="134dp"
         android:layout_height="66dp"
         android:layout_marginTop="112dp"
         android:backgroundTint="@color/verdeC"
-        android:text="Lavanda"
-        android:textColor="@color/fondo1"
+        android:text="Jazmín"
         android:textColorLink="@color/verdeC"
+        android:textColor="@color/fondo1"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.841"
@@ -54,12 +53,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnESabila"
+        android:id="@+id/btnE2Dalia"
         android:layout_width="134dp"
         android:layout_height="66dp"
         android:layout_marginTop="112dp"
         android:backgroundTint="@color/verdeC"
-        android:text="Sábila"
+        android:text="Dalia"
         android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.184"
@@ -67,12 +66,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnEMenta"
+        android:id="@+id/btnE2Clavel"
         android:layout_width="134dp"
         android:layout_height="66dp"
         android:layout_marginTop="212dp"
         android:backgroundTint="@color/verdeC"
-        android:text="Menta"
+        android:text="Clavel"
         android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.184"
@@ -80,12 +79,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnEManza"
+        android:id="@+id/btnE2Ruda"
         android:layout_width="134dp"
         android:layout_height="66dp"
         android:layout_marginTop="212dp"
         android:backgroundTint="@color/verdeC"
-        android:text="Manzanilla"
+        android:text="Ruda"
         android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.841"
@@ -93,12 +92,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnEAlba"
+        android:id="@+id/btnE2Hierba"
         android:layout_width="134dp"
         android:layout_height="66dp"
         android:layout_marginTop="308dp"
         android:backgroundTint="@color/verdeC"
-        android:text="Albahaca"
+        android:text="Hierba-\nbuena"
         android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.184"
@@ -106,64 +105,64 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnEBugam"
+        android:id="@+id/btnE2Kalanchoe"
         android:layout_width="134dp"
         android:layout_height="66dp"
         android:layout_marginTop="36dp"
         android:backgroundTint="@color/verdeC"
-        android:text="Bugambilia"
+        android:text="Kalanchoe"
         android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnERomero" />
+        app:layout_constraintTop_toBottomOf="@+id/btnE2Garde" />
 
     <Button
-        android:id="@+id/btnEOrqui"
+        android:id="@+id/btnE2LenSu"
         android:layout_width="134dp"
         android:layout_height="66dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/verdeC"
-        android:text="Orquídea"
+        android:text="Lengua de Suegra"
         android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.841"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEBugam" />
+        app:layout_constraintTop_toBottomOf="@+id/btnE2Oregano" />
 
     <Button
-        android:id="@+id/btnEConchita"
+        android:id="@+id/btnE2Lantana"
         android:layout_width="134dp"
         android:layout_height="66dp"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/verdeC"
-        android:text="Conchita"
+        android:text="Lantana"
         android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEArana" />
+        app:layout_constraintTop_toBottomOf="@+id/btnE2Oregano" />
 
     <Button
-        android:id="@+id/btnEArana"
+        android:id="@+id/btnE2Oregano"
         android:layout_width="134dp"
         android:layout_height="66dp"
         android:layout_marginTop="36dp"
         android:backgroundTint="@color/verdeC"
-        android:text="Planta araña"
+        android:text="Orégano"
         android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.184"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEAlba" />
+        app:layout_constraintTop_toBottomOf="@+id/btnE2Hierba" />
 
     <Button
-        android:id="@+id/btnERomero"
+        android:id="@+id/btnE2Garde"
         android:layout_width="134dp"
         android:layout_height="66dp"
         android:layout_marginTop="308dp"
         android:backgroundTint="@color/verdeC"
-        android:text="Romero"
+        android:text="Gardenia"
         android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.841"
@@ -171,25 +170,25 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnEtoM"
-        android:layout_width="127dp"
-        android:layout_height="48dp"
+        android:id="@+id/btnE2toEnci"
+        android:layout_width="120dp"
+        android:layout_height="50dp"
         android:layout_marginBottom="36dp"
         android:backgroundTint="@color/verdeM"
-        android:text="Inicio"
+        android:text="Regresar"
         android:textColor="@color/fondo1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/etENumP"
+        android:id="@+id/etE2NumP"
         android:layout_width="60dp"
         android:layout_height="35dp"
         android:layout_marginTop="56dp"
         android:fontFamily="serif"
-        android:text="Parte 1"
+        android:text="Parte 2"
         android:textAlignment="center"
         android:textColor="@color/verdeM"
         android:textSize="14sp"
@@ -198,18 +197,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.921"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"  />
 
     <Button
-        android:id="@+id/btnEtoE2"
-        android:layout_width="140dp"
-        android:layout_height="48dp"
+        android:id="@+id/btnE2toE3"
+        android:layout_width="134dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="44dp"
         android:layout_marginBottom="36dp"
         android:backgroundTint="@color/verdeM"
-        android:text="Segunda Pt."
+        android:text="Tercera Pt."
         android:textColor="@color/fondo1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -35,6 +35,7 @@ public class Soporte extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intStoPrin = new Intent(Soporte.this, PantallaPrin.class);
+                intStoPrin.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                 startActivity(intStoPrin);
             }
         });

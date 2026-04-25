@@ -9,13 +9,13 @@
     tools:context=".LogrosP">
 
     <TextView
-        android:id="@+id/elpTitulo"
+        android:id="@+id/etLPTitulo"
         android:layout_width="385dp"
         android:layout_height="43dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="serif"
         android:text="Logros de las Plantas"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textColor="@color/verdeF"
         android:textSize="29sp"
         android:textStyle="bold"
@@ -25,45 +25,92 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/elpBarrita"
+        android:id="@+id/etLPBarrita"
         android:layout_width="360dp"
         android:layout_height="2dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="85dp"
         android:background="@color/verdeF"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/etLPBarritaN1"
+        android:layout_width="238dp"
+        android:layout_height="2dp"
+        android:background="@color/verdeF"
+        android:text=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/etLPTextN1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.826"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLPTitN1"
+        app:layout_constraintVertical_bias="0.32" />
+
+    <TextView
+        android:id="@+id/etLPBarritaN3"
+        android:layout_width="240dp"
+        android:layout_height="2dp"
+        android:background="@color/verdeF"
+        android:visibility="invisible"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/etLPTextN3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLPTitN3"
+        app:layout_constraintVertical_bias="0.518" />
+
+    <TextView
+        android:id="@+id/etLPBarritaN4"
+        android:layout_width="240dp"
+        android:layout_height="2dp"
+        android:background="@color/verdeF"
+        android:text=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/etLPTextN4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLPTitN4"
+        app:layout_constraintVertical_bias="0.541" />
+
+    <TextView
+        android:id="@+id/etLPBarritaN2"
+        android:layout_width="240dp"
+        android:layout_height="2dp"
+        android:background="@color/verdeF"
+        android:text=""
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/etLPTextN2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.829"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etLPTitN2"
+        app:layout_constraintVertical_bias="0.444" />
 
     <Button
         android:id="@+id/blpLptoPrin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="@color/verdeM"
         android:text="Inicio"
+        android:textColor="@color/fondo1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/Logro_uno"
-        android:layout_width="115dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="104dp"
-        android:src="@drawable/logro_one"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.05"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/Logro_dos"
+        android:id="@+id/imgLPLog2"
         android:layout_width="117dp"
         android:layout_height="119dp"
-        android:layout_marginTop="232dp"
+        android:layout_marginTop="244dp"
+        android:visibility="invisible"
         android:src="@drawable/logro_two"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.054"
@@ -71,129 +118,220 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/Logro_tres"
+        android:id="@+id/imgLPLog3"
         android:layout_width="116dp"
         android:layout_height="116dp"
-        android:layout_marginBottom="252dp"
-        android:src="@drawable/logro_three"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.057"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:id="@+id/Logro_cuatro"
-        android:layout_width="117dp"
-        android:layout_height="118dp"
-        android:layout_marginBottom="124dp"
-        android:src="@drawable/logro_four"
+        android:layout_marginTop="392dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/logro_three"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.057"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-
-        android:id="@+id/descripcion_uno"
-        android:layout_width="240dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="164dp"
-        android:background="@color/fondo2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.783"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Nivel 1 de Plantas\nHas obtenido el nivel 1, tras registrar 1 planta en la app" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/descripcion_dos"
+        android:id="@+id/etLPTextN2"
         android:layout_width="240dp"
-        android:layout_height="60dp"
+        android:layout_height="65dp"
         android:layout_marginTop="296dp"
         android:background="@color/fondo2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:text="Nivel 2 de Plantas\nHas obtenido el nivel 2, tras registrar 5 plantas en la app" />
-
-    <TextView
-        android:id="@+id/descripcion_tres"
-        android:layout_width="240dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="252dp"
-        android:background="@color/fondo2"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
-        app:layout_constraintStart_toStartOf="parent"
-        android:text="Nivel 3 de Plantas\nHas obtenido el nivel 3, tras registrar 25 plantas en la app" />
-
-    <TextView
-        android:id="@+id/descripcion_cuatro"
-        android:layout_width="240dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="124dp"
-        android:background="@color/fondo2"
+        android:padding="2dp"
+        android:text="Nivel 2 de Plantas\nHas obtenido el nivel 2, tras registrar 5 plantas en la app"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/verdeF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.807"
+        app:layout_constraintHorizontal_bias="0.829"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Nivel 4 de Plantas\nHas obtenido el nivel 4, tras registrar 50 plantas en la app" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/felicitacion_uno"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
+    <TextView
+        android:id="@+id/etLPTextN1"
+        android:layout_width="240dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="152dp"
+        android:background="@color/fondo2"
+        android:padding="2dp"
+        android:text="Nivel 1 de Plantas\nHas obtenido el nivel 1, tras registrar 1 planta en la app"
+        android:visibility="invisible"
+        android:textColor="@color/verdeF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgLPLog1"
+        android:layout_width="115dp"
+        android:layout_height="115dp"
         android:layout_marginTop="104dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Felicidades!          "
+        android:src="@drawable/logro_one"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintHorizontal_bias="0.054"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/felicitacion_dos"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="232dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Felicidades!"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.686"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/felicitacion_tres"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="360dp"
-        android:ems="10"
-        android:inputType="text"
-        android:text="Felicidades!"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.691"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/felicitacion_cuatro"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginBottom="192dp"
-        android:ems="10"
-        android:inputType="text"
+    <TextView
+        android:id="@+id/etLPTitN3"
+        android:layout_width="110dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="392dp"
         android:text="Felicidades!"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/verdeF"
+        android:textSize="17sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.691"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/etLPTitN4"
+        android:layout_width="100dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="536dp"
+        android:text="Felicidades!"
+        android:textColor="@color/verdeF"
+        android:textSize="17sp"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/etLPTitN2"
+        android:layout_width="110dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="244dp"
+        android:text="Felicidades!"
+        android:visibility="invisible"
+        android:textColor="@color/verdeF"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/etLPTitN1"
+        android:layout_width="110dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="104dp"
+        android:text="Felicidades!"
+        android:visibility="invisible"
+        android:textColor="@color/verdeF"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/etLPTextN3"
+        android:layout_width="240dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="440dp"
+        android:background="@color/fondo2"
+        android:text="Nivel 3 de Plantas\nHas obtenido el nivel 3, tras registrar 25 plantas en la app"
+        android:visibility="invisible"
+        android:padding="2dp"
+        android:textColor="@color/verdeF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/etLPTextN4"
+        android:layout_width="240dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="580dp"
+        android:background="@color/fondo2"
+        android:padding="2dp"
+        android:text="Nivel 4 de Plantas\nHas obtenido el nivel 4, tras registrar 50 plantas en la app"
+        android:textColor="@color/verdeF"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.835"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgLPLog4"
+        android:layout_width="117dp"
+        android:layout_height="118dp"
+        android:layout_marginTop="536dp"
+        android:src="@drawable/logro_four"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.047"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/etLPLockN1"
+        android:layout_width="334dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="108dp"
+        android:background="@drawable/logro_bloqueado"
+        android:text="Agrega 1 planta para obtener el logro"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/verdeF"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/etLPLockN2"
+        android:layout_width="334dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="252dp"
+        android:background="@drawable/logro_bloqueado"
+        android:gravity="center"
+        android:text="Agrega 5 plantas para obtener el logro"
+        android:textAlignment="center"
+        android:textColor="@color/verdeF"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/etLPLockN3"
+        android:layout_width="334dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="400dp"
+        android:background="@drawable/logro_bloqueado"
+        android:gravity="center"
+        android:text="Agrega 25 plantas para obtener el logro"
+        android:textAlignment="center"
+        android:textColor="@color/verdeF"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/etLPLockN4"
+        android:layout_width="334dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="544dp"
+        android:background="@drawable/logro_bloqueado"
+        android:gravity="center"
+        android:text="Agrega 50 plantas para obtener el logro"
+        android:textAlignment="center"
+        android:textColor="@color/verdeF"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

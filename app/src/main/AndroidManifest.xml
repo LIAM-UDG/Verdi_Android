@@ -4,6 +4,22 @@
     <!-- Permiso a internet agregado -->
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!--
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    -->
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -16,13 +32,19 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".EnciPt3"
+            android:exported="false" />
+        <activity
+            android:name=".EnciPt2"
+            android:exported="false" />
+        <activity
+            android:name=".TomarFoto"
+            android:exported="false" />
+        <activity
             android:name=".NuevoSis"
             android:exported="false" />
         <activity
             android:name=".SistemaU"
-            android:exported="false" />
-        <activity
-            android:name=".Alertas"
             android:exported="false" />
         <activity
             android:name=".Busqueda"
@@ -70,7 +92,7 @@
             android:name=".PerfilUs"
             android:exported="false" />
         <activity
-            android:name=".NewUsuario"
+            android:name=".NuevoUsuario"
             android:exported="false" />
         <activity
             android:name=".Estadisticas"

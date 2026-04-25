@@ -30,6 +30,7 @@
         android:layout_marginTop="616dp"
         android:backgroundTint="@color/verdeM"
         android:text="Inicio"
+        android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.086"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,6 +43,7 @@
         android:layout_marginTop="148dp"
         android:backgroundTint="@color/verdeM"
         android:text="Preguntas Frecuentes"
+        android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

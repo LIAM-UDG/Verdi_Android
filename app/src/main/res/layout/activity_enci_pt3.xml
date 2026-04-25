@@ -6,11 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo1"
-    tools:context=".Enci">
-
+    tools:context=".EnciPt3">
 
     <TextView
-        android:id="@+id/etETitulo"
+        android:id="@+id/etE3Titulo"
         android:layout_width="240dp"
         android:layout_height="50dp"
         android:layout_marginTop="35dp"
@@ -27,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/etEBarrita"
+        android:id="@+id/etE3Barrita"
         android:layout_width="360dp"
         android:layout_height="2dp"
         android:layout_marginTop="85dp"
@@ -38,158 +37,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/btnELava"
-        android:layout_width="134dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="112dp"
-        android:backgroundTint="@color/verdeC"
-        android:text="Lavanda"
-        android:textColor="@color/fondo1"
-        android:textColorLink="@color/verdeC"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnESabila"
-        android:layout_width="134dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="112dp"
-        android:backgroundTint="@color/verdeC"
-        android:text="Sábila"
-        android:textColor="@color/fondo1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.184"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnEMenta"
-        android:layout_width="134dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="212dp"
-        android:backgroundTint="@color/verdeC"
-        android:text="Menta"
-        android:textColor="@color/fondo1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.184"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnEManza"
-        android:layout_width="134dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="212dp"
-        android:backgroundTint="@color/verdeC"
-        android:text="Manzanilla"
-        android:textColor="@color/fondo1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnEAlba"
-        android:layout_width="134dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="308dp"
-        android:backgroundTint="@color/verdeC"
-        android:text="Albahaca"
-        android:textColor="@color/fondo1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.184"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnEBugam"
-        android:layout_width="134dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/verdeC"
-        android:text="Bugambilia"
-        android:textColor="@color/fondo1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnERomero" />
-
-    <Button
-        android:id="@+id/btnEOrqui"
-        android:layout_width="134dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/verdeC"
-        android:text="Orquídea"
-        android:textColor="@color/fondo1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEBugam" />
-
-    <Button
-        android:id="@+id/btnEConchita"
-        android:layout_width="134dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/verdeC"
-        android:text="Conchita"
-        android:textColor="@color/fondo1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.184"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEArana" />
-
-    <Button
-        android:id="@+id/btnEArana"
-        android:layout_width="134dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/verdeC"
-        android:text="Planta araña"
-        android:textColor="@color/fondo1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.184"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEAlba" />
-
-    <Button
-        android:id="@+id/btnERomero"
-        android:layout_width="134dp"
-        android:layout_height="66dp"
-        android:layout_marginTop="308dp"
-        android:backgroundTint="@color/verdeC"
-        android:text="Romero"
-        android:textColor="@color/fondo1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.841"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnEtoM"
-        android:layout_width="127dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="36dp"
-        android:backgroundTint="@color/verdeM"
-        android:text="Inicio"
-        android:textColor="@color/fondo1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.179"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <TextView
-        android:id="@+id/etENumP"
+        android:id="@+id/etE3NumP"
         android:layout_width="60dp"
         android:layout_height="35dp"
         android:layout_marginTop="56dp"
         android:fontFamily="serif"
-        android:text="Parte 1"
+        android:text="Parte 3"
         android:textAlignment="center"
         android:textColor="@color/verdeM"
         android:textSize="14sp"
@@ -201,15 +55,161 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btnEtoE2"
-        android:layout_width="140dp"
+        android:id="@+id/btnE3Duranta"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="112dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Duranta"
+        android:textColor="@color/fondo1"
+        android:textColorLink="@color/verdeC"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnE3CAdan"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="112dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Costilla de Adán"
+        android:textColor="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnE3CdeMoi"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="212dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Cuna de moises"
+        android:textColor="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnE3Abunda"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="212dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Abundancia"
+        android:textColor="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnE3Hibisco"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="308dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Hibisco"
+        android:textColor="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnE3CdeCristo"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Corona de Cristo"
+        android:textColor="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnE3Malva" />
+
+    <Button
+        android:id="@+id/btnE3PCebra"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Planta Cebra"
+        android:textColor="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnE3CdeCristo" />
+
+    <Button
+        android:id="@+id/btnE3Millonaria"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Millonaria"
+        android:textColor="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnE3HSanta" />
+
+    <Button
+        android:id="@+id/btnE3HSanta"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Hierba Santa"
+        android:textColor="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.184"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnE3Hibisco" />
+
+    <Button
+        android:id="@+id/btnE3Malva"
+        android:layout_width="134dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="308dp"
+        android:backgroundTint="@color/verdeC"
+        android:text="Malva"
+        android:textColor="@color/fondo1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.841"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnE3toE2"
+        android:layout_width="127dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="44dp"
         android:layout_marginBottom="36dp"
         android:backgroundTint="@color/verdeM"
-        android:text="Segunda Pt."
+        android:text="Regresar"
+        android:textColor="@color/fondo1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnE3Su"
+        android:layout_width="142dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="36dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Sugerir Planta"
         android:textColor="@color/fondo1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

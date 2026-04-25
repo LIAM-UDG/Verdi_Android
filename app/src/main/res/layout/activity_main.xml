@@ -20,9 +20,27 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.105" />
+
+    <TextView
+        android:id="@+id/emEslogan"
+        android:layout_width="285dp"
+        android:layout_height="40dp"
+        android:fontFamily="serif"
+        android:text="Cuida | Automatiza | Riega"
+        android:textAlignment="center"
+        android:textColor="@color/verdeM"
+        android:textSize="19sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.225" />
 
     <Button
         android:id="@+id/bmMtoIn"
@@ -31,6 +49,7 @@
         android:layout_marginTop="432dp"
         android:backgroundTint="@color/verdeM"
         android:text="Inicio de Sesión"
+        android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,26 +59,26 @@
         android:id="@+id/bmMtoNew"
         android:layout_width="250dp"
         android:layout_height="48dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/verdeM"
         android:text="Registrarse"
+        android:textColor="@color/fondo1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bmMtoIn"/>
 
-    <!--
-    <Button
-        android:id="@+id/bmMtoPrin"
-        android:layout_width="250dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="48dp"
-        android:backgroundTint="@color/verdeM"
-        android:text="Principal"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/imgMLogo"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="4dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/logo_verdi1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent" />
-    -->
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emEslogan"
+         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

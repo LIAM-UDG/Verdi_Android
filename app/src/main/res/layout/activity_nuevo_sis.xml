@@ -8,6 +8,114 @@
     android:background="@color/fondo1"
     tools:context=".NuevoSis">
 
+    <Button
+        android:id="@+id/btnNstoPrin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Inicio"
+        android:textColor="@color/fondo1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.117"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnNsContinuar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/verdeM"
+        android:text="Continuar"
+        android:textColor="@color/fondo1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <EditText
+        android:id="@+id/etnsID"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_edittext_background"
+        android:hint="ID"
+        android:textColorHint="@color/verdeM"
+        android:inputType="number"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ensIdSis" />
+
+    <EditText
+        android:id="@+id/etnsCodVal"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_edittext_background"
+        android:hint="Código"
+        android:textColorHint="@color/verdeM"
+        android:inputType="number"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ensCodVal" />
+
+    <EditText
+        android:id="@+id/etnsNombreS"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rounded_edittext_background"
+        android:hint="Nombre"
+        android:textColorHint="@color/verdeM"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.219"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ensNombreS" />
+
+    <TextView
+        android:id="@+id/ensIdSis"
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:text="ID de sistema:"
+        android:textColor="@color/verdeF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ensTitulo" />
+
+    <TextView
+        android:id="@+id/ensCodVal"
+        android:layout_width="160dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:text="Código de validación:"
+        android:textColor="@color/verdeF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.099"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etnsID" />
+
+    <TextView
+        android:id="@+id/ensNombreS"
+        android:layout_width="310dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:text="Ponle un nombre a tu sistema (opcional):"
+        android:textColor="@color/verdeF"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etnsCodVal" />
+
     <TextView
         android:id="@+id/ensTitulo"
         android:layout_width="350dp"

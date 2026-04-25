@@ -35,8 +35,13 @@ dependencies {
 
     //Librerias agregadas
     implementation (libs.volley)
-    
 
+    implementation(libs.androidx.camera.core)
+    implementation(libs.androidx.camera.camera2)
+    implementation(libs.androidx.camera.lifecycle)
+    implementation(libs.androidx.camera.view)
+    implementation(libs.androidx.core)
+    //implementation(libs.androidx.work.runtime)
 
     //Librerias predeterminadas
     implementation(libs.appcompat)

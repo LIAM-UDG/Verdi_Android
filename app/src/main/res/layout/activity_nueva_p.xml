@@ -12,7 +12,7 @@
 
     <!-- Línea divisoria -->
     <TextView
-        android:id="@+id/tvTitulo"
+        android:id="@+id/etNPTitulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
@@ -45,7 +45,7 @@
     <!-- Botón Continuar -->
 
     <View
-        android:id="@+id/linea"
+        android:id="@+id/vNPlinea"
         android:layout_width="0dp"
         android:layout_height="2dp"
         android:layout_marginLeft="16dp"
@@ -54,62 +54,64 @@
         android:background="@color/verdeF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitulo" />
+        app:layout_constraintTop_toBottomOf="@id/etNPTitulo" />
 
     <Button
-        android:id="@+id/btnSubirFoto"
+        android:id="@+id/btnNPSubFoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginTop="56dp"
         android:backgroundTint="@color/verdeM"
         android:text="Subir foto"
-        android:textColor="@android:color/white"
-        app:layout_constraintStart_toEndOf="@id/imgPlanta"
-        app:layout_constraintTop_toBottomOf="@id/linea" />
+        android:textColor="@color/fondo1"
+        app:layout_constraintStart_toEndOf="@id/imgNPPlanta"
+        app:layout_constraintTop_toBottomOf="@id/vNPlinea" />
 
     <Spinner
-        android:id="@+id/spnAmbiente"
+        android:id="@+id/spnNPAmbi"
         android:layout_width="0dp"
         android:layout_height="48sp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="96dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_spinner_background"
+        android:entries="@array/ambientes_planta"
         android:popupBackground="@color/fondo2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAmbiente" />
+        app:layout_constraintTop_toBottomOf="@id/etNPTipoP" />
 
     <Spinner
-        android:id="@+id/spnEstadoP"
+        android:id="@+id/spnNPRiegoP"
         android:layout_width="0dp"
         android:layout_height="48sp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="200dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_spinner_background"
+        android:entries="@array/riego_planta"
         android:popupBackground="@color/fondo2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAmbiente" />
+        app:layout_constraintTop_toBottomOf="@id/etNPTipoP" />
 
     <ImageView
-        android:id="@+id/imgPlanta"
+        android:id="@+id/imgNPPlanta"
         android:layout_width="140dp"
-        android:layout_height="104dp"
+        android:layout_height="140dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="12dp"
-        android:background="@android:color/white"
         android:scaleType="centerCrop"
-        android:backgroundTint="@color/fondo2"
+        android:background="@color/fondo2"
+        app:srcCompat="@android:drawable/gallery_thumb"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/linea" />
+        app:layout_constraintTop_toBottomOf="@id/vNPlinea" />
 
     <TextView
-        android:id="@+id/tvNombre"
+        android:id="@+id/etNPNombre"
         android:layout_width="60dp"
         android:layout_height="24dp"
         android:layout_marginStart="36dp"
@@ -118,22 +120,24 @@
         android:textColor="@color/verdeF"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imgPlanta" />
+        app:layout_constraintTop_toBottomOf="@id/imgNPPlanta" />
 
     <EditText
-        android:id="@+id/etNombre"
+        android:id="@+id/edNPApodo"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/rounded_edittext_background"
         android:hint="Apodo"
+        android:textColorHint="@color/verdeM"
+        android:textColor="@color/verdeM"
         android:padding="8dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvNombre" />
+        app:layout_constraintTop_toBottomOf="@id/etNPNombre" />
 
     <TextView
-        android:id="@+id/tvAmbiente"
+        android:id="@+id/etNPTipoP"
         android:layout_width="130dp"
         android:layout_height="27dp"
         android:layout_marginStart="32dp"
@@ -142,24 +146,25 @@
         android:textColor="@color/verdeF"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNombre" />
+        app:layout_constraintTop_toBottomOf="@id/edNPApodo" />
 
     <Spinner
-        android:id="@+id/spnTipoP"
+        android:id="@+id/spnNPTipoP"
         android:layout_width="0dp"
         android:layout_height="48sp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
         android:background="@drawable/rounded_spinner_background"
+        android:entries="@array/tipo_planta"
         android:popupBackground="@color/fondo2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAmbiente" />
+        app:layout_constraintTop_toBottomOf="@id/etNPTipoP" />
 
     <TextView
-        android:id="@+id/tvAmbiente2"
+        android:id="@+id/etNPAmbiente"
         android:layout_width="90dp"
         android:layout_height="28dp"
         android:layout_marginStart="36dp"
@@ -168,26 +173,27 @@
         android:textColor="@color/verdeF"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNombre" />
+        app:layout_constraintTop_toBottomOf="@id/edNPApodo" />
 
     <TextView
-        android:id="@+id/tvAmbiente3"
-        android:layout_width="70dp"
+        android:id="@+id/etNPTipoR"
+        android:layout_width="130dp"
         android:layout_height="29dp"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="200dp"
-        android:text="Estado"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="256dp"
+        android:text="Tipo de Riego"
         android:textColor="@color/verdeF"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/etNombre" />
+        app:layout_constraintTop_toBottomOf="@id/etNPNombre" />
 
     <Button
-        android:id="@+id/btnNptoPrin"
+        android:id="@+id/btnNPtoP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:backgroundTint="@color/verdeM"
+        android:textColor="@color/fondo1"
         android:text="Inicio"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -195,12 +201,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/btnContinuar"
+        android:id="@+id/btnNPConti"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Continuar"
+        android:textColor="@color/fondo1"
         android:backgroundTint="@color/verdeM"
-        android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginBottom="32dp"

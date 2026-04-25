@@ -9,7 +9,7 @@
     tools:context=".InUsuario">
 
     <TextView
-        android:id="@+id/eiTitulo"
+        android:id="@+id/etIUTitulo"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="35dp"
@@ -24,7 +24,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/eiBarrita"
+        android:id="@+id/etIUBarrita"
         android:layout_width="360dp"
         android:layout_height="2dp"
         android:layout_marginTop="85dp"
@@ -36,7 +36,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/eiCorreo"
+        android:id="@+id/etIUCorreo"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginTop="160dp"
@@ -52,7 +52,7 @@
 
 
     <EditText
-        android:id="@+id/ediCorreo"
+        android:id="@+id/edIUCorreo"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginTop="30dp"
@@ -61,13 +61,14 @@
         android:padding="4dp"
         android:inputType="text"
         android:hint="Correo"
+        android:textColorHint="@color/verdeM"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eiCorreo" />
+        app:layout_constraintTop_toBottomOf="@+id/etIUCorreo" />
 
     <TextView
-        android:id="@+id/eiContra"
+        android:id="@+id/etIUContra"
         android:layout_width="200dp"
         android:layout_height="40dp"
         android:layout_marginTop="45dp"
@@ -79,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.136"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ediCorreo" />
+        app:layout_constraintTop_toBottomOf="@+id/edIUCorreo" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayoutContrasena"
@@ -89,11 +90,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.578"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/eiContra"
+        app:layout_constraintTop_toBottomOf="@+id/etIUContra"
         app:passwordToggleEnabled="true" >
 
         <EditText
-            android:id="@+id/ediContra"
+            android:id="@+id/edIUContra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext_background"
@@ -102,11 +103,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/biItoP"
+        android:id="@+id/btnIUtoP"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="644dp"
         android:backgroundTint="@color/verdeM"
+        android:textColor="@color/fondo1"
         android:text="Inicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.102"
@@ -114,11 +116,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/biCon"
+        android:id="@+id/btnIUCon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="644dp"
         android:backgroundTint="@color/verdeM"
+        android:textColor="@color/fondo1"
         android:text="Continuar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.884"

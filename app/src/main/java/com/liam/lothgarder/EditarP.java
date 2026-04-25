@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,11 +33,11 @@ import java.util.Map;
 public class EditarP extends AppCompatActivity{
 
     RequestQueue requestQueue;
-    ImageView imgPlanta;
-    Button btnContinuar;
-    EditText edepApodo;
-    Spinner spnEpAmbiente, spnEpEstadoP;
-    String nombreP, ambienteSeleccionado, estadoSeleccionado, apodo;
+    ImageView imgEPPlanta;
+    Button btnEPConti, btnEPtoP;
+    EditText edEPApodo;
+    Spinner spnEPAmbi, spnEPEstadoP;
+    private String nombreP, ambienteSeleccionado, estadoSeleccionado, apodo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,27 +49,43 @@ public class EditarP extends AppCompatActivity{
         nombreP = intent.getStringExtra("nombrePSel");
 
         // Vistas
-        imgPlanta = findViewById(R.id.imgPlanta);
-        btnContinuar = findViewById(R.id.btnContinuar);
-        edepApodo = findViewById(R.id.edepNombre);
-        spnEpAmbiente = findViewById(R.id.spnEpAmbiente);
-        spnEpEstadoP = findViewById(R.id.spnEpEstadoP);
+        imgEPPlanta = findViewById(R.id.imgEPPlanta);
+        btnEPConti = findViewById(R.id.btnEPConti);
+        edEPApodo = findViewById(R.id.edEPNombre);
+        spnEPAmbi = findViewById(R.id.spnEPAmbiente);
+        spnEPEstadoP = findViewById(R.id.spnEPTipoP);
 
         ArrayAdapter<String> aaTAmbiente = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
         aaTAmbiente.addAll("Selecciona un ambiente","Interior", "Exterior", "Sombra", "Luz");
-        spnEpAmbiente.setAdapter(aaTAmbiente);
+        spnEPAmbi.setAdapter(aaTAmbiente);
 
         ArrayAdapter<String> aaEstadoP = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item);
         aaEstadoP.addAll("Selecciona un estado","Muy Saludable", "Saludable", "Regular", "Malo", "Pésimo");
-        spnEpEstadoP.setAdapter(aaEstadoP);
+        spnEPEstadoP.setAdapter(aaEstadoP);
 
-        Toast.makeText(EditarP.this, "Pantalla nueva planta", Toast.LENGTH_LONG).show();
+        Toast.makeText(EditarP.this, "Pantalla editar planta", Toast.LENGTH_LONG).show();
 
-        btnContinuar.setOnClickListener(v -> {
+        // Botón Volver a Principal
+        btnEPtoP = findViewById(R.id.btnEPtoP);
+        btnEPtoP.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intEtoPrin = new Intent(EditarP.this, PlantaU.class);
+                Intent intent = getIntent();
+                int idP;
+                idP = intent.getIntExtra("id", 0);
+                intEtoPrin.putExtra("id", idP);
+                startActivity(intEtoPrin);
+                finish();
+            }
+        });
 
-            ambienteSeleccionado = spnEpAmbiente.getSelectedItem().toString();
-            estadoSeleccionado = spnEpEstadoP.getSelectedItem().toString();
-            apodo = edepApodo.getText().toString();
+
+        btnEPConti.setOnClickListener(v -> {
+
+            ambienteSeleccionado = spnEPAmbi.getSelectedItem().toString();
+            estadoSeleccionado = spnEPEstadoP.getSelectedItem().toString();
+            apodo = edEPApodo.getText().toString();
 
                 if (!apodo.isEmpty() || !estadoSeleccionado.equals("Selecciona un estado") || !ambienteSeleccionado.equals("Selecciona un ambiente")){
                     String link_domain = getString(R.string.link_domain);

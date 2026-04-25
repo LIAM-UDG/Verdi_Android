@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/fondo1"
-    tools:context=".NewUsuario">
+    tools:context=".NuevoUsuario">
 
     <TextView
-        android:id="@+id/erTitulo"
+        android:id="@+id/etNUTitulo"
         android:layout_width="360dp"
         android:layout_height="50dp"
         android:layout_marginTop="35dp"
@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/erBarrita"
+        android:id="@+id/etNUBarrita"
         android:layout_width="365dp"
         android:layout_height="2dp"
         android:layout_marginTop="85dp"
@@ -37,7 +37,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/erNombre"
+        android:id="@+id/etNUNombre"
         android:layout_width="120dp"
         android:layout_height="25dp"
         android:layout_marginTop="108dp"
@@ -52,22 +52,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edrNom"
+        android:id="@+id/edNUNombre"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/rounded_edittext_background"
         android:ems="10"
         android:hint="Nombre"
+        android:textColorHint="@color/verdeM"
         android:inputType="text"
         android:padding="4sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/erNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/etNUNombre" />
 
     <TextView
-        android:id="@+id/erEdad"
+        android:id="@+id/etNUEdad"
         android:layout_width="120dp"
         android:layout_height="25dp"
         android:layout_marginTop="215dp"
@@ -82,22 +83,23 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edrEdad"
+        android:id="@+id/edNUEdad"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/rounded_edittext_background"
         android:ems="10"
         android:hint="Edad"
+        android:textColorHint="@color/verdeM"
         android:inputType="number"
         android:padding="4sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/erEdad" />
+        app:layout_constraintTop_toBottomOf="@+id/etNUEdad" />
 
     <TextView
-        android:id="@+id/erCor"
+        android:id="@+id/etNUCorreo"
         android:layout_width="120dp"
         android:layout_height="25dp"
         android:layout_marginTop="320dp"
@@ -112,7 +114,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edrCor"
+        android:id="@+id/edNUCorreo"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginTop="15dp"
@@ -120,14 +122,15 @@
         android:ems="10"
         android:padding="4sp"
         android:hint="Correo"
+        android:textColorHint="@color/verdeM"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/erCor" />
+        app:layout_constraintTop_toBottomOf="@+id/etNUCorreo" />
 
     <TextView
-        android:id="@+id/erContra"
+        android:id="@+id/etNUContra"
         android:layout_width="120dp"
         android:layout_height="25dp"
         android:layout_marginTop="420dp"
@@ -151,10 +154,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/erContra"
+        app:layout_constraintTop_toBottomOf="@+id/etNUContra"
         app:passwordToggleEnabled="true" >
         <EditText
-            android:id="@+id/edrCon"
+            android:id="@+id/edNUContra"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_edittext_background"
@@ -163,11 +166,12 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/brRtoP"
+        android:id="@+id/btnRtoM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="628dp"
         android:backgroundTint="@color/verdeM"
+        android:textColor="@color/fondo1"
         android:text="Inicio"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"
@@ -175,29 +179,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/brGuar"
+        android:id="@+id/btnNUGuar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="628dp"
         android:backgroundTint="@color/verdeM"
+        android:textColor="@color/fondo1"
         android:text="Guardar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.913"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <!--<EditText
-        android:id="@+id/error"
-        android:layout_width="295dp"
-        android:layout_height="392dp"
-        android:layout_marginTop="112dp"
-        android:ems="10"
-        android:inputType="textMultiLine"
-        android:text="error"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.796"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />-->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
